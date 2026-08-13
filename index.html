@@ -195,6 +195,8 @@
     </style>
 </head>
 <body class="animated-bg text-on-background min-h-screen flex flex-col pt-20 overflow-x-hidden">
+<!-- Mobil Taşkın Önleyici Wrapper -->
+<div class="w-full max-w-[100vw] overflow-x-hidden relative flex flex-col min-h-screen">
 
 <!-- Parallax Arkapan Yazıları (Global) -->
 <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden" id="parallax-container">
@@ -252,10 +254,11 @@ arayuz.baslat();</code></pre>
     
     <!-- Mobil Menü Dropdown -->
     <div id="mobile-menu" class="fixed top-[72px] left-0 w-full bg-surface/95 backdrop-blur-md border-b border-outline-variant/50 shadow-lg transform -translate-y-full opacity-0 invisible transition-all duration-300 z-40 md:hidden flex flex-col p-4 gap-4">
-        <a class="font-body-md text-on-surface hover:text-primary py-2 px-4 rounded-lg hover:bg-surface-container" onclick="showSection('hero'); toggleMobileMenu()">Ana Sayfa</a>
-        <a class="font-body-md text-on-surface hover:text-primary py-2 px-4 rounded-lg hover:bg-surface-container" onclick="showSection('features'); toggleMobileMenu()">Hizmetler</a>
-        <a class="font-body-md text-on-surface hover:text-primary py-2 px-4 rounded-lg hover:bg-surface-container" onclick="showSection('ai-software'); toggleMobileMenu()">Çözümler</a>
-        <a class="font-body-md text-on-surface hover:text-primary py-2 px-4 rounded-lg hover:bg-surface-container" onclick="showSection('academic'); toggleMobileMenu()">Altyapımız</a>
+        <a class="font-body-md text-on-surface hover:text-primary py-2 px-4 rounded-lg hover:bg-surface-container cursor-pointer" onclick="showSection('hero'); toggleMobileMenu()">Ana Sayfa</a>
+        <a class="font-body-md text-on-surface hover:text-primary py-2 px-4 rounded-lg hover:bg-surface-container cursor-pointer" onclick="showSection('services'); toggleMobileMenu()">Hizmetler</a>
+        <a class="font-body-md text-on-surface hover:text-primary py-2 px-4 rounded-lg hover:bg-surface-container cursor-pointer" onclick="showSection('about'); toggleMobileMenu()">Hakkımda</a>
+        <a class="font-body-md text-on-surface hover:text-primary py-2 px-4 rounded-lg hover:bg-surface-container cursor-pointer" onclick="showSection('ai-software'); toggleMobileMenu()">Çözümler</a>
+        <a class="font-body-md text-on-surface hover:text-primary py-2 px-4 rounded-lg hover:bg-surface-container cursor-pointer" onclick="showSection('academic'); toggleMobileMenu()">Altyapımız</a>
         <button onclick="openModal(); toggleMobileMenu()" class="mt-2 bg-primary text-on-primary px-6 py-3 rounded-full font-body-md font-medium w-full shadow-md">Projeyi Başlat</button>
     </div>
 </header>
@@ -268,8 +271,8 @@ arayuz.baslat();</code></pre>
         <div class="absolute top-1/4 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10 floating-element hidden md:block"></div>
         <div class="absolute bottom-1/4 left-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -z-10 floating-element hidden md:block" style="animation-delay: -3s;"></div>
         
-        <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-element-gap-md items-center py-20">
-            <div class="lg:col-span-7 flex flex-col gap-8 z-10 relative">
+        <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-element-gap-md items-center py-10 md:py-20">
+            <div class="lg:col-span-7 flex flex-col gap-6 md:gap-8 z-10 relative">
                 <div class="absolute -left-10 -top-10 w-32 h-32 border border-primary/20 rounded-full -z-10"></div>
                 <!-- Vurgulu Rozet -->
                 <div class="inline-flex items-center gap-2 bg-surface px-4 py-2 rounded-full w-fit border border-outline-variant transform -rotate-2 hover:rotate-0 transition-transform shadow-sm">
@@ -278,8 +281,8 @@ arayuz.baslat();</code></pre>
                 </div>
                 
                 <div class="flex flex-col gap-4">
-                    <div class="font-label-caps text-label-caps text-primary tracking-widest uppercase bg-primary/10 w-fit px-4 py-2 rounded-full border border-primary/20">Fikirlerinizi Koda, Kodları Geleceğe Taşıyoruz</div>
-                    <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface tracking-tighter leading-tight relative mt-2">
+                    <div class="font-label-caps text-label-caps text-primary tracking-widest uppercase bg-primary/10 w-fit max-w-full px-3 py-2 md:px-4 rounded-3xl md:rounded-full border border-primary/20 text-xs md:text-sm text-center md:text-left break-words">Fikirlerinizi Koda, Kodları Geleceğe Taşıyoruz</div>
+                    <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface tracking-tighter leading-tight relative mt-2 break-words">
                         Hayalinizdeki Proje <br/>
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary-fixed">Gerçeğe Dönüşüyor.</span>
                         <div class="absolute right-0 bottom-4 w-12 h-12 bg-secondary-fixed rounded-full mix-blend-screen opacity-20 blur-md hidden md:block"></div>
@@ -289,12 +292,12 @@ arayuz.baslat();</code></pre>
                     </p>
                 </div>
                 
-                <div class="flex flex-wrap items-center gap-4 pt-4">
-                    <button onclick="openModal()" class="bg-primary text-on-primary px-8 py-4 rounded-full font-body-md text-body-md hover:bg-primary-fixed-variant transition-all duration-300 hover:shadow-[0_8px_24px_rgba(59,130,246,0.3)] hover:-translate-y-1 active:scale-95 flex items-center gap-2">
+                <div class="flex flex-col sm:flex-row flex-wrap items-center sm:items-start gap-4 pt-4 w-full sm:w-auto">
+                    <button onclick="openModal()" class="w-full sm:w-auto justify-center bg-primary text-on-primary px-6 py-3 md:px-8 md:py-4 rounded-full font-body-md text-body-md hover:bg-primary-fixed-variant transition-all duration-300 hover:shadow-[0_8px_24px_rgba(59,130,246,0.3)] hover:-translate-y-1 active:scale-95 flex items-center gap-2">
                         Projeyi Başlat
                         <span class="material-symbols-outlined">rocket_launch</span>
                     </button>
-                    <button onclick="showSection('services')" class="px-8 py-4 rounded-full font-body-md text-body-md text-on-surface bg-surface hover:bg-surface-container transition-colors flex items-center gap-2 border border-outline-variant shadow-sm">
+                    <button onclick="showSection('services')" class="w-full sm:w-auto justify-center px-6 py-3 md:px-8 md:py-4 rounded-full font-body-md text-body-md text-on-surface bg-surface hover:bg-surface-container transition-colors flex items-center gap-2 border border-outline-variant shadow-sm">
                         Hizmetleri İncele
                     </button>
                 </div>
@@ -912,6 +915,9 @@ function sistemi_hizlandir() {
         <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 21.054c-1.639 0-3.238-.432-4.662-1.246l-5.17 1.35 1.373-5.025a9.771 9.771 0 0 1-1.341-4.99C2.231 5.253 7.027.457 12.031.457c4.896 0 9.799 4.8 9.799 10.686 0 5.887-4.903 9.911-9.799 9.911Zm-4.88-3.088c1.376.814 3.012 1.258 4.795 1.258 4.811 0 7.971-3.486 7.971-8.083 0-4.6-3.16-8.086-7.971-8.086-4.814 0-7.975 3.486-7.975 8.086 0 1.57.404 3.109 1.164 4.457l-.92 3.375 3.456-.902l-.52-.105Zm7.982-5.467c-.201-.102-1.189-.588-1.373-.655-.185-.067-.32-.102-.454.102-.134.204-.52.655-.637.791-.117.135-.235.153-.436.05-1.109-.567-1.99-1.284-2.735-2.613-.117-.204.054-.187.25-.386.1-.102.217-.253.318-.386.101-.135.134-.236.201-.386.067-.152.034-.287-.017-.389-.05-.102-.454-1.096-.622-1.503-.168-.407-.338-.352-.454-.358-.116-.006-.25-.006-.385-.006-.134 0-.352.05-.536.254-.184.204-.704.688-.704 1.678 0 .99.721 1.948.822 2.083.1.135 1.422 2.17 3.444 3.042.482.208.859.332 1.152.425.485.153.927.131 1.275.08.39-.058 1.189-.486 1.356-.955.167-.47.167-.872.117-.955-.05-.083-.184-.135-.385-.237Z"/></svg>
         <span class="absolute right-16 bg-surface-variant text-on-surface text-xs px-3 py-1.5 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap shadow-xl border border-outline-variant">WhatsApp</span>
     </a>
+</div>
+
+    <!-- Sonu Wrapper -->
 </div>
 
 <script>
