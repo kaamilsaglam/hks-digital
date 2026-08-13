@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hacı Kamil Sağlam - Digital Design &amp; AI</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#eaedff",
+                    "surface-variant": "#dae2fd",
+                    "secondary-fixed-dim": "#abd600",
+                    "surface-tint": "#004ced",
+                    "primary-fixed-dim": "#b7c4ff",
+                    "surface-bright": "#faf8ff",
+                    "surface": "#faf8ff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#131b2e",
+                    "on-secondary-fixed-variant": "#3c4d00",
+                    "primary-fixed": "#dde1ff",
+                    "tertiary-fixed-dim": "#c4c7c9",
+                    "error-container": "#ffdad6",
+                    "tertiary": "#4b4e50",
+                    "surface-container-high": "#e2e7ff",
+                    "outline-variant": "#c3c5d9",
+                    "secondary-container": "#c1f100",
+                    "background": "#faf8ff",
+                    "primary-container": "#0052ff",
+                    "primary": "#003ec7",
+                    "on-primary-fixed": "#001452",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#546b00",
+                    "surface-container-highest": "#dae2fd",
+                    "inverse-primary": "#b7c4ff",
+                    "on-tertiary-container": "#e2e4e6",
+                    "on-secondary-fixed": "#161e00",
+                    "secondary-fixed": "#c3f400",
+                    "on-surface": "#131b2e",
+                    "on-secondary": "#ffffff",
+                    "secondary": "#506600",
+                    "on-primary-container": "#dfe3ff",
+                    "inverse-on-surface": "#eef0ff",
+                    "outline": "#737688",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "on-error-container": "#93000a",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed": "#e0e3e5",
+                    "on-primary-fixed-variant": "#0038b6",
+                    "surface-container-low": "#f2f3ff",
+                    "inverse-surface": "#283044",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#636668",
+                    "surface-dim": "#d2d9f4",
+                    "on-surface-variant": "#434656",
+                    "on-tertiary-fixed": "#191c1e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "unit": "8px",
+                    "element-gap-md": "32px",
+                    "margin-mobile": "20px",
+                    "gutter": "24px",
+                    "section-gap-lg": "160px"
+            },
+            "fontFamily": {
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "display-lg": [
+                            "Hanken Grotesk"
+                    ],
+                    "mono-data": [
+                            "Geist"
+                    ],
+                    "label-caps": [
+                            "Geist"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "display-lg-mobile": [
+                            "Hanken Grotesk"
+                    ],
+                    "headline-md": [
+                            "Hanken Grotesk"
+                    ]
+            },
+            "fontSize": {
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "letterSpacing": "0",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-lg": [
+                            "72px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.04em",
+                                    "fontWeight": "800"
+                            }
+                    ],
+                    "mono-data": [
+                            "14px",
+                            {
+                                    "lineHeight": "1.4",
+                                    "letterSpacing": "0",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-caps": [
+                            "12px",
+                            {
+                                    "lineHeight": "1",
+                                    "letterSpacing": "0.1em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "letterSpacing": "0",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-lg-mobile": [
+                            "40px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "800"
+                            }
+                    ],
+                    "headline-md": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+        },
+        },
+      }
+    </script>
+<style>
+        /* Base styles */
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism utilities */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(115, 118, 136, 0.15);
+            box-shadow: 0 10px 40px -10px rgba(0, 82, 255, 0.08);
+        }
+
+        .glass-inner-border {
+            position: relative;
+        }
+        .glass-inner-border::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.1) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        /* Abstract geometric pattern for Hero */
+        .bg-pattern {
+            background-image: radial-gradient(theme('colors.surface-variant') 1px, transparent 1px), radial-gradient(theme('colors.surface-variant') 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+            opacity: 0.5;
+        }
+        
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col pt-20 overflow-x-hidden">
+<!-- Parallax Code Background Effect -->
+<div class="fixed inset-0 z-0 pointer-events-none overflow-hidden" id="parallax-container">
+<div class="parallax-element absolute top-[15%] left-[5%] text-primary/10 font-mono-data text-sm" data-speed="-0.15">
+<pre><code>def train_model(data):
+    return optimize(data)</code></pre>
+</div>
+<div class="parallax-element absolute top-[45%] right-[10%] text-on-surface/5 font-mono-data text-lg" data-speed="-0.25">
+        O(n log n)
+    </div>
+<div class="parallax-element absolute top-[75%] left-[20%] text-primary/5 font-mono-data text-base" data-speed="-0.1">
+        ∫ e^x dx = e^x + C
+    </div>
+<div class="parallax-element absolute top-[25%] right-[25%] text-on-surface/10 font-mono-data text-xs" data-speed="-0.3">
+<pre><code>const ui = new DesignSystem();
+ui.render();</code></pre>
+</div>
+<div class="parallax-element absolute top-[60%] left-[60%] text-primary/5 font-mono-data text-xl" data-speed="-0.2">
+        ∇ × E = -∂B/∂t
+    </div>
+<div class="parallax-element absolute top-[85%] right-[30%] text-on-surface/5 font-mono-data text-sm" data-speed="-0.12">
+<pre><code>[0.1, 0.4, 0.9, 1.2]
+TensorFlow.js init</code></pre>
+</div>
+</div>
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10 shadow-sm transition-all duration-300" id="main-header">
+<div class="max-w-container-max mx-auto px-gutter flex justify-between items-center h-20">
+<!-- Brand -->
+<a class="font-display-lg text-headline-md tracking-tighter text-on-surface flex items-center gap-2 hover:opacity-80 transition-opacity" href="#">
+<img alt="HKS AI Design Logo" class="h-10 w-auto rounded-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCydOotfXqWJ-CHw8g9q5Q4l7QfFVWC1_c-EpVyWf76CkiR9yeJ9rHCT7eI96ySeQ3WgvXsYGL59PpTZNJZn5OhngbUWXvcIfHAu1hGvZ2LK6sTDwUNbfSCzod8tIrITRALQnMEau2cFeJBCg-vN6_12LdwMt3KZ1lR_ogLhXKLg8Pj8cluC4Rtc6g588esCxGrBr1Y5fuwTbi2mvcPU8KokzF_G6q5H6PAh0E-V6eYru2ePtUvKj3GFQ"/>
+</a>
+<!-- Navigation Links (Desktop) -->
+<nav class="hidden md:flex items-center gap-8 relative" id="desktop-nav">
+<!-- Services Dropdown Trigger -->
+<div class="relative group">
+<button class="flex items-center gap-1 font-body-md text-body-md text-primary font-semibold border-b-2 border-primary py-2 transition-all duration-300">
+                        Services
+                        <span class="material-symbols-outlined text-sm transition-transform duration-300 group-hover:rotate-180">expand_more</span>
+</button>
+<!-- Dropdown Menu -->
+<div class="absolute top-full left-0 mt-2 w-56 bg-surface-container-lowest glass-card rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left scale-95 group-hover:scale-100 z-50 overflow-hidden">
+<div class="py-2 flex flex-col">
+<a class="px-4 py-3 font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors flex items-center gap-2" href="#web">
+<span class="material-symbols-outlined text-sm">language</span> Web Tasarım
+                            </a>
+<a class="px-4 py-3 font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors flex items-center gap-2" href="#app">
+<span class="material-symbols-outlined text-sm">smartphone</span> Uygulama Tasarım
+                            </a>
+<a class="px-4 py-3 font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors flex items-center gap-2" href="#ai">
+<span class="material-symbols-outlined text-sm">memory</span> AI Çözümleri
+                            </a>
+</div>
+</div>
+</div>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#about">Hakkımda</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#academic">Academic</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#projects">Projects</a>
+</nav>
+<!-- Actions -->
+<div class="hidden md:flex items-center gap-4">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Resume</a>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-body-md text-body-md hover:bg-primary-fixed-variant transition-all duration-300 hover:shadow-[0_8px_16px_rgba(0,82,255,0.2)] hover:-translate-y-0.5 active:scale-95 flex items-center gap-2">
+                    Start Project
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-on-surface p-2 rounded-full hover:bg-surface-container transition-colors" id="mobile-menu-btn">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="flex-grow relative z-10">
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center pt-20 pb-section-gap-lg overflow-hidden">
+<!-- Geometric Background Pattern -->
+<div class="absolute inset-0 bg-pattern -z-10"></div>
+<!-- Abstract decorative elements -->
+<div class="absolute top-1/4 right-10 w-64 h-64 bg-primary-container/20 rounded-full blur-3xl -z-10 floating-element"></div>
+<div class="absolute bottom-1/4 left-10 w-96 h-96 bg-secondary-container/20 rounded-full blur-3xl -z-10 floating-element" style="animation-delay: -3s;"></div>
+<div class="max-w-container-max mx-auto px-gutter w-full grid grid-cols-1 lg:grid-cols-12 gap-element-gap-md items-center">
+<div class="lg:col-span-7 flex flex-col gap-8 z-10 relative">
+<div class="absolute -left-10 -top-10 w-32 h-32 border border-primary/20 rounded-full -z-10"></div>
+<!-- AI Badge -->
+<div class="inline-flex items-center gap-2 bg-secondary-fixed px-4 py-2 rounded-full w-fit border border-secondary-fixed-dim/30 transform -rotate-2 hover:rotate-0 transition-transform">
+<span class="material-symbols-outlined text-on-secondary-fixed text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-caps text-label-caps text-on-secondary-fixed tracking-widest uppercase">AI-Powered Design</span>
+</div>
+<div class="flex flex-col gap-4">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface tracking-tighter leading-tight relative">
+                            Matematik ve Yazılımın <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-surface-tint">Estetikle Buluştuğu</span> Nokta.
+                            <div class="absolute right-0 bottom-4 w-12 h-12 bg-secondary-fixed rounded-full mix-blend-multiply opacity-50 blur-md hidden md:block"></div>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                            Hacı Kamil Sağlam - AI Destekli Tasarım ve Geliştirme. Kompleks verileri sezgisel dijital deneyimlere dönüştürüyoruz. Modern, hızlı ve akıllı çözümler.
+                        </p>
+</div>
+<div class="flex flex-wrap items-center gap-4 pt-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-full font-body-md text-body-md hover:bg-primary-fixed-variant transition-all duration-300 hover:shadow-[0_8px_24px_rgba(0,82,255,0.25)] hover:-translate-y-1 active:scale-95 flex items-center gap-2">
+                            Projeyi Başlat
+                            <span class="material-symbols-outlined">rocket_launch</span>
+</button>
+<button class="px-8 py-4 rounded-full font-body-md text-body-md text-primary bg-primary-container/10 hover:bg-primary-container/20 transition-colors flex items-center gap-2 border border-primary/10 backdrop-blur-sm">
+                            Hizmetleri Keşfet
+                        </button>
+</div>
+</div>
+<!-- Abstract Visual / Code Snippet -->
+<div class="lg:col-span-5 relative hidden lg:block z-10 perspective-1000">
+<div class="absolute -right-4 -bottom-4 w-full h-full bg-surface-variant rounded-2xl -z-10 transform rotate-3"></div>
+<div class="glass-card rounded-2xl p-6 glass-inner-border transform -rotate-y-6 rotate-x-6 hover:rotate-y-0 hover:rotate-x-0 transition-transform duration-700 ease-out floating-element">
+<div class="flex items-center justify-between mb-4 border-b border-outline-variant/20 pb-2">
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-error/50"></div>
+<div class="w-3 h-3 rounded-full bg-secondary-fixed/50"></div>
+<div class="w-3 h-3 rounded-full bg-primary/50"></div>
+</div>
+<span class="font-mono-data text-mono-data text-outline">optimize_ui.py</span>
+</div>
+<pre class="font-mono-data text-mono-data text-on-surface-variant overflow-x-auto whitespace-pre-wrap"><code>
+def generate_aesthetic(data, math_model):
+    """
+    Transforms raw data into fluid UI using 
+    mathematical precision and AI logic.
+    """
+    layout = grid.calculate_optimal_spacing(data)
+    colors = theme.extract_dominant(data.vision)
+    
+    return RenderEngine.build(
+        layout=layout,
+        style=colors,
+        glassmorphism=True,
+        ai_enhancement=math_model.predict()
+    )
+    
+# Executing design sequence...
+                        </code></pre>
+</div>
+</div>
+</div>
+</section>
+<!-- Hakkımda (About Me) Section -->
+<section class="py-section-gap-lg bg-surface/90 relative overflow-hidden" id="about">
+<div class="absolute inset-0 bg-surface-container-low/50 -skew-y-3 origin-top-left -z-10"></div>
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-5 relative z-10">
+<div class="w-full aspect-square relative floating-element">
+<div class="absolute inset-0 bg-gradient-to-br from-primary-container to-secondary-container rounded-full blur-3xl opacity-30"></div>
+<div class="absolute inset-4 glass-card rounded-3xl border border-surface-variant flex flex-col justify-center p-8 transform rotate-3 hover:rotate-0 transition-transform duration-500">
+<span class="material-symbols-outlined text-6xl text-primary mb-6">function</span>
+<h3 class="font-display-lg-mobile text-headline-md text-on-surface mb-2">Algoritmik Düşünce</h3>
+<p class="font-mono-data text-body-md text-on-surface-variant">Design = f(Math, CS)</p>
+</div>
+<div class="absolute -bottom-6 -right-6 glass-card px-6 py-4 rounded-xl border border-surface-variant shadow-lg backdrop-blur-xl">
+<div class="font-label-caps text-primary tracking-widest uppercase mb-1">YAKLAŞIM</div>
+<div class="font-mono-data text-on-surface text-lg">Logic First</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-6 lg:col-start-7 flex flex-col gap-6 z-10">
+<div class="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full w-fit">
+<span class="material-symbols-outlined text-primary text-sm">person</span>
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Hakkımda</span>
+</div>
+<h2 class="font-headline-md text-display-lg-mobile text-on-surface tracking-tight leading-tight">
+                        Tasarım Sadece Estetik Değil, Çözülmesi Gereken Bir Denklemdir
+                    </h2>
+<div class="h-1 w-16 bg-secondary-fixed rounded-full"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                        Matematik ve Bilgisayar Bilimleri temelli eğitimim, bana her probleme algoritmik bir perspektiften bakmayı öğretti. Tasarım benim için renklerin rastgele bir araya gelmesi değil; verinin, kullanıcı davranışının ve sistem mimarisinin optimum şekilde görselleştirilmesidir.
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        Kod tabanındaki bir mantık hatası nasıl sistemi bozuyorsa, tasarımdaki tutarsızlıklar da kullanıcı deneyimini bozar. Bu yüzden her projemde matematiksel oranları (altın oran, modüler tipografi) ve veri yapısı prensiplerini estetikle harmanlayarak, sadece "güzel" değil, "doğru" çalışan arayüzler inşa ediyorum.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Destekli Yazılım Section -->
+<section class="py-section-gap-lg bg-inverse-surface/95 relative overflow-hidden" id="ai-software">
+<div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="max-w-container-max mx-auto px-gutter relative z-10">
+<div class="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
+<div class="max-w-2xl flex flex-col gap-4">
+<div class="inline-flex items-center gap-2 bg-inverse-on-surface/10 px-4 py-2 rounded-full w-fit border border-inverse-on-surface/20">
+<span class="material-symbols-outlined text-inverse-on-surface text-sm">memory</span>
+<span class="font-label-caps text-label-caps text-inverse-on-surface tracking-widest uppercase">AI Integration</span>
+</div>
+<h2 class="font-headline-md text-display-lg-mobile text-inverse-on-surface tracking-tight">AI Destekli Yazılım &amp; Mimari</h2>
+<p class="font-body-lg text-body-lg text-inverse-on-surface/70">
+                            Geleneksel yazılım geliştirme süreçlerini yapay zeka ile otomatikleştiriyor, akıllı veri analizi ve makine öğrenimi modellerini arayüzlere sorunsuz entegre ediyoruz.
+                        </p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Code/Data Block 1 -->
+<div class="md:col-span-7 bg-surface/5 border border-surface/10 rounded-3xl p-8 backdrop-blur-md hover:bg-surface/10 transition-colors group">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-body-lg text-inverse-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-fixed">code_blocks</span>
+                                Dinamik Veri Modeli Oluşturma
+                            </h3>
+<div class="px-3 py-1 rounded-full bg-primary/20 text-primary-fixed text-xs font-mono-data border border-primary/30">Active</div>
+</div>
+<pre class="font-mono-data text-sm text-inverse-on-surface/80 bg-background/10 p-4 rounded-xl overflow-x-auto border border-surface/5"><code>// Real-time AI prediction handler
+async function handleDataStream(inputData) {
+  const model = await loadNeuralNetwork('hks_core_v2');
+  
+  // Predict user intent based on interaction vectors
+  const intentVector = model.predict(inputData.tensors);
+  
+  if (intentVector.confidence &gt; 0.85) {
+    return UIBuilder.morph(intentVector.targetState);
+  }
+  
+  return UIBuilder.default();
+}</code></pre>
+</div>
+<!-- Visual Data Flow Block -->
+<div class="md:col-span-5 bg-gradient-to-br from-surface/5 to-transparent border border-surface/10 rounded-3xl p-8 backdrop-blur-md flex flex-col relative overflow-hidden group">
+<div class="absolute inset-0 bg-pattern opacity-10"></div>
+<h3 class="font-body-lg text-inverse-on-surface font-semibold mb-6 relative z-10 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-fixed">account_tree</span>
+                            Sistem Mimarisi
+                        </h3>
+<div class="flex-grow flex flex-col justify-center gap-4 relative z-10">
+<div class="flex items-center gap-4 bg-surface/10 p-3 rounded-xl border border-surface/20 transform group-hover:translate-x-2 transition-transform">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-sm">database</span></div>
+<div class="flex-grow">
+<div class="font-mono-data text-xs text-inverse-on-surface">Data Lake</div>
+</div>
+</div>
+<div class="w-0.5 h-6 bg-surface/20 ml-7"></div>
+<div class="flex items-center gap-4 bg-surface/10 p-3 rounded-xl border border-secondary/30 shadow-[0_0_15px_rgba(193,241,0,0.1)] transform group-hover:translate-x-4 transition-transform delay-75">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center"><span class="material-symbols-outlined text-sm">psychology</span></div>
+<div class="flex-grow">
+<div class="font-mono-data text-xs text-inverse-on-surface">AI Inference Engine</div>
+</div>
+</div>
+<div class="w-0.5 h-6 bg-surface/20 ml-7"></div>
+<div class="flex items-center gap-4 bg-primary/20 p-3 rounded-xl border border-primary/30 transform group-hover:translate-x-6 transition-transform delay-150">
+<div class="w-8 h-8 rounded-full bg-surface-tint flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-sm">view_quilt</span></div>
+<div class="flex-grow">
+<div class="font-mono-data text-xs text-inverse-on-surface">Adaptive UI Layer</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section (Asymmetrical Layout) -->
+<section class="py-section-gap-lg bg-surface-container-low/90 relative" id="services">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex flex-col gap-4 mb-16 max-w-3xl">
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Dijital Ekosistem Hizmetleri</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Her pikselde matematiksel bir mantık, her etkileşimde akıllı bir kurgu yatar.</p>
+</div>
+<!-- Asymmetrical Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Card 1 (Spans 8 cols) -->
+<div class="md:col-span-8 glass-card glass-inner-border rounded-[2rem] p-10 flex flex-col gap-6 group hover:-translate-y-2 transition-transform duration-500 overflow-hidden relative">
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors"></div>
+<div class="w-16 h-16 rounded-2xl bg-primary-container/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300 transform group-hover:rotate-12">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">desktop_windows</span>
+</div>
+<div class="max-w-lg z-10">
+<h3 class="font-display-lg-mobile text-headline-md font-bold text-on-surface mb-3">Web Tasarım &amp; Geliştirme</h3>
+<p class="font-body-md text-body-lg text-on-surface-variant leading-relaxed mb-6">
+                                Kurumsal kimliğinizi yansıtan, yüksek performanslı ve SEO uyumlu modern web arayüzleri. Hızlı yüklenen, minimalist ve erişilebilir sistemler tasarlıyoruz. Sadece bir site değil, dijital bir deneyim alanı sunuyoruz.
+                            </p>
+<a class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-surface border border-outline-variant/30 text-on-surface font-body-md font-medium hover:border-primary hover:text-primary transition-all shadow-sm" href="#">
+                                Detayları İncele <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 2 (Spans 4 cols, floating) -->
+<div class="md:col-span-4 glass-card glass-inner-border rounded-[2rem] p-8 flex flex-col gap-6 group hover:-translate-y-4 transition-transform duration-500 floating-element" style="animation-delay: -2s;">
+<div class="w-14 h-14 rounded-xl bg-surface-variant flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">phone_iphone</span>
+</div>
+<div>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-surface mb-2">Mobil Ekosistem</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                                Kullanıcı deneyimini (UX) merkeze alan, akıcı ve sezgisel mobil uygulama arayüzleri. Karmaşık akışları basitleştiren pratik çözümler.
+                            </p>
+</div>
+<div class="mt-auto pt-4 border-t border-outline-variant/10">
+<a class="inline-flex items-center gap-1 text-primary font-body-md text-body-md font-medium hover:opacity-80 transition-opacity" href="#">
+                                İncele <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 3 (Spans 12 cols, prominent AI focus) -->
+<div class="md:col-span-12 glass-card glass-inner-border rounded-[2rem] p-10 flex flex-col md:flex-row gap-10 group hover:-translate-y-2 transition-transform duration-500 relative overflow-hidden items-center bg-gradient-to-r from-surface to-secondary-container/10">
+<!-- Subtle highlight for AI card -->
+<div class="absolute top-0 right-0 p-6">
+<div class="w-3 h-3 rounded-full bg-secondary-fixed shadow-[0_0_12px_rgba(193,241,0,0.8)] animate-pulse"></div>
+</div>
+<div class="w-20 h-20 shrink-0 rounded-2xl bg-secondary-container/50 flex items-center justify-center text-secondary-fixed-dim group-hover:bg-secondary-fixed group-hover:text-on-secondary-fixed transition-colors duration-300">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface mb-3">AI Çözümleri &amp; Otomasyon</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed max-w-3xl">
+                                Tasarım ve geliştirme süreçlerinize entegre edilen yapay zeka destekli otomasyonlar, veri görselleştirme ve akıllı etkileşim modelleri. Operasyonel yükünüzü azaltırken kullanıcı deneyimini kişiselleştiriyoruz.
+                            </p>
+</div>
+<div class="shrink-0">
+<a class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-on-surface text-surface font-body-md font-medium hover:bg-primary transition-all shadow-md hover:shadow-xl" href="#">
+                                AI Çözümlerini Keşfet <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Academic / Vision Section -->
+<section class="py-section-gap-lg bg-surface/90 relative" id="academic">
+<div class="absolute inset-y-0 right-0 w-1/3 bg-surface-container-lowest skew-x-12 -z-10"></div>
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Left: Content -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<div class="inline-flex items-center gap-2 bg-surface-container-high px-4 py-2 rounded-full w-fit">
+<span class="material-symbols-outlined text-tertiary text-sm">school</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant tracking-widest uppercase">Akademik Temel</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight leading-tight">
+                            Bilimsel Doğrulukla Tasarım
+                        </h2>
+<div class="h-1 w-12 bg-primary rounded-full"></div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                            Büyük veri setleri, algoritmik düşünce ve yapay zeka modelleri; estetikle birleştiğinde sadece güzel görünen değil, aynı zamanda mükemmel çalışan arayüzler ortaya çıkarır. Tasarımlarımda rastgeleliğe yer yoktur; her boşluk, her renk ve her tipografi seçimi hesaplanmış bir kararın ürünüdür.
+                        </p>
+</div>
+<!-- Right: Abstract Visual Representation -->
+<div class="lg:col-span-7 relative h-[500px] w-full rounded-[2.5rem] overflow-hidden glass-card glass-inner-border transform md:rotate-2 hover:rotate-0 transition-all duration-700">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full opacity-80 mix-blend-multiply" data-alt="A pristine, light-mode minimalist 3D rendering of abstract geometric shapes and data structures. Suspended glass panels and precise grid lines in a bright, white, sterile laboratory-like environment. Accents of electric blue and subtle soft shadows. High tech, mathematically precise, modern aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBZjRtQIDcb_EBCqB8lLWKnTOfsUnGsN950nf8vVh4oCPb2pn60iji4obRsqqvRKhCNdfWc42eTA4LzWMwjlYbvSlJXpyMs4QCij7lEfA9xeqFnhxzF6EmtJF0087zZJxxxlVasZ0_Ck_25Wgff0IRvfPkUl_-LJJs2enmHbdLwm9QSwOH-DHsUWC10Vdrj7AD3b9U5Sw02DPLDE22jHRIfczJBCIm5KaO6TzGRn5Av9Gr3eVlSZu2zyQ')"></div>
+<!-- Overlay elements to make it look like a dashboard/analysis tool -->
+<div class="absolute bottom-6 left-6 right-6 flex flex-col md:flex-row gap-4">
+<div class="bg-surface-container-lowest/90 backdrop-blur-md p-5 rounded-2xl flex-1 border border-outline-variant/20 shadow-lg transform -translate-y-4">
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-2">Grid Precision</div>
+<div class="font-display-lg-mobile text-primary leading-none">99.9%</div>
+</div>
+<div class="bg-surface-container-lowest/90 backdrop-blur-md p-5 rounded-2xl flex-1 border border-outline-variant/20 shadow-lg">
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-2">Logic Complexity</div>
+<div class="font-display-lg-mobile text-secondary leading-none">O(log n)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="w-full py-section-gap-lg bg-surface-container-lowest border-t border-outline-variant/20 relative overflow-hidden">
+<div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary-fixed to-primary"></div>
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-4 gap-element-gap-md relative z-10">
+<!-- Brand / Copyright -->
+<div class="md:col-span-1 flex flex-col gap-6">
+<a class="font-display-lg text-headline-md text-on-surface flex items-center gap-2" href="#">
+<img alt="HKS AI Design Logo" class="h-8 w-auto grayscale opacity-80 rounded-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCydOotfXqWJ-CHw8g9q5Q4l7QfFVWC1_c-EpVyWf76CkiR9yeJ9rHCT7eI96ySeQ3WgvXsYGL59PpTZNJZn5OhngbUWXvcIfHAu1hGvZ2LK6sTDwUNbfSCzod8tIrITRALQnMEau2cFeJBCg-vN6_12LdwMt3KZ1lR_ogLhXKLg8Pj8cluC4Rtc6g588esCxGrBr1Y5fuwTbi2mvcPU8KokzF_G6q5H6PAh0E-V6eYru2ePtUvKj3GFQ"/>
+</a>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">
+                    © 2024 Hacı Kamil Sağlam. Built at the intersection of Math, Design &amp; AI.
+                </p>
+</div>
+<!-- Links -->
+<div class="md:col-span-3 grid grid-cols-2 sm:grid-cols-4 gap-8">
+<div class="flex flex-col gap-3">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider mb-2">Navigation</span>
+<a class="font-body-md text-body-md text-primary font-bold hover:text-secondary-fixed-dim transition-colors focus:ring-2 focus:ring-primary-container outline-none rounded-sm" href="#services">Services</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary-fixed-dim transition-colors focus:ring-2 focus:ring-primary-container outline-none rounded-sm" href="#about">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary-fixed-dim transition-colors focus:ring-2 focus:ring-primary-container outline-none rounded-sm" href="#ai-software">AI Software</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary-fixed-dim transition-colors focus:ring-2 focus:ring-primary-container outline-none rounded-sm" href="#contact">Contact</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider mb-2">Social</span>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary-fixed-dim transition-colors flex items-center gap-1" href="#">LinkedIn <span class="material-symbols-outlined text-xs">north_east</span></a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary-fixed-dim transition-colors flex items-center gap-1" href="#">GitHub <span class="material-symbols-outlined text-xs">north_east</span></a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary-fixed-dim transition-colors flex items-center gap-1" href="#">Dribbble <span class="material-symbols-outlined text-xs">north_east</span></a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Simple JS for header scroll effect -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.getElementById('main-header');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('shadow-md');
+                    header.classList.replace('bg-surface/80', 'bg-surface/95');
+                } else {
+                    header.classList.remove('shadow-md');
+                    header.classList.replace('bg-surface/95', 'bg-surface/80');
+                }
+            });
+
+            // Parallax effect
+            const parallaxElements = document.querySelectorAll('.parallax-element');
+            window.addEventListener('scroll', () => {
+                const scrolled = window.scrollY;
+                parallaxElements.forEach(el => {
+                    const speed = el.getAttribute('data-speed');
+                    el.style.transform = `translateY(${scrolled * speed}px)`;
+                });
+            });
+        });
+    </script>
+</body></html>
