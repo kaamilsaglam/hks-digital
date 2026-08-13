@@ -3,65 +3,39 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Hacı Kamil Sağlam - Tasarım &amp; Yazılım Ajansı</title>
+    <title>HKS Digital - Tasarım &amp; Yazılım Ajansı</title>
     <!-- Material Symbols -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <!-- Tailwind Config -->
     <script id="tailwind-config">
       tailwind.config = {
-        darkMode: "class",
         theme: {
           extend: {
             "colors": {
-                    "surface-container": "#eaedff",
-                    "surface-variant": "#dae2fd",
-                    "secondary-fixed-dim": "#abd600",
-                    "surface-tint": "#004ced",
-                    "primary-fixed-dim": "#b7c4ff",
-                    "surface-bright": "#faf8ff",
-                    "surface": "#faf8ff",
-                    "surface-container-lowest": "#ffffff",
-                    "on-background": "#131b2e",
-                    "on-secondary-fixed-variant": "#3c4d00",
-                    "primary-fixed": "#dde1ff",
-                    "tertiary-fixed-dim": "#c4c7c9",
-                    "error-container": "#ffdad6",
-                    "tertiary": "#4b4e50",
-                    "surface-container-high": "#e2e7ff",
-                    "outline-variant": "#c3c5d9",
-                    "secondary-container": "#c1f100",
-                    "background": "#faf8ff",
-                    "primary-container": "#0052ff",
-                    "primary": "#003ec7",
-                    "on-primary-fixed": "#001452",
+                    "surface-container": "#f1f5f9",
+                    "surface-variant": "#e2e8f0",
+                    "surface-tint": "#3b82f6",
+                    "surface": "#ffffff",
+                    "background": "#f8fafc",
+                    "on-background": "#0f172a",
+                    "primary": "#2563eb",
+                    "primary-fixed": "#2563eb",
+                    "primary-fixed-variant": "#1d4ed8",
                     "on-primary": "#ffffff",
-                    "error": "#ba1a1a",
-                    "on-secondary-container": "#546b00",
-                    "surface-container-highest": "#dae2fd",
-                    "inverse-primary": "#b7c4ff",
-                    "on-tertiary-container": "#e2e4e6",
-                    "on-secondary-fixed": "#161e00",
-                    "secondary-fixed": "#c3f400",
-                    "on-surface": "#131b2e",
+                    "secondary": "#10b981",
+                    "secondary-fixed": "#10b981",
+                    "secondary-fixed-dim": "#059669",
                     "on-secondary": "#ffffff",
-                    "secondary": "#506600",
-                    "on-primary-container": "#dfe3ff",
-                    "inverse-on-surface": "#eef0ff",
-                    "outline": "#737688",
-                    "on-tertiary-fixed-variant": "#444749",
-                    "on-error-container": "#93000a",
-                    "on-tertiary": "#ffffff",
-                    "tertiary-fixed": "#e0e3e5",
-                    "on-primary-fixed-variant": "#0038b6",
-                    "surface-container-low": "#f2f3ff",
-                    "inverse-surface": "#283044",
-                    "on-error": "#ffffff",
-                    "tertiary-container": "#636668",
-                    "surface-dim": "#d2d9f4",
-                    "on-surface-variant": "#434656",
-                    "on-tertiary-fixed": "#191c1e"
+                    "on-surface": "#0f172a",
+                    "on-surface-variant": "#475569",
+                    "inverse-surface": "#0f172a",
+                    "inverse-on-surface": "#f8fafc",
+                    "outline-variant": "#cbd5e1",
+                    "error": "#ef4444"
             },
             "borderRadius": {
                     "DEFAULT": "0.25rem",
@@ -75,39 +49,25 @@
                     "element-gap-md": "32px",
                     "margin-mobile": "20px",
                     "gutter": "24px",
-                    "section-gap-lg": "160px"
+                    "section-gap-lg": "100px"
             },
             "fontFamily": {
-                    "body-lg": [
-                            "Inter"
-                    ],
-                    "display-lg": [
-                            "Hanken Grotesk"
-                    ],
-                    "mono-data": [
-                            "Geist"
-                    ],
-                    "label-caps": [
-                            "Geist"
-                    ],
-                    "body-md": [
-                            "Inter"
-                    ],
-                    "display-lg-mobile": [
-                            "Hanken Grotesk"
-                    ],
-                    "headline-md": [
-                            "Hanken Grotesk"
-                    ]
+                    "body-lg": ["'Plus Jakarta Sans'", "sans-serif"],
+                    "display-lg": ["'Outfit'", "sans-serif"],
+                    "mono-data": ["'JetBrains Mono'", "monospace"],
+                    "label-caps": ["'JetBrains Mono'", "monospace"],
+                    "body-md": ["'Plus Jakarta Sans'", "sans-serif"],
+                    "display-lg-mobile": ["'Outfit'", "sans-serif"],
+                    "headline-md": ["'Outfit'", "sans-serif"]
             },
             "fontSize": {
-                    "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
-                    "display-lg": ["72px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800" }],
-                    "mono-data": ["14px", { "lineHeight": "1.4", "fontWeight": "400" }],
-                    "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600" }],
-                    "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
-                    "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800" }],
-                    "headline-md": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "600" }]
+                    "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "500" }],
+                    "display-lg": ["72px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                    "mono-data": ["14px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                    "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                    "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "500" }],
+                    "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+                    "headline-md": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700" }]
             }
           }
         }
@@ -116,11 +76,30 @@
     <style>
         /* Base styles */
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Animated Gradient Background */
+        /* Yazı imleci (I-beam) yerine normal ok imlecini zorla ve seçilmeyi engelle */
+        p, h1, h2, h3, h4, h5, h6, span, div, section, main {
+            cursor: default;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        
+        a, button, [onclick], .cursor-pointer, svg {
+            cursor: pointer !important;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        
+        input, textarea {
+            cursor: text !important;
+            user-select: auto;
+            -webkit-user-select: auto;
+        }
+
+        /* Animated Gradient Background - BALANCED THEME */
         @keyframes gradient-bg {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -128,18 +107,19 @@
         }
         
         .animated-bg {
-            background: linear-gradient(-45deg, theme('colors.background'), theme('colors.surface-container-low'), theme('colors.surface-variant'), theme('colors.surface-container-high'));
+            /* Ne çok açık ne çok koyu: Premium Slate ve Indigo geçişi */
+            background: linear-gradient(-45deg, #f1f5f9, #e0e7ff, #cbd5e1, #e0e7ff);
             background-size: 400% 400%;
             animation: gradient-bg 15s ease infinite;
         }
 
-        /* Glassmorphism utilities */
+        /* Glassmorphism utilities - LIGHT THEME */
         .glass-card {
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(115, 118, 136, 0.15);
-            box-shadow: 0 10px 40px -10px rgba(0, 82, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
         }
 
         .glass-inner-border {
@@ -151,19 +131,18 @@
             inset: 0;
             border-radius: inherit;
             padding: 1px;
-            background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.1) 100%);
+            background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.4) 100%);
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             pointer-events: none;
         }
 
-        /* Abstract geometric pattern for Hero */
+        /* Abstract geometric pattern */
         .bg-pattern {
-            background-image: radial-gradient(theme('colors.surface-variant') 1px, transparent 1px), radial-gradient(theme('colors.surface-variant') 1px, transparent 1px);
+            background-image: radial-gradient(rgba(0,0,0,0.05) 1px, transparent 1px), radial-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
             background-size: 40px 40px;
             background-position: 0 0, 20px 20px;
-            opacity: 0.5;
         }
         
         .floating-element {
@@ -175,11 +154,44 @@
             50% { transform: translateY(-15px) rotate(2deg); }
             100% { transform: translateY(0px) rotate(0deg); }
         }
+
+        /* Yüzen (Gezinen) Robot Animasyonu */
+        @keyframes robot-float {
+            0% { transform: translateY(12px) translateX(0px) rotate(0deg); }
+            33% { transform: translateY(2px) translateX(8px) rotate(2deg); }
+            66% { transform: translateY(8px) translateX(-4px) rotate(-1deg); }
+            100% { transform: translateY(12px) translateX(0px) rotate(0deg); }
+        }
+        .animate-robot-float {
+            animation: robot-float 6s ease-in-out infinite;
+        }
+
+        /* SPA Section Transition */
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Modals content scrollbar */
+        .modal-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+        .modal-scroll::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.05); 
+            border-radius: 4px;
+        }
+        .modal-scroll::-webkit-scrollbar-thumb {
+            background: rgba(0,0,0,0.2); 
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body class="animated-bg text-on-background min-h-screen flex flex-col pt-20 overflow-x-hidden">
 
-<!-- Parallax Arkapan Yazıları -->
+<!-- Parallax Arkapan Yazıları (Global) -->
 <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden" id="parallax-container">
     <div class="parallax-element absolute top-[15%] left-[5%] text-primary/10 font-mono-data text-sm" data-speed="-0.15">
 <pre><code>// Tasarım başarıyla oluşturuldu</code></pre>
@@ -203,42 +215,25 @@ arayuz.baslat();</code></pre>
 </div>
 
 <!-- Üst Menü (Header) -->
-<header class="fixed top-0 w-full z-40 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/10 shadow-sm transition-all duration-300" id="main-header">
+<header class="fixed top-0 w-full z-40 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm transition-all duration-300" id="main-header">
     <div class="max-w-container-max mx-auto px-gutter flex justify-between items-center h-20">
         <!-- Logo -->
-        <a class="font-display-lg text-headline-md tracking-tighter text-on-surface flex items-center gap-2 hover:opacity-80 transition-opacity" href="#">
-            <img alt="HKS AI Tasarım Logo" class="h-10 w-auto rounded-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCydOotfXqWJ-CHw8g9q5Q4l7QfFVWC1_c-EpVyWf76CkiR9yeJ9rHCT7eI96ySeQ3WgvXsYGL59PpTZNJZn5OhngbUWXvcIfHAu1hGvZ2LK6sTDwUNbfSCzod8tIrITRALQnMEau2cFeJBCg-vN6_12LdwMt3KZ1lR_ogLhXKLg8Pj8cluC4Rtc6g588esCxGrBr1Y5fuwTbi2mvcPU8KokzF_G6q5H6PAh0E-V6eYru2ePtUvKj3GFQ"/>
+        <a class="font-display-lg text-headline-md tracking-tighter text-on-surface flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer" onclick="showSection('hero')">
+            <img alt="HKS Digital Logo" class="h-10 w-auto rounded-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCydOotfXqWJ-CHw8g9q5Q4l7QfFVWC1_c-EpVyWf76CkiR9yeJ9rHCT7eI96ySeQ3WgvXsYGL59PpTZNJZn5OhngbUWXvcIfHAu1hGvZ2LK6sTDwUNbfSCzod8tIrITRALQnMEau2cFeJBCg-vN6_12LdwMt3KZ1lR_ogLhXKLg8Pj8cluC4Rtc6g588esCxGrBr1Y5fuwTbi2mvcPU8KokzF_G6q5H6PAh0E-V6eYru2ePtUvKj3GFQ"/>
         </a>
         
         <!-- Masaüstü Navigasyon -->
         <nav class="hidden md:flex items-center gap-8 relative" id="desktop-nav">
-            <!-- Hizmetler Açılır Menü -->
-            <div class="relative group">
-                <button class="flex items-center gap-1 font-body-md text-body-md text-primary font-semibold border-b-2 border-primary py-2 transition-all duration-300">
-                    Neler Yapıyoruz?
-                    <span class="material-symbols-outlined text-sm transition-transform duration-300 group-hover:rotate-180">expand_more</span>
-                </button>
-                <div class="absolute top-full left-0 mt-2 w-56 bg-surface-container-lowest glass-card rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left scale-95 group-hover:scale-100 z-50 overflow-hidden">
-                    <div class="py-2 flex flex-col">
-                        <a class="px-4 py-3 font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors flex items-center gap-2" href="#web">
-                            <span class="material-symbols-outlined text-sm">language</span> Web Tasarımı
-                        </a>
-                        <a class="px-4 py-3 font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors flex items-center gap-2" href="#app">
-                            <span class="material-symbols-outlined text-sm">smartphone</span> Mobil Uygulama
-                        </a>
-                        <a class="px-4 py-3 font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors flex items-center gap-2" href="#ai">
-                            <span class="material-symbols-outlined text-sm">speed</span> Akıllı Sistemler
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#about">Nasıl Çalışırız?</a>
-            <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#academic">Altyapımız</a>
+            <a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors font-medium cursor-pointer" onclick="showSection('hero')">Ana Sayfa</a>
+            <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer" onclick="showSection('services')">Hizmetler</a>
+            <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer" onclick="showSection('about')">Hakkımda</a>
+            <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer" onclick="showSection('ai-software')">Çözümler</a>
+            <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer" onclick="showSection('academic')">Altyapımız</a>
         </nav>
         
         <!-- Sağ Üst Butonlar -->
         <div class="hidden md:flex items-center gap-4">
-            <button onclick="openModal()" class="bg-primary text-on-primary px-6 py-2 rounded-full font-body-md text-body-md hover:bg-primary-fixed-variant transition-all duration-300 hover:shadow-[0_8px_16px_rgba(0,82,255,0.2)] hover:-translate-y-0.5 active:scale-95 flex items-center gap-2">
+            <button onclick="openModal()" class="bg-primary text-on-primary px-6 py-2 rounded-full font-body-md text-body-md hover:bg-primary-fixed-variant transition-all duration-300 hover:shadow-[0_8px_16px_rgba(59,130,246,0.3)] hover:-translate-y-0.5 active:scale-95 flex items-center gap-2">
                 Projeyi Başlat
                 <span class="material-symbols-outlined text-sm">rocket_launch</span>
             </button>
@@ -251,41 +246,43 @@ arayuz.baslat();</code></pre>
     </div>
 </header>
 
-<main class="flex-grow relative z-10">
+<main class="flex-grow relative z-10 w-full max-w-container-max mx-auto px-gutter mb-20">
+    
     <!-- Ana Karşılama Bölümü (Hero) -->
-    <section class="relative min-h-[921px] flex items-center pt-20 pb-section-gap-lg overflow-hidden">
-        <div class="absolute inset-0 bg-pattern -z-10"></div>
-        <div class="absolute top-1/4 right-10 w-64 h-64 bg-primary-container/20 rounded-full blur-3xl -z-10 floating-element"></div>
-        <div class="absolute bottom-1/4 left-10 w-96 h-96 bg-secondary-container/20 rounded-full blur-3xl -z-10 floating-element" style="animation-delay: -3s;"></div>
+    <section id="hero" class="page-section relative min-h-[85vh] flex items-center animate-fade-in">
+        <div class="absolute inset-0 bg-pattern -z-10 opacity-30"></div>
+        <div class="absolute top-1/4 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10 floating-element"></div>
+        <div class="absolute bottom-1/4 left-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -z-10 floating-element" style="animation-delay: -3s;"></div>
         
-        <div class="max-w-container-max mx-auto px-gutter w-full grid grid-cols-1 lg:grid-cols-12 gap-element-gap-md items-center">
+        <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-element-gap-md items-center py-20">
             <div class="lg:col-span-7 flex flex-col gap-8 z-10 relative">
                 <div class="absolute -left-10 -top-10 w-32 h-32 border border-primary/20 rounded-full -z-10"></div>
                 <!-- Vurgulu Rozet -->
-                <div class="inline-flex items-center gap-2 bg-secondary-fixed px-4 py-2 rounded-full w-fit border border-secondary-fixed-dim/30 transform -rotate-2 hover:rotate-0 transition-transform">
-                    <span class="material-symbols-outlined text-on-secondary-fixed text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
-                    <span class="font-label-caps text-label-caps text-on-secondary-fixed tracking-widest uppercase">Akıllı ve Modern Tasarım</span>
+                <div class="inline-flex items-center gap-2 bg-surface px-4 py-2 rounded-full w-fit border border-outline-variant transform -rotate-2 hover:rotate-0 transition-transform shadow-sm">
+                    <span class="material-symbols-outlined text-secondary-fixed text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                    <span class="font-label-caps text-label-caps text-on-surface tracking-widest uppercase">Akıllı ve Modern Tasarım</span>
                 </div>
                 
                 <div class="flex flex-col gap-4">
-                    <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface tracking-tighter leading-tight relative">
+                    <div class="font-label-caps text-label-caps text-primary tracking-widest uppercase bg-primary/10 w-fit px-4 py-2 rounded-full border border-primary/20">Fikirlerinizi Koda, Kodları Geleceğe Taşıyoruz</div>
+                    <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface tracking-tighter leading-tight relative mt-2">
                         Hayalinizdeki Proje <br/>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-surface-tint">Gerçeğe Dönüşüyor.</span>
-                        <div class="absolute right-0 bottom-4 w-12 h-12 bg-secondary-fixed rounded-full mix-blend-multiply opacity-50 blur-md hidden md:block"></div>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary-fixed">Gerçeğe Dönüşüyor.</span>
+                        <div class="absolute right-0 bottom-4 w-12 h-12 bg-secondary-fixed rounded-full mix-blend-screen opacity-20 blur-md hidden md:block"></div>
                     </h1>
                     <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-                        Hacı Kamil Sağlam - Karmaşık fikirlerinizi, herkesin rahatça kullanabileceği, şık ve hızlı web sitelerine dönüştürüyoruz. İşinizi dijitalde büyütmeniz için en uygun çözümleri üretiyoruz.
+                        HKS Digital - Karmaşık fikirlerinizi, herkesin rahatça kullanabileceği, şık ve hızlı sistemlere dönüştürüyoruz. İşinizi dijitalde büyütmeniz için en uygun çözümleri üretiyoruz.
                     </p>
                 </div>
                 
                 <div class="flex flex-wrap items-center gap-4 pt-4">
-                    <button onclick="openModal()" class="bg-primary text-on-primary px-8 py-4 rounded-full font-body-md text-body-md hover:bg-primary-fixed-variant transition-all duration-300 hover:shadow-[0_8px_24px_rgba(0,82,255,0.25)] hover:-translate-y-1 active:scale-95 flex items-center gap-2">
+                    <button onclick="openModal()" class="bg-primary text-on-primary px-8 py-4 rounded-full font-body-md text-body-md hover:bg-primary-fixed-variant transition-all duration-300 hover:shadow-[0_8px_24px_rgba(59,130,246,0.3)] hover:-translate-y-1 active:scale-95 flex items-center gap-2">
                         Projeyi Başlat
                         <span class="material-symbols-outlined">rocket_launch</span>
                     </button>
-                    <a href="#services" class="px-8 py-4 rounded-full font-body-md text-body-md text-primary bg-primary-container/10 hover:bg-primary-container/20 transition-colors flex items-center gap-2 border border-primary/10 backdrop-blur-sm">
+                    <button onclick="showSection('services')" class="px-8 py-4 rounded-full font-body-md text-body-md text-on-surface bg-surface hover:bg-surface-container transition-colors flex items-center gap-2 border border-outline-variant shadow-sm">
                         Hizmetleri İncele
-                    </a>
+                    </button>
                 </div>
             </div>
             
@@ -293,25 +290,25 @@ arayuz.baslat();</code></pre>
             <div class="lg:col-span-5 relative hidden lg:block z-10 perspective-1000">
                 <div class="absolute -right-4 -bottom-4 w-full h-full bg-surface-variant rounded-2xl -z-10 transform rotate-3"></div>
                 <div class="glass-card rounded-2xl p-6 glass-inner-border transform -rotate-y-6 rotate-x-6 hover:rotate-y-0 hover:rotate-x-0 transition-transform duration-700 ease-out floating-element">
-                    <div class="flex items-center justify-between mb-4 border-b border-outline-variant/20 pb-2">
+                    <div class="flex items-center justify-between mb-4 border-b border-outline-variant/50 pb-2">
                         <div class="flex gap-2">
-                            <div class="w-3 h-3 rounded-full bg-error/50"></div>
-                            <div class="w-3 h-3 rounded-full bg-secondary-fixed/50"></div>
-                            <div class="w-3 h-3 rounded-full bg-primary/50"></div>
+                            <div class="w-3 h-3 rounded-full bg-error/80"></div>
+                            <div class="w-3 h-3 rounded-full bg-secondary/80"></div>
+                            <div class="w-3 h-3 rounded-full bg-primary/80"></div>
                         </div>
-                        <span class="font-mono-data text-mono-data text-outline">sizin_icin_calisiyoruz.js</span>
+                        <span class="font-mono-data text-mono-data text-on-surface-variant">sizin_icin_calisiyoruz.js</span>
                     </div>
-                    <pre class="font-mono-data text-mono-data text-on-surface-variant overflow-x-auto whitespace-pre-wrap"><code>
-function harika_site_yap(fikirleriniz) {
+                    <pre class="font-mono-data text-mono-data text-on-surface overflow-x-auto whitespace-pre-wrap"><code>
+function harika_sistem_kur(fikirleriniz) {
     /* 
      İsteklerinizi dinliyor,
      kullanımı kolay ve şık bir 
-     tasarım ortaya çıkarıyoruz.
+     yazılım ortaya çıkarıyoruz.
     */
-    let tasarim = renkleri_ayarla(fikirleriniz);
-    let altyapi = sistemi_kur();
+    let tasarim = tasarimi_hazirla(fikirleriniz);
+    let altyapi = sunucuyu_kur();
     
-    return yayina_hazir_site(tasarim, altyapi);
+    return yayina_hazir(tasarim, altyapi);
 }
                     </code></pre>
                 </div>
@@ -319,73 +316,175 @@ function harika_site_yap(fikirleriniz) {
         </div>
     </section>
 
-    <!-- Hakkımda / Nasıl Çalışırız Bölümü -->
-    <section class="py-section-gap-lg bg-surface/60 relative overflow-hidden backdrop-blur-sm border-y border-outline-variant/10" id="about">
-        <div class="max-w-container-max mx-auto px-gutter">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-5 relative z-10">
-                    <div class="w-full aspect-square relative floating-element">
-                        <div class="absolute inset-0 bg-gradient-to-br from-primary-container to-secondary-container rounded-full blur-3xl opacity-30"></div>
-                        <div class="absolute inset-4 glass-card rounded-3xl border border-surface-variant flex flex-col justify-center p-0 transform rotate-3 hover:rotate-0 transition-transform duration-500 overflow-hidden">
-                            <img src="profil.jpg" alt="Hacı Kamil Sağlam" class="w-full h-full object-cover">
-                        </div>
-                        <div class="absolute -bottom-6 -right-6 glass-card px-6 py-4 rounded-xl border border-surface-variant shadow-lg backdrop-blur-xl">
-                            <div class="font-label-caps text-primary tracking-widest uppercase mb-1">EĞİTİM</div>
-                            <div class="font-mono-data text-on-surface text-sm">Matematik ve Bilgisayar Bilimleri</div>
-                        </div>
+    <!-- Hizmetler (Services) Bölümü -->
+    <section id="services" class="page-section hidden py-10 relative">
+        <div class="flex flex-col gap-4 mb-12 max-w-3xl">
+            <h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Hizmetlerimiz</h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant">İşinizi dijital dünyada en iyi şekilde temsil edecek ve büyütecek çözümler sunuyoruz.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Hizmet 1 -->
+            <div class="glass-card glass-inner-border rounded-3xl p-8 flex flex-col gap-6 group hover:-translate-y-2 transition-transform duration-500 relative overflow-hidden">
+                <div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300 transform group-hover:rotate-12">
+                    <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">desktop_windows</span>
+                </div>
+                <div>
+                    <h3 class="font-body-lg font-bold text-on-surface mb-3">Web Tasarım &amp; Geliştirme</h3>
+                    <p class="font-body-md text-on-surface-variant leading-relaxed mb-6">
+                        Firmanızı yansıtan, hızlı açılan ve şık web siteleri tasarlıyoruz. Ziyaretçilerin aradığını anında bulabileceği profesyonel platformlar.
+                    </p>
+                </div>
+                <div class="mt-auto">
+                    <button onclick="openServiceModal('modal-web')" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-surface border border-outline-variant text-on-surface font-body-md font-medium hover:border-primary hover:text-primary transition-all shadow-sm w-full justify-center">
+                        Detayları İncele <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Hizmet 2 -->
+            <div class="glass-card glass-inner-border rounded-3xl p-8 flex flex-col gap-6 group hover:-translate-y-2 transition-transform duration-500 relative overflow-hidden">
+                <div class="w-14 h-14 rounded-2xl bg-surface-variant flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300 transform group-hover:rotate-12">
+                    <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">phone_iphone</span>
+                </div>
+                <div>
+                    <h3 class="font-body-lg font-bold text-on-surface mb-3">Mobil Uygulama</h3>
+                    <p class="font-body-md text-on-surface-variant leading-relaxed mb-6">
+                        Müşterilerinizin cebine giren, kullanımı çok kolay, Android ve iOS için modern mobil uygulamalar geliştiriyoruz.
+                    </p>
+                </div>
+                <div class="mt-auto">
+                    <button onclick="openServiceModal('modal-mobile')" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-surface border border-outline-variant text-on-surface font-body-md font-medium hover:border-primary hover:text-primary transition-all shadow-sm w-full justify-center">
+                        Detayları İncele <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Hizmet 3 -->
+            <div class="glass-card glass-inner-border rounded-3xl p-8 flex flex-col gap-6 group hover:-translate-y-2 transition-transform duration-500 relative overflow-hidden">
+                <div class="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary-fixed group-hover:bg-secondary-fixed group-hover:text-on-secondary transition-colors duration-300 transform group-hover:rotate-12">
+                    <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">psychology</span>
+                </div>
+                <div>
+                    <h3 class="font-body-lg font-bold text-on-surface mb-3">Yapay Zeka Çözümleri</h3>
+                    <p class="font-body-md text-on-surface-variant leading-relaxed mb-6">
+                        7/24 müşteri destek botları veya akıllı asistanlarla rakiplerinizin bir adım önüne geçmenizi sağlayan yapay zeka sistemleri kuruyoruz.
+                    </p>
+                </div>
+                <div class="mt-auto">
+                    <button onclick="openServiceModal('modal-ai')" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-surface border border-outline-variant text-on-surface font-body-md font-medium hover:border-primary hover:text-primary transition-all shadow-sm w-full justify-center">
+                        Detayları İncele <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Hizmet 4 -->
+            <div class="glass-card glass-inner-border rounded-3xl p-8 flex flex-col gap-6 group hover:-translate-y-2 transition-transform duration-500 relative overflow-hidden">
+                <div class="w-14 h-14 rounded-2xl bg-primary-fixed/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300 transform group-hover:rotate-12">
+                    <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">cloud_done</span>
+                </div>
+                <div>
+                    <h3 class="font-body-lg font-bold text-on-surface mb-3">SaaS (Yazılım Hizmetleri)</h3>
+                    <p class="font-body-md text-on-surface-variant leading-relaxed mb-6">
+                        Kendi iş fikrinizi abonelik tabanlı satabileceğiniz, kullanıcı ve ödeme sistemi hazır profesyonel SaaS (Hizmet olarak yazılım) altyapıları.
+                    </p>
+                </div>
+                <div class="mt-auto">
+                    <button onclick="openServiceModal('modal-saas')" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-surface border border-outline-variant text-on-surface font-body-md font-medium hover:border-primary hover:text-primary transition-all shadow-sm w-full justify-center">
+                        Detayları İncele <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Hizmet 5 -->
+            <div class="glass-card glass-inner-border rounded-3xl p-8 flex flex-col gap-6 group hover:-translate-y-2 transition-transform duration-500 relative overflow-hidden">
+                <div class="w-14 h-14 rounded-2xl bg-error/10 flex items-center justify-center text-error group-hover:bg-error group-hover:text-on-primary transition-colors duration-300 transform group-hover:rotate-12">
+                    <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">precision_manufacturing</span>
+                </div>
+                <div>
+                    <h3 class="font-body-lg font-bold text-on-surface mb-3">İş Süreçleri Otomasyonu</h3>
+                    <p class="font-body-md text-on-surface-variant leading-relaxed mb-6">
+                        Size saatler kaybettiren günlük tekrarlayan işleri otomatik yapan arka plan robot yazılımları geliştiriyoruz. Siz keyfinize bakın, sistem çalışsın.
+                    </p>
+                </div>
+                <div class="mt-auto">
+                    <button onclick="openServiceModal('modal-automation')" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-surface border border-outline-variant text-on-surface font-body-md font-medium hover:border-primary hover:text-primary transition-all shadow-sm w-full justify-center">
+                        Detayları İncele <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hakkımda Bölümü -->
+    <section id="about" class="page-section hidden py-10 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-5 relative z-10">
+                <div class="w-full aspect-square relative floating-element">
+                    <div class="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full blur-3xl opacity-10"></div>
+                    <div class="absolute inset-4 glass-card rounded-3xl border border-outline-variant flex flex-col justify-center p-0 transform rotate-3 hover:rotate-0 transition-transform duration-500 overflow-hidden">
+                        <img src="profil.jpg" alt="Hacı Kamil Sağlam" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 glass-card px-6 py-4 rounded-xl border border-outline-variant shadow-lg backdrop-blur-xl">
+                        <div class="font-label-caps text-primary tracking-widest uppercase mb-1">EĞİTİM</div>
+                        <div class="font-mono-data text-on-surface text-sm font-bold">Necmettin Erbakan Üniversitesi</div>
+                        <div class="font-mono-data text-on-surface-variant text-xs mt-1">Matematik ve Bilgisayar Bilimleri</div>
                     </div>
                 </div>
-                
-                <div class="lg:col-span-6 lg:col-start-7 flex flex-col gap-6 z-10">
-                    <div class="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full w-fit">
-                        <span class="material-symbols-outlined text-primary text-sm">person</span>
-                        <span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Hakkımda</span>
-                    </div>
-                    <h2 class="font-headline-md text-display-lg-mobile text-on-surface tracking-tight leading-tight">
-                        Merhaba, Ben Hacı Kamil Sağlam
-                    </h2>
-                    <div class="h-1 w-16 bg-secondary-fixed rounded-full"></div>
-                    <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-                        Necmettin Erbakan Üniversitesi'nde Matematik ve Bilgisayar Bilimleri öğrencisiyim. Dijital dünyada sadece güzel görünen değil, arka planda kusursuz işleyen sistemler tasarlıyorum.
-                    </p>
-                    <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                        Tasarım benim için sadece renklerin bir araya gelmesi demek değil. Bir web sitesi veya uygulamanın, kullanıcıları yormadan, en kolay ve anlaşılır şekilde çalışması gerekir. Eğitimimden aldığım analitik düşünce yapısıyla, işinizi kolaylaştıran, hızlı ve modern dijital çözümler üretiyorum.
-                    </p>
+            </div>
+            
+            <div class="lg:col-span-6 lg:col-start-7 flex flex-col gap-6 z-10">
+                <div class="inline-flex items-center gap-2 bg-surface px-4 py-2 rounded-full w-fit border border-outline-variant shadow-sm">
+                    <span class="material-symbols-outlined text-primary text-sm">person</span>
+                    <span class="font-label-caps text-label-caps text-on-surface tracking-widest uppercase">Hakkımda</span>
+                </div>
+                <h2 class="font-headline-md text-display-lg-mobile text-on-surface tracking-tight leading-tight">
+                    Merhaba, Ben Hacı Kamil Sağlam
+                </h2>
+                <div class="h-1 w-16 bg-secondary-fixed rounded-full"></div>
+                <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    Necmettin Erbakan Üniversitesi'nde Matematik ve Bilgisayar Bilimleri öğrencisiyim. Dijital dünyada sadece güzel görünen değil, arka planda kusursuz işleyen sistemler tasarlıyorum.
+                </p>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    Tasarım benim için sadece renklerin bir araya gelmesi demek değil. Bir web sitesi veya uygulamanın, kullanıcıları yormadan, en kolay ve anlaşılır şekilde çalışması gerekir. Eğitimimden aldığım analitik düşünce yapısıyla, işinizi kolaylaştıran, hızlı ve modern dijital çözümler üretiyorum.
+                </p>
+                <div class="pt-4">
+                    <button onclick="openModal()" class="bg-primary text-on-primary px-8 py-3 rounded-full font-body-md text-body-md hover:bg-primary-fixed transition-all flex items-center gap-2 w-fit">
+                        Benimle İletişime Geçin
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Yazılım & Çözümler Bölümü -->
-    <section class="py-section-gap-lg bg-inverse-surface/95 relative overflow-hidden" id="ai-software">
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] pointer-events-none"></div>
-        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-[100px] pointer-events-none"></div>
-        
-        <div class="max-w-container-max mx-auto px-gutter relative z-10">
-            <div class="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
-                <div class="max-w-2xl flex flex-col gap-4">
-                    <div class="inline-flex items-center gap-2 bg-inverse-on-surface/10 px-4 py-2 rounded-full w-fit border border-inverse-on-surface/20">
-                        <span class="material-symbols-outlined text-inverse-on-surface text-sm">memory</span>
-                        <span class="font-label-caps text-label-caps text-inverse-on-surface tracking-widest uppercase">İşinizi Kolaylaştıran Çözümler</span>
-                    </div>
-                    <h2 class="font-headline-md text-display-lg-mobile text-inverse-on-surface tracking-tight">Yeni Nesil Akıllı Sistemler</h2>
-                    <p class="font-body-lg text-body-lg text-inverse-on-surface/70">
-                        İşinizi hızlandıracak yeni teknolojileri projelerinize entegre ediyoruz. Ziyaretçilerinizle daha hızlı iletişim kuran sistemler veya iş yükünüzü hafifleten akıllı yazılımlarla dijital dünyada bir adım önde olmanızı sağlıyoruz.
-                    </p>
+    <section id="ai-software" class="page-section hidden py-10 px-4 md:px-0 relative">
+        <div class="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
+            <div class="max-w-2xl flex flex-col gap-4">
+                <div class="inline-flex items-center gap-2 bg-surface px-4 py-2 rounded-full w-fit border border-outline-variant shadow-sm">
+                    <span class="material-symbols-outlined text-primary text-sm">memory</span>
+                    <span class="font-label-caps text-label-caps text-on-surface tracking-widest uppercase">İşinizi Kolaylaştıran Çözümler</span>
                 </div>
+                <h2 class="font-headline-md text-display-lg-mobile text-on-surface tracking-tight">Yeni Nesil Akıllı Sistemler</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant">
+                    İşinizi hızlandıracak yeni teknolojileri projelerinize entegre ediyoruz. Ziyaretçilerinizle daha hızlı iletişim kuran sistemler veya iş yükünüzü hafifleten akıllı yazılımlarla dijital dünyada bir adım önde olmanızı sağlıyoruz.
+                </p>
             </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 bg-inverse-surface p-8 rounded-[2rem] shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] pointer-events-none"></div>
+            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-[100px] pointer-events-none"></div>
             
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-                <!-- Kod Bloğu -->
-                <div class="md:col-span-7 bg-surface/5 border border-surface/10 rounded-3xl p-8 backdrop-blur-md hover:bg-surface/10 transition-colors group">
-                    <div class="flex justify-between items-center mb-6">
-                        <h3 class="font-body-lg text-inverse-on-surface font-semibold flex items-center gap-2">
-                            <span class="material-symbols-outlined text-primary-fixed">speed</span>
-                            Hızlı ve Güvenilir Altyapı
-                        </h3>
-                        <div class="px-3 py-1 rounded-full bg-primary/20 text-primary-fixed text-xs font-mono-data border border-primary/30">Aktif</div>
-                    </div>
-                    <pre class="font-mono-data text-sm text-inverse-on-surface/80 bg-background/10 p-4 rounded-xl overflow-x-auto border border-surface/5"><code>// Ziyaretçileriniz için en iyi deneyim
+            <div class="md:col-span-7 bg-inverse-on-surface/5 border border-inverse-on-surface/10 rounded-3xl p-8 backdrop-blur-md hover:bg-inverse-on-surface/10 transition-colors group shadow-xl z-10">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="font-body-lg text-inverse-on-surface font-semibold flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">speed</span>
+                        Hızlı ve Güvenilir Altyapı
+                    </h3>
+                    <div class="px-3 py-1 rounded-full bg-primary/20 text-primary-fixed text-xs font-mono-data border border-primary/30">Aktif</div>
+                </div>
+                <pre class="font-mono-data text-sm text-inverse-on-surface/80 bg-inverse-on-surface/5 p-4 rounded-xl overflow-x-auto border border-inverse-on-surface/10"><code>// Ziyaretçileriniz için en iyi deneyim
 function sistemi_hizlandir() {
   const altyapi = yeniNesilSunucuKur();
   
@@ -395,104 +494,34 @@ function sistemi_hizlandir() {
   
   return "Siteniz yayına hazır ve artık çok hızlı!";
 }</code></pre>
-                </div>
-                
-                <!-- Akış Şeması -->
-                <div class="md:col-span-5 bg-gradient-to-br from-surface/5 to-transparent border border-surface/10 rounded-3xl p-8 backdrop-blur-md flex flex-col relative overflow-hidden group">
-                    <div class="absolute inset-0 bg-pattern opacity-10"></div>
-                    <h3 class="font-body-lg text-inverse-on-surface font-semibold mb-6 relative z-10 flex items-center gap-2">
-                        <span class="material-symbols-outlined text-secondary-fixed">account_tree</span>
-                        Çalışma Adımlarımız
-                    </h3>
-                    <div class="flex-grow flex flex-col justify-center gap-4 relative z-10">
-                        <div class="flex items-center gap-4 bg-surface/10 p-3 rounded-xl border border-surface/20 transform group-hover:translate-x-2 transition-transform">
-                            <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-sm">forum</span></div>
-                            <div class="flex-grow">
-                                <div class="font-mono-data text-xs text-inverse-on-surface">İhtiyaçlarınızı Dinliyoruz</div>
-                            </div>
-                        </div>
-                        <div class="w-0.5 h-6 bg-surface/20 ml-7"></div>
-                        <div class="flex items-center gap-4 bg-surface/10 p-3 rounded-xl border border-secondary/30 shadow-[0_0_15px_rgba(193,241,0,0.1)] transform group-hover:translate-x-4 transition-transform delay-75">
-                            <div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center"><span class="material-symbols-outlined text-sm">design_services</span></div>
-                            <div class="flex-grow">
-                                <div class="font-mono-data text-xs text-inverse-on-surface">Tasarım ve Kodlama</div>
-                            </div>
-                        </div>
-                        <div class="w-0.5 h-6 bg-surface/20 ml-7"></div>
-                        <div class="flex items-center gap-4 bg-primary/20 p-3 rounded-xl border border-primary/30 transform group-hover:translate-x-6 transition-transform delay-150">
-                            <div class="w-8 h-8 rounded-full bg-surface-tint flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-sm">rocket_launch</span></div>
-                            <div class="flex-grow">
-                                <div class="font-mono-data text-xs text-inverse-on-surface">Teslimat ve Destek</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Hizmetler (Services) Bölümü -->
-    <section class="py-section-gap-lg bg-surface/40 backdrop-blur-md relative" id="services">
-        <div class="max-w-container-max mx-auto px-gutter">
-            <div class="flex flex-col gap-4 mb-16 max-w-3xl">
-                <h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Neler Yapıyoruz?</h2>
-                <p class="font-body-lg text-body-lg text-on-surface-variant">İşinizi dijital dünyada en iyi şekilde temsil edecek ve büyütecek hizmetler sunuyoruz.</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-                <!-- Hizmet 1 -->
-                <div class="md:col-span-8 glass-card glass-inner-border rounded-[2rem] p-10 flex flex-col gap-6 group hover:-translate-y-2 transition-transform duration-500 overflow-hidden relative">
-                    <div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors"></div>
-                    <div class="w-16 h-16 rounded-2xl bg-primary-container/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300 transform group-hover:rotate-12">
-                        <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">desktop_windows</span>
+            <div class="md:col-span-5 bg-gradient-to-br from-inverse-on-surface/5 to-transparent border border-inverse-on-surface/10 rounded-3xl p-8 backdrop-blur-md flex flex-col relative overflow-hidden group shadow-xl z-10">
+                <div class="absolute inset-0 bg-pattern opacity-10"></div>
+                <h3 class="font-body-lg text-inverse-on-surface font-semibold mb-6 relative z-10 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-secondary-fixed">account_tree</span>
+                    Çalışma Adımlarımız
+                </h3>
+                <div class="flex-grow flex flex-col justify-center gap-4 relative z-10">
+                    <div class="flex items-center gap-4 bg-inverse-on-surface/5 p-3 rounded-xl border border-inverse-on-surface/10 transform group-hover:translate-x-2 transition-transform">
+                        <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-sm">forum</span></div>
+                        <div class="flex-grow">
+                            <div class="font-mono-data text-xs text-inverse-on-surface">İhtiyaçlarınızı Dinliyoruz</div>
+                        </div>
                     </div>
-                    <div class="max-w-lg z-10">
-                        <h3 class="font-display-lg-mobile text-headline-md font-bold text-on-surface mb-3">Web Tasarım &amp; Geliştirme</h3>
-                        <p class="font-body-md text-body-lg text-on-surface-variant leading-relaxed mb-6">
-                            Sizi ve markanızı en iyi şekilde yansıtan, hızlı açılan ve Google'da üst sıralarda çıkan web siteleri tasarlıyoruz. Ziyaretçilerinizin içinde kaybolmadan, aradığını anında bulabileceği profesyonel platformlar kuruyoruz.
-                        </p>
-                        <button onclick="openModal()" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-surface border border-outline-variant/30 text-on-surface font-body-md font-medium hover:border-primary hover:text-primary transition-all shadow-sm">
-                            Teklif Alın <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                        </button>
+                    <div class="w-0.5 h-6 bg-inverse-on-surface/10 ml-7"></div>
+                    <div class="flex items-center gap-4 bg-inverse-on-surface/5 p-3 rounded-xl border border-secondary/30 shadow-[0_0_15px_rgba(16,185,129,0.2)] transform group-hover:translate-x-4 transition-transform delay-75">
+                        <div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary flex items-center justify-center"><span class="material-symbols-outlined text-sm">design_services</span></div>
+                        <div class="flex-grow">
+                            <div class="font-mono-data text-xs text-inverse-on-surface">Tasarım ve Kodlama</div>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Hizmet 2 -->
-                <div class="md:col-span-4 glass-card glass-inner-border rounded-[2rem] p-8 flex flex-col gap-6 group hover:-translate-y-4 transition-transform duration-500 floating-element" style="animation-delay: -2s;">
-                    <div class="w-14 h-14 rounded-xl bg-surface-variant flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">
-                        <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">phone_iphone</span>
-                    </div>
-                    <div>
-                        <h3 class="font-body-lg text-body-lg font-semibold text-on-surface mb-2">Mobil Uygulama</h3>
-                        <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                            Cep telefonlarında ve tabletlerde sorunsuz çalışan, müşterilerinizin ürünlerinize veya içeriklerinize tek dokunuşla ulaşabileceği uygulamalar yapıyoruz.
-                        </p>
-                    </div>
-                    <div class="mt-auto pt-4 border-t border-outline-variant/10">
-                        <button onclick="openModal()" class="inline-flex items-center gap-1 text-primary font-body-md text-body-md font-medium hover:opacity-80 transition-opacity">
-                            İletişime Geçin <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Hizmet 3 -->
-                <div class="md:col-span-12 glass-card glass-inner-border rounded-[2rem] p-10 flex flex-col md:flex-row gap-10 group hover:-translate-y-2 transition-transform duration-500 relative overflow-hidden items-center bg-gradient-to-r from-surface/50 to-secondary-container/10">
-                    <div class="absolute top-0 right-0 p-6">
-                        <div class="w-3 h-3 rounded-full bg-secondary-fixed shadow-[0_0_12px_rgba(193,241,0,0.8)] animate-pulse"></div>
-                    </div>
-                    <div class="w-20 h-20 shrink-0 rounded-2xl bg-secondary-container/50 flex items-center justify-center text-secondary-fixed-dim group-hover:bg-secondary-fixed group-hover:text-on-secondary-fixed transition-colors duration-300">
-                        <span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">integration_instructions</span>
-                    </div>
-                    <div class="flex-grow">
-                        <h3 class="font-headline-md text-headline-md font-bold text-on-surface mb-3">İşinizi Kolaylaştıran Çözümler</h3>
-                        <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed max-w-3xl">
-                            Günlük işlerinizi otomatik hale getiren, personelinize zaman kazandıran size özel yazılımlar geliştiriyoruz. Randevu takibi, müşteri panelleri veya satış sistemleriyle işleri otomatiğe bağlayın.
-                        </p>
-                    </div>
-                    <div class="shrink-0">
-                        <button onclick="openModal()" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-on-surface text-surface font-body-md font-medium hover:bg-primary transition-all shadow-md hover:shadow-xl">
-                            Sisteminizi Kuralım <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                        </button>
+                    <div class="w-0.5 h-6 bg-inverse-on-surface/10 ml-7"></div>
+                    <div class="flex items-center gap-4 bg-primary/10 p-3 rounded-xl border border-primary/20 transform group-hover:translate-x-6 transition-transform delay-150">
+                        <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-sm">rocket_launch</span></div>
+                        <div class="flex-grow">
+                            <div class="font-mono-data text-xs text-inverse-on-surface">Teslimat ve Destek</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -500,89 +529,116 @@ function sistemi_hizlandir() {
     </section>
 
     <!-- Altyapı Bölümü -->
-    <section class="py-section-gap-lg bg-surface/60 backdrop-blur-sm border-t border-outline-variant/10 relative" id="academic">
-        <div class="max-w-container-max mx-auto px-gutter">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-5 flex flex-col gap-6">
-                    <div class="inline-flex items-center gap-2 bg-surface-container-high px-4 py-2 rounded-full w-fit">
-                        <span class="material-symbols-outlined text-tertiary text-sm">verified_user</span>
-                        <span class="font-label-caps text-label-caps text-on-surface-variant tracking-widest uppercase">Sağlam Altyapı</span>
-                    </div>
-                    <h2 class="font-headline-md text-headline-md text-on-surface tracking-tight leading-tight">
-                        Güvenilir ve Hata Yapmayan Sistemler
-                    </h2>
-                    <div class="h-1 w-12 bg-primary rounded-full"></div>
-                    <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                        Projelerimizde hiçbir şeyi şansa bırakmıyoruz. Sitenizin veya uygulamanızın her detayı, siz ve müşterilerinizin en rahat edeceği şekilde planlanıyor. Güçlü ve güncel yazılım teknolojileri kullanarak, sitenizin kilitlenmesi veya yavaşlaması gibi sorunların önüne geçiyoruz.
-                    </p>
+    <section id="academic" class="page-section hidden py-10 px-4 md:px-0 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-5 flex flex-col gap-6">
+                <div class="inline-flex items-center gap-2 bg-surface px-4 py-2 rounded-full w-fit border border-outline-variant shadow-sm">
+                    <span class="material-symbols-outlined text-secondary-fixed text-sm">verified_user</span>
+                    <span class="font-label-caps text-label-caps text-on-surface tracking-widest uppercase">Sağlam Altyapı</span>
                 </div>
+                <h2 class="font-headline-md text-headline-md text-on-surface tracking-tight leading-tight">
+                    Güvenilir ve Hata Yapmayan Sistemler
+                </h2>
+                <div class="h-1 w-12 bg-primary rounded-full"></div>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    Projelerimizde hiçbir şeyi şansa bırakmıyoruz. Sitenizin veya uygulamanızın her detayı, siz ve müşterilerinizin en rahat edeceği şekilde planlanıyor. Güçlü ve güncel yazılım teknolojileri kullanarak, sitenizin kilitlenmesi veya yavaşlaması gibi sorunların önüne geçiyoruz.
+                </p>
+                <button onclick="openModal()" class="mt-4 bg-surface border border-outline-variant text-on-surface px-8 py-3 rounded-full font-body-md hover:bg-surface-container transition-all flex items-center gap-2 w-fit shadow-sm">
+                    Güvenli Bir Proje Başlatın
+                </button>
+            </div>
+            
+            <div class="lg:col-span-7 relative h-[400px] md:h-[500px] w-full rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-outline-variant transform md:rotate-2 hover:rotate-0 transition-all duration-700 mt-8 lg:mt-0 cursor-default bg-slate-900">
+                <div class="absolute inset-0 bg-cover bg-center w-full h-full opacity-90" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80')"></div>
+                <div class="absolute inset-0 hidden"></div>
                 
-                <div class="lg:col-span-7 relative h-[500px] w-full rounded-[2.5rem] overflow-hidden glass-card glass-inner-border transform md:rotate-2 hover:rotate-0 transition-all duration-700">
-                    <div class="absolute inset-0 bg-cover bg-center w-full h-full opacity-80 mix-blend-multiply" data-alt="Tasarım laboratuvarı konsepti" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBZjRtQIDcb_EBCqB8lLWKnTOfsUnGsN950nf8vVh4oCPb2pn60iji4obRsqqvRKhCNdfWc42eTA4LzWMwjlYbvSlJXpyMs4QCij7lEfA9xeqFnhxzF6EmtJF0087zZJxxxlVasZ0_Ck_25Wgff0IRvfPkUl_-LJJs2enmHbdLwm9QSwOH-DHsUWC10Vdrj7AD3b9U5Sw02DPLDE22jHRIfczJBCIm5KaO6TzGRn5Av9Gr3eVlSZu2zyQ')"></div>
-                    
-                    <div class="absolute bottom-6 left-6 right-6 flex flex-col md:flex-row gap-4">
-                        <div class="bg-surface-container-lowest/90 backdrop-blur-md p-5 rounded-2xl flex-1 border border-outline-variant/20 shadow-lg transform -translate-y-4">
-                            <div class="font-label-caps text-label-caps text-on-surface-variant mb-2">Müşteri Memnuniyeti</div>
-                            <div class="font-display-lg-mobile text-primary leading-none">%100</div>
-                        </div>
-                        <div class="bg-surface-container-lowest/90 backdrop-blur-md p-5 rounded-2xl flex-1 border border-outline-variant/20 shadow-lg">
-                            <div class="font-label-caps text-label-caps text-on-surface-variant mb-2">Teslimat Hızı</div>
-                            <div class="font-display-lg-mobile text-secondary leading-none">Tam Zamanında</div>
-                        </div>
+                <div class="absolute bottom-6 left-6 right-6 flex flex-col md:flex-row gap-4">
+                    <div class="bg-surface/90 backdrop-blur-md p-5 rounded-2xl flex-1 border border-outline-variant shadow-lg transform -translate-y-4">
+                        <div class="font-label-caps text-label-caps text-on-surface-variant mb-2">Müşteri Memnuniyeti</div>
+                        <div class="font-display-lg-mobile text-primary leading-none">%100</div>
+                    </div>
+                    <div class="bg-surface/90 backdrop-blur-md p-5 rounded-2xl flex-1 border border-outline-variant shadow-lg">
+                        <div class="font-label-caps text-label-caps text-on-surface-variant mb-2">Teslimat Hızı</div>
+                        <div class="font-display-lg-mobile text-secondary leading-none">Tam Zamanında</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 </main>
 
 <!-- Footer -->
-<footer class="w-full py-section-gap-lg bg-surface-container-lowest border-t border-outline-variant/20 relative overflow-hidden">
+<footer class="w-full py-16 bg-[#020617] relative overflow-hidden mt-auto">
+    <div class="absolute inset-0 bg-pattern opacity-10"></div>
+    <div class="absolute top-0 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
+    
     <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary-fixed to-primary"></div>
     <div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-4 gap-element-gap-md relative z-10">
         <div class="md:col-span-1 flex flex-col gap-6">
-            <a class="font-display-lg text-headline-md text-on-surface flex items-center gap-2" href="#">
-                <img alt="HKS AI Tasarım Logo" class="h-8 w-auto grayscale opacity-80 rounded-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCydOotfXqWJ-CHw8g9q5Q4l7QfFVWC1_c-EpVyWf76CkiR9yeJ9rHCT7eI96ySeQ3WgvXsYGL59PpTZNJZn5OhngbUWXvcIfHAu1hGvZ2LK6sTDwUNbfSCzod8tIrITRALQnMEau2cFeJBCg-vN6_12LdwMt3KZ1lR_ogLhXKLg8Pj8cluC4Rtc6g588esCxGrBr1Y5fuwTbi2mvcPU8KokzF_G6q5H6PAh0E-V6eYru2ePtUvKj3GFQ"/>
+            <a class="font-display-lg text-headline-md text-white flex items-center gap-2 cursor-pointer" onclick="showSection('hero')">
+                <img alt="HKS Digital Logo" class="h-10 w-auto rounded-md hover:opacity-90 transition-opacity shadow-[0_0_15px_rgba(255,255,255,0.1)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCydOotfXqWJ-CHw8g9q5Q4l7QfFVWC1_c-EpVyWf76CkiR9yeJ9rHCT7eI96ySeQ3WgvXsYGL59PpTZNJZn5OhngbUWXvcIfHAu1hGvZ2LK6sTDwUNbfSCzod8tIrITRALQnMEau2cFeJBCg-vN6_12LdwMt3KZ1lR_ogLhXKLg8Pj8cluC4Rtc6g588esCxGrBr1Y5fuwTbi2mvcPU8KokzF_G6q5H6PAh0E-V6eYru2ePtUvKj3GFQ"/>
             </a>
-            <p class="font-body-md text-body-md text-on-surface-variant max-w-xs">
-                © 2024 Hacı Kamil Sağlam. Tasarım ve yazılımın güçlü uyumuyla sizin için çalışıyoruz.
+            <p class="font-body-md text-body-md text-slate-400 max-w-xs leading-relaxed">
+                Karmaşıklığı sadeliğe dönüştüren teknoloji partneriniz. Sizin için sadece web sitesi değil, dijital sistemler tasarlıyoruz.
+            </p>
+            <p class="font-body-md text-body-md text-slate-500 mt-auto">
+                © 2026 HKS Digital. Tüm hakları saklıdır.
             </p>
         </div>
         
         <div class="md:col-span-3 grid grid-cols-2 sm:grid-cols-4 gap-8">
-            <div class="flex flex-col gap-3">
-                <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider mb-2">Menü</span>
-                <a class="font-body-md text-body-md text-primary font-bold hover:text-secondary-fixed-dim transition-colors focus:ring-2 focus:ring-primary-container outline-none rounded-sm" href="#services">Hizmetler</a>
-                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary-fixed-dim transition-colors focus:ring-2 focus:ring-primary-container outline-none rounded-sm" href="#about">Nasıl Çalışırız?</a>
-                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary-fixed-dim transition-colors focus:ring-2 focus:ring-primary-container outline-none rounded-sm" href="#ai-software">Çözümler</a>
+            <div class="flex flex-col gap-4">
+                <span class="font-label-caps text-label-caps text-slate-500 uppercase tracking-wider mb-2">Menü</span>
+                <a class="font-body-md text-body-md text-white font-semibold hover:text-primary transition-colors cursor-pointer" onclick="showSection('services')">Hizmetler</a>
+                <a class="font-body-md text-body-md text-slate-300 hover:text-white transition-colors cursor-pointer" onclick="showSection('about')">Hakkımda</a>
+                <a class="font-body-md text-body-md text-slate-300 hover:text-white transition-colors cursor-pointer" onclick="showSection('ai-software')">Çözümler</a>
+                <a class="font-body-md text-body-md text-slate-300 hover:text-white transition-colors cursor-pointer" onclick="showSection('academic')">Altyapımız</a>
             </div>
             
-            <div class="flex flex-col gap-3">
-                <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider mb-2">Sosyal Medya</span>
-                <!-- Bunlar yer tutucu linkler -->
-                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary-fixed-dim transition-colors flex items-center gap-1" href="https://instagram.com" target="_blank">Instagram <span class="material-symbols-outlined text-xs">north_east</span></a>
-                <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary-fixed-dim transition-colors flex items-center gap-1" href="#" target="_blank">LinkedIn <span class="material-symbols-outlined text-xs">north_east</span></a>
+            <div class="flex flex-col gap-4">
+                <span class="font-label-caps text-label-caps text-slate-500 uppercase tracking-wider mb-2">Sosyal Medya</span>
+                <a class="font-body-md text-body-md text-slate-300 hover:text-white transition-colors flex items-center gap-2" href="https://github.com/kaamilsaglam" target="_blank">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                    GitHub
+                </a>
+                <a class="font-body-md text-body-md text-slate-300 hover:text-[#E1306C] transition-colors flex items-center gap-2" href="https://instagram.com/kaamilsaglam" target="_blank">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069ZM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0Zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881Z"/></svg>
+                    Instagram
+                </a>
+            </div>
+            
+            <div class="flex flex-col gap-4">
+                <span class="font-label-caps text-label-caps text-slate-500 uppercase tracking-wider mb-2">İletişim</span>
+                <a class="font-body-md text-body-md text-slate-300 hover:text-white transition-colors flex items-center gap-2" href="mailto:kaamilsaglam@gmail.com">
+                    <span class="material-symbols-outlined text-[20px]">mail</span>
+                    kaamilsaglam@gmail.com
+                </a>
+                <a class="font-body-md text-body-md text-slate-300 hover:text-[#25D366] transition-colors flex items-center gap-2" href="https://wa.me/905431629379" target="_blank">
+                    <span class="material-symbols-outlined text-[20px]">chat</span>
+                    0543 162 93 79
+                </a>
             </div>
         </div>
     </div>
 </footer>
 
 <!-- İletişim Modalı -->
-<div id="contact-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm opacity-0 invisible transition-all duration-300">
-    <div class="bg-white rounded-3xl p-8 max-w-sm w-full mx-4 shadow-2xl transform scale-95 transition-transform duration-300" id="contact-modal-content">
+<div id="contact-modal" class="fixed inset-0 z-[120] flex items-center justify-center bg-black/40 backdrop-blur-md opacity-0 invisible transition-all duration-300">
+    <div class="bg-surface rounded-3xl p-8 max-w-sm w-full mx-4 shadow-2xl border border-outline-variant transform scale-95 transition-transform duration-300 contact-modal-content">
         <div class="flex justify-between items-center mb-6">
-            <h3 class="font-headline-md text-2xl font-bold text-gray-900">İletişime Geçin</h3>
-            <button onclick="closeModal()" class="text-gray-500 hover:text-gray-900 bg-gray-100 w-8 h-8 rounded-full flex items-center justify-center transition-colors">
+            <h3 class="font-headline-md text-2xl font-bold text-on-surface">İletişime Geçin</h3>
+            <button onclick="closeModal()" class="text-on-surface-variant hover:text-on-surface bg-surface-container w-8 h-8 rounded-full flex items-center justify-center transition-colors">
                 <span class="material-symbols-outlined text-sm">close</span>
             </button>
         </div>
-        <p class="text-gray-600 mb-6 font-body-md">Projenizi hayata geçirmek için aşağıdaki kanallardan hemen bize ulaşabilirsiniz.</p>
+        <p class="text-on-surface-variant mb-6 font-body-md">Projenizi hayata geçirmek için aşağıdaki kanallardan hemen bize ulaşabilirsiniz.</p>
         <div class="flex flex-col gap-4">
-            <a href="https://wa.me/905555555555" target="_blank" class="flex items-center justify-center gap-3 w-full bg-[#25D366] text-white px-6 py-4 rounded-xl font-medium hover:bg-[#20b958] hover:shadow-lg transition-all">
+            <a href="https://wa.me/905431629379" target="_blank" class="flex items-center justify-center gap-3 w-full bg-[#25D366] text-white px-6 py-4 rounded-xl font-medium hover:bg-[#20b958] hover:shadow-[0_8px_16px_rgba(37,211,102,0.3)] hover:-translate-y-0.5 transition-all">
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 21.054c-1.639 0-3.238-.432-4.662-1.246l-5.17 1.35 1.373-5.025a9.771 9.771 0 0 1-1.341-4.99C2.231 5.253 7.027.457 12.031.457c4.896 0 9.799 4.8 9.799 10.686 0 5.887-4.903 9.911-9.799 9.911Zm-4.88-3.088c1.376.814 3.012 1.258 4.795 1.258 4.811 0 7.971-3.486 7.971-8.083 0-4.6-3.16-8.086-7.971-8.086-4.814 0-7.975 3.486-7.975 8.086 0 1.57.404 3.109 1.164 4.457l-.92 3.375 3.456-.902l-.52-.105Zm7.982-5.467c-.201-.102-1.189-.588-1.373-.655-.185-.067-.32-.102-.454.102-.134.204-.52.655-.637.791-.117.135-.235.153-.436.05-1.109-.567-1.99-1.284-2.735-2.613-.117-.204.054-.187.25-.386.1-.102.217-.253.318-.386.101-.135.134-.236.201-.386.067-.152.034-.287-.017-.389-.05-.102-.454-1.096-.622-1.503-.168-.407-.338-.352-.454-.358-.116-.006-.25-.006-.385-.006-.134 0-.352.05-.536.254-.184.204-.704.688-.704 1.678 0 .99.721 1.948.822 2.083.1.135 1.422 2.17 3.444 3.042.482.208.859.332 1.152.425.485.153.927.131 1.275.08.39-.058 1.189-.486 1.356-.955.167-.47.167-.872.117-.955-.05-.083-.184-.135-.385-.237Z"/></svg>
-                WhatsApp
+                WhatsApp ile Yazın
             </a>
-            <a href="mailto:iletisim@ornek.com" class="flex items-center justify-center gap-3 w-full bg-surface-container-low text-on-surface px-6 py-4 rounded-xl font-medium hover:bg-surface-variant hover:shadow-md transition-all border border-outline-variant/30">
+            <a href="mailto:kaamilsaglam@gmail.com" class="flex items-center justify-center gap-3 w-full bg-surface text-on-surface px-6 py-4 rounded-xl font-medium hover:bg-surface-container hover:shadow-lg hover:-translate-y-0.5 transition-all border border-outline-variant">
                 <span class="material-symbols-outlined">mail</span>
                 E-posta Gönder
             </a>
@@ -590,37 +646,294 @@ function sistemi_hizlandir() {
     </div>
 </div>
 
+<!-- Hizmet Detay Modalları -->
+
+<!-- Web Tasarım Modalı -->
+<div id="modal-web" class="fixed inset-0 z-[110] flex items-center justify-center bg-black/40 backdrop-blur-md opacity-0 invisible transition-all duration-300 p-4 service-modal" onclick="closeServiceModalOnOutsideClick(event, 'modal-web')">
+    <div class="bg-surface rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto modal-scroll shadow-2xl border border-outline-variant transform scale-95 transition-transform duration-300 service-modal-content">
+        <div class="relative h-64 w-full">
+            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=1200&q=80" alt="Web Tasarım" class="w-full h-full object-cover">
+            <div class="absolute inset-0 hidden"></div>
+            <button onclick="closeServiceModal('modal-web')" class="absolute top-4 right-4 text-white bg-black/40 hover:bg-black/60 w-10 h-10 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="p-8 md:p-12 -mt-16 relative z-10">
+            <div class="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center text-on-primary mb-6 shadow-lg">
+                <span class="material-symbols-outlined text-3xl">desktop_windows</span>
+            </div>
+            <h3 class="font-headline-md text-3xl font-bold text-on-surface mb-4">Web Tasarım &amp; Geliştirme</h3>
+            <div class="prose max-w-none">
+                <p class="font-body-lg text-on-surface-variant leading-relaxed mb-6">
+                    Sizin için sadece internette var olan değil, gerçekten müşterilerinizin ilgisini çeken ve size yeni işler getiren web siteleri kuruyoruz. Ziyaretçileriniz sitenize girdiğinde aradığı bilgiye anında ulaşır, sayfalar arasında kaybolmaz. 
+                </p>
+                <p class="font-body-md text-on-surface-variant leading-relaxed mb-8">
+                    Modern ve şık tasarımımız sayesinde firmanız dijital dünyada çok daha profesyonel ve güvenilir görünür. Üstelik, sitenizi sadece güzel görünmesi için değil, aynı zamanda Google gibi arama motorlarında kolayca bulunmanızı sağlayacak çok sağlam ve hızlı bir altyapıyla teslim ediyoruz.
+                </p>
+            </div>
+            <div class="flex pt-6 border-t border-outline-variant/50">
+                <button onclick="closeServiceModal('modal-web'); openModal()" class="bg-primary text-on-primary px-8 py-4 rounded-full font-body-md hover:bg-primary-fixed-variant transition-all flex items-center gap-2 shadow-lg w-full md:w-auto justify-center">
+                    Bu Projeyi Başlat <span class="material-symbols-outlined">rocket_launch</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Mobil Uygulama Modalı -->
+<div id="modal-mobile" class="fixed inset-0 z-[110] flex items-center justify-center bg-black/40 backdrop-blur-md opacity-0 invisible transition-all duration-300 p-4 service-modal" onclick="closeServiceModalOnOutsideClick(event, 'modal-mobile')">
+    <div class="bg-surface rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto modal-scroll shadow-2xl border border-outline-variant transform scale-95 transition-transform duration-300 service-modal-content">
+        <div class="relative h-64 w-full">
+            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80" alt="Mobil Uygulama" class="w-full h-full object-cover">
+            <div class="absolute inset-0 hidden"></div>
+            <button onclick="closeServiceModal('modal-mobile')" class="absolute top-4 right-4 text-white bg-black/40 hover:bg-black/60 w-10 h-10 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="p-8 md:p-12 -mt-16 relative z-10">
+            <div class="w-16 h-16 rounded-2xl bg-surface-variant flex items-center justify-center text-primary mb-6 shadow-lg border border-outline-variant/50">
+                <span class="material-symbols-outlined text-3xl">phone_iphone</span>
+            </div>
+            <h3 class="font-headline-md text-3xl font-bold text-on-surface mb-4">Mobil Uygulama Tasarımı</h3>
+            <div class="prose max-w-none">
+                <p class="font-body-lg text-on-surface-variant leading-relaxed mb-6">
+                    Müşterilerinizin hemen hemen hepsi gününü cep telefonuyla geçiriyor. Neden sizin işletmeniz de onların cebinde olmasın?
+                </p>
+                <p class="font-body-md text-on-surface-variant leading-relaxed mb-8">
+                    Her yaş grubunun zorlanmadan, keyifle kullanabileceği modern Android ve iOS uygulamaları geliştiriyoruz. Kendi online mağazanızı açabilir, hizmetlerinize kolay randevu sistemleri ekleyebilir ya da müşterilerinize tek bir tuşla anlık bildirimler gönderebilirsiniz. Sadece bir uygulama değil, müşterilerinizle aranızda kesintisiz bir iletişim köprüsü kuruyoruz.
+                </p>
+            </div>
+            <div class="flex pt-6 border-t border-outline-variant/50">
+                <button onclick="closeServiceModal('modal-mobile'); openModal()" class="bg-primary text-on-primary px-8 py-4 rounded-full font-body-md hover:bg-primary-fixed-variant transition-all flex items-center gap-2 shadow-lg w-full md:w-auto justify-center">
+                    Bu Projeyi Başlat <span class="material-symbols-outlined">rocket_launch</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Yapay Zeka Modalı -->
+<div id="modal-ai" class="fixed inset-0 z-[110] flex items-center justify-center bg-black/40 backdrop-blur-md opacity-0 invisible transition-all duration-300 p-4 service-modal" onclick="closeServiceModalOnOutsideClick(event, 'modal-ai')">
+    <div class="bg-surface rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto modal-scroll shadow-2xl border border-outline-variant transform scale-95 transition-transform duration-300 service-modal-content">
+        <div class="relative h-64 w-full">
+            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80" alt="Yapay Zeka" class="w-full h-full object-cover">
+            <div class="absolute inset-0 hidden"></div>
+            <button onclick="closeServiceModal('modal-ai')" class="absolute top-4 right-4 text-white bg-black/40 hover:bg-black/60 w-10 h-10 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="p-8 md:p-12 -mt-16 relative z-10">
+            <div class="w-16 h-16 rounded-2xl bg-secondary-fixed flex items-center justify-center text-on-secondary mb-6 shadow-lg">
+                <span class="material-symbols-outlined text-3xl">psychology</span>
+            </div>
+            <h3 class="font-headline-md text-3xl font-bold text-on-surface mb-4">Yapay Zeka Çözümleri</h3>
+            <div class="prose max-w-none">
+                <p class="font-body-lg text-on-surface-variant leading-relaxed mb-6">
+                    Teknolojinin ulaştığı son nokta olan yapay zekayı, sizin işletmenizi büyütmek için kullanıyoruz. 
+                </p>
+                <p class="font-body-md text-on-surface-variant leading-relaxed mb-8">
+                    Örneğin; web sitenize veya WhatsApp hattınıza gece gündüz yorulmadan müşterilere mantıklı cevaplar veren, sipariş alan akıllı asistanlar (botlar) kurabiliriz. Ya da müşteri kayıtlarınızı saniyeler içinde inceleyip "hangi ürünü kime ne zaman satmalıyız" gibi tavsiyelerde bulunan sistemlerle, rakipleriniz henüz düşünürken siz uygulamaya geçmiş olursunuz.
+                </p>
+            </div>
+            <div class="flex pt-6 border-t border-outline-variant/50">
+                <button onclick="closeServiceModal('modal-ai'); openModal()" class="bg-primary text-on-primary px-8 py-4 rounded-full font-body-md hover:bg-primary-fixed-variant transition-all flex items-center gap-2 shadow-lg w-full md:w-auto justify-center">
+                    Bu Projeyi Başlat <span class="material-symbols-outlined">rocket_launch</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SaaS Modalı -->
+<div id="modal-saas" class="fixed inset-0 z-[110] flex items-center justify-center bg-black/40 backdrop-blur-md opacity-0 invisible transition-all duration-300 p-4 service-modal" onclick="closeServiceModalOnOutsideClick(event, 'modal-saas')">
+    <div class="bg-surface rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto modal-scroll shadow-2xl border border-outline-variant transform scale-95 transition-transform duration-300 service-modal-content">
+        <div class="relative h-64 w-full">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="SaaS Yazılımları" class="w-full h-full object-cover">
+            <div class="absolute inset-0 hidden"></div>
+            <button onclick="closeServiceModal('modal-saas')" class="absolute top-4 right-4 text-white bg-black/40 hover:bg-black/60 w-10 h-10 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="p-8 md:p-12 -mt-16 relative z-10">
+            <div class="w-16 h-16 rounded-2xl bg-surface-tint flex items-center justify-center text-on-primary mb-6 shadow-lg">
+                <span class="material-symbols-outlined text-3xl">cloud_done</span>
+            </div>
+            <h3 class="font-headline-md text-3xl font-bold text-on-surface mb-4">SaaS (Yazılım Hizmetleri)</h3>
+            <div class="prose max-w-none">
+                <p class="font-body-lg text-on-surface-variant leading-relaxed mb-6">
+                    Aklınızda harika bir iş fikri var ve bunu insanlara "aylık abonelik" sistemiyle satmak mı istiyorsunuz? Netflix veya Spotify gibi, kullanıcıların aylık para ödeyerek kullandığı bir sistem hayal edin.
+                </p>
+                <p class="font-body-md text-on-surface-variant leading-relaxed mb-8">
+                    İşte biz, sizin için baştan sona kusursuz çalışan bir yazılım platformu kuruyoruz. Yeni kullanıcıların kayıt olması, kredi kartıyla otomatik aylık ödeme yapmaları, şifre sıfırlama veya iptal işlemleri gibi tüm yorucu kısımlar tamamen hazır ve otomatik olarak size teslim edilir. Siz sadece fikrinizi insanlara ulaştırmaya odaklanırsınız.
+                </p>
+            </div>
+            <div class="flex pt-6 border-t border-outline-variant/50">
+                <button onclick="closeServiceModal('modal-saas'); openModal()" class="bg-primary text-on-primary px-8 py-4 rounded-full font-body-md hover:bg-primary-fixed-variant transition-all flex items-center gap-2 shadow-lg w-full md:w-auto justify-center">
+                    Bu Projeyi Başlat <span class="material-symbols-outlined">rocket_launch</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Otomasyon Modalı -->
+<div id="modal-automation" class="fixed inset-0 z-[110] flex items-center justify-center bg-black/40 backdrop-blur-md opacity-0 invisible transition-all duration-300 p-4 service-modal" onclick="closeServiceModalOnOutsideClick(event, 'modal-automation')">
+    <div class="bg-surface rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto modal-scroll shadow-2xl border border-outline-variant transform scale-95 transition-transform duration-300 service-modal-content">
+        <div class="relative h-64 w-full">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="İş Otomasyonu" class="w-full h-full object-cover">
+            <div class="absolute inset-0 hidden"></div>
+            <button onclick="closeServiceModal('modal-automation')" class="absolute top-4 right-4 text-white bg-black/40 hover:bg-black/60 w-10 h-10 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="p-8 md:p-12 -mt-16 relative z-10">
+            <div class="w-16 h-16 rounded-2xl bg-error flex items-center justify-center text-on-error mb-6 shadow-lg">
+                <span class="material-symbols-outlined text-3xl">precision_manufacturing</span>
+            </div>
+            <h3 class="font-headline-md text-3xl font-bold text-on-surface mb-4">İş Süreçleri Otomasyonu</h3>
+            <div class="prose max-w-none">
+                <p class="font-body-lg text-on-surface-variant leading-relaxed mb-6">
+                    Her gün aynı bilgileri excele girmekten, faturaları elle yazmaktan veya müşterilere tek tek randevu mesajı atmaktan yorulmadınız mı?
+                </p>
+                <p class="font-body-md text-on-surface-variant leading-relaxed mb-8">
+                    Tüm bu tekrarlayan, can sıkıcı işleri sizin yerinize saniyeler içinde yapacak arka plan yazılımları (robotlar) kuruyoruz. Sistem gelen e-postaları okur, verileri ilgili yere kaydeder, faturaları otomatik keser ve müşterilere hatırlatma mesajlarını kendi gönderir. Kısacası siz çayınızı yudumlarken, bilgisayarınız sizin yerinize çalışır ve ekibinize asıl önemli işler için çok büyük bir zaman kazandırır.
+                </p>
+            </div>
+            <div class="flex pt-6 border-t border-outline-variant/50">
+                <button onclick="closeServiceModal('modal-automation'); openModal()" class="bg-primary text-on-primary px-8 py-4 rounded-full font-body-md hover:bg-primary-fixed-variant transition-all flex items-center gap-2 shadow-lg w-full md:w-auto justify-center">
+                    Bu Projeyi Başlat <span class="material-symbols-outlined">rocket_launch</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Yapay Zeka Sohbet Asistanı (AI Chat Widget) -->
+<div id="ai-chat-widget" class="fixed bottom-24 left-4 md:left-6 z-50 flex flex-col items-start opacity-0 invisible transition-all duration-500 translate-y-10 scale-95 transform origin-bottom-left w-[calc(100%-2rem)] sm:w-auto">
+    <!-- Chat Window -->
+    <div class="glass-card rounded-2xl w-full sm:w-[400px] border border-white/40 overflow-hidden flex flex-col h-[550px] max-h-[75vh] mb-4 relative before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/60 before:to-white/20 before:-z-10 shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white p-4 flex justify-between items-center shadow-md relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] opacity-30"></div>
+            <div class="flex items-center gap-3 relative z-10">
+                <div class="w-10 h-10 bg-white/10 border border-white/20 rounded-full flex items-center justify-center backdrop-blur-md shadow-inner">
+                    <span class="material-symbols-outlined text-lg text-cyan-400">smart_toy</span>
+                </div>
+                <div>
+                    <h4 class="font-display-lg-mobile text-base font-bold tracking-tight">HKS Akıllı Asistan</h4>
+                    <div class="flex items-center gap-1.5 mt-0.5">
+                        <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                        <p class="text-[10px] text-slate-300 font-mono-data tracking-wider uppercase">Çevrimiçi</p>
+                    </div>
+                </div>
+            </div>
+            <button onclick="toggleAIChat()" class="hover:bg-white/20 rounded-full p-2 transition-colors relative z-10">
+                <span class="material-symbols-outlined text-sm">close</span>
+            </button>
+        </div>
+
+        <!-- Messages Area -->
+        <div id="chat-messages" class="flex-grow p-5 overflow-y-auto flex flex-col gap-4 scroll-smooth">
+            <!-- Initial Message -->
+            <div class="flex flex-col gap-1 items-start max-w-[85%] animate-fade-in">
+                <div class="bg-white/80 backdrop-blur-md border border-white/60 text-slate-800 p-3.5 rounded-2xl rounded-tl-sm text-[15px] leading-relaxed shadow-sm">
+                    Merhaba! 👋 Ben HKS Digital'in yapay zeka asistanıyım. Web tasarımı, uygulamalar, otomasyon veya fiyatlarımız hakkında merak ettiğiniz her şeyi bana sorabilirsiniz. Size nasıl yardımcı olabilirim?
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="p-4 bg-white/40 backdrop-blur-md border-t border-white/50">
+            <form id="chat-form" class="flex items-center gap-2 relative" onsubmit="handleChatSubmit(event)">
+                <input type="text" id="chat-input" placeholder="Bana bir şey sorun..." class="flex-grow bg-white/70 border border-slate-200 rounded-full pl-5 pr-12 py-3 text-[15px] focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-slate-800 shadow-inner transition-all placeholder:text-slate-400" autocomplete="off">
+                <button type="submit" id="chat-submit-btn" class="absolute right-1.5 top-1/2 -translate-y-1/2 bg-primary text-white w-9 h-9 rounded-full flex items-center justify-center hover:bg-primary-fixed-variant transition-transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:scale-100 shadow-md">
+                    <span class="material-symbols-outlined text-sm" style="margin-left: 2px;">send</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- AI Chat Toggle Button (Peeking Robot) -->
+<div class="fixed bottom-0 left-6 z-40 group cursor-pointer animate-robot-float" onclick="toggleAIChat()" id="ai-chat-toggle">
+    <!-- Robot Body (Yüzen Animasyon Wrapper'da) -->
+    <div class="relative bg-gradient-to-b from-slate-800 to-slate-900 border-t border-l border-r border-slate-700/50 rounded-t-[24px] px-5 pt-4 pb-0 shadow-[0_0_30px_rgba(0,0,0,0.3)] flex flex-col items-center justify-center h-16 w-20 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+        
+        <!-- Antenna -->
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-1 h-3 bg-slate-600"></div>
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-red-500 rounded-full group-hover:bg-secondary group-hover:shadow-[0_0_10px_#10b981] transition-colors"></div>
+
+        <!-- Eyes -->
+        <div class="flex gap-3 mb-2 transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110">
+            <div class="w-3.5 h-3.5 bg-cyan-400 rounded-full shadow-[0_0_12px_#22d3ee] animate-pulse"></div>
+            <div class="w-3.5 h-3.5 bg-cyan-400 rounded-full shadow-[0_0_12px_#22d3ee] animate-pulse" style="animation-delay: 0.2s;"></div>
+        </div>
+        
+        <!-- Tooltip -->
+        <div class="absolute -top-16 left-1/2 -translate-x-1/2 bg-white text-slate-800 text-sm px-4 py-2 rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap shadow-xl font-bold border border-slate-100 before:content-[''] before:absolute before:-bottom-1.5 before:left-1/2 before:-translate-x-1/2 before:border-l-[6px] before:border-r-[6px] before:border-t-[6px] before:border-transparent before:border-t-white transform group-hover:-translate-y-2">
+            Sorunuz mu var? 👋
+        </div>
+    </div>
+</div>
+
 <!-- Sabit İletişim Baloncukları (Sticky Social Widget) -->
 <div class="fixed bottom-6 right-6 flex flex-col gap-3 z-40">
+    <!-- GitHub -->
+    <a href="https://github.com/kaamilsaglam" target="_blank" class="w-14 h-14 bg-slate-900 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-slate-800 hover:scale-110 transition-all group relative border border-slate-700">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+        <span class="absolute right-16 bg-surface-variant text-on-surface text-xs px-3 py-1.5 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap shadow-xl border border-outline-variant">GitHub</span>
+    </a>
     <!-- E-Posta -->
-    <a href="mailto:iletisim@ornek.com" class="w-14 h-14 bg-white text-gray-800 rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.1)] hover:bg-gray-100 hover:scale-110 transition-all group relative border border-gray-200">
+    <a href="mailto:kaamilsaglam@gmail.com" class="w-14 h-14 bg-surface text-on-surface rounded-full flex items-center justify-center shadow-lg hover:bg-surface-container hover:scale-110 transition-all group relative border border-outline-variant">
         <span class="material-symbols-outlined text-2xl">mail</span>
-        <span class="absolute right-16 bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap shadow-lg">E-posta Gönder</span>
+        <span class="absolute right-16 bg-surface-variant text-on-surface text-xs px-3 py-1.5 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap shadow-xl border border-outline-variant">E-posta Gönder</span>
     </a>
     <!-- Instagram -->
-    <a href="https://instagram.com" target="_blank" class="w-14 h-14 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(220,39,67,0.3)] hover:opacity-90 hover:scale-110 transition-all group relative">
+    <a href="https://instagram.com/kaamilsaglam" target="_blank" class="w-14 h-14 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(220,39,67,0.3)] hover:opacity-90 hover:scale-110 transition-all group relative">
         <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069ZM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0Zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881Z"/></svg>
-        <span class="absolute right-16 bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap shadow-lg">Instagram</span>
+        <span class="absolute right-16 bg-surface-variant text-on-surface text-xs px-3 py-1.5 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap shadow-xl border border-outline-variant">Instagram</span>
     </a>
     <!-- WhatsApp -->
-    <a href="https://wa.me/905555555555" target="_blank" class="w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(37,211,102,0.3)] hover:bg-[#20b958] hover:scale-110 transition-all group relative">
+    <a href="https://wa.me/905431629379" target="_blank" class="w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(37,211,102,0.3)] hover:bg-[#20b958] hover:scale-110 transition-all group relative">
         <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 21.054c-1.639 0-3.238-.432-4.662-1.246l-5.17 1.35 1.373-5.025a9.771 9.771 0 0 1-1.341-4.99C2.231 5.253 7.027.457 12.031.457c4.896 0 9.799 4.8 9.799 10.686 0 5.887-4.903 9.911-9.799 9.911Zm-4.88-3.088c1.376.814 3.012 1.258 4.795 1.258 4.811 0 7.971-3.486 7.971-8.083 0-4.6-3.16-8.086-7.971-8.086-4.814 0-7.975 3.486-7.975 8.086 0 1.57.404 3.109 1.164 4.457l-.92 3.375 3.456-.902l-.52-.105Zm7.982-5.467c-.201-.102-1.189-.588-1.373-.655-.185-.067-.32-.102-.454.102-.134.204-.52.655-.637.791-.117.135-.235.153-.436.05-1.109-.567-1.99-1.284-2.735-2.613-.117-.204.054-.187.25-.386.1-.102.217-.253.318-.386.101-.135.134-.236.201-.386.067-.152.034-.287-.017-.389-.05-.102-.454-1.096-.622-1.503-.168-.407-.338-.352-.454-.358-.116-.006-.25-.006-.385-.006-.134 0-.352.05-.536.254-.184.204-.704.688-.704 1.678 0 .99.721 1.948.822 2.083.1.135 1.422 2.17 3.444 3.042.482.208.859.332 1.152.425.485.153.927.131 1.275.08.39-.058 1.189-.486 1.356-.955.167-.47.167-.872.117-.955-.05-.083-.184-.135-.385-.237Z"/></svg>
-        <span class="absolute right-16 bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap shadow-lg">WhatsApp</span>
+        <span class="absolute right-16 bg-surface-variant text-on-surface text-xs px-3 py-1.5 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap shadow-xl border border-outline-variant">WhatsApp</span>
     </a>
 </div>
 
 <script>
-    // Menü Arkaplan Efekti
+    // SPA Sayfa Geçiş Sistemi
+    function showSection(sectionId) {
+        // Tüm section'ları gizle
+        document.querySelectorAll('.page-section').forEach(sec => {
+            sec.classList.add('hidden');
+            sec.classList.remove('animate-fade-in');
+        });
+        
+        // İstenen section'ı göster
+        const target = document.getElementById(sectionId);
+        if(target) {
+            target.classList.remove('hidden');
+            void target.offsetWidth; // Reflow tetikle
+            target.classList.add('animate-fade-in');
+        }
+        
+        // Yukarı kaydır
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Header Arkaplan Efekti
     document.addEventListener('DOMContentLoaded', () => {
         const header = document.getElementById('main-header');
         
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 header.classList.add('shadow-md');
-                header.classList.replace('bg-surface/70', 'bg-surface/90');
+                header.classList.replace('bg-surface/80', 'bg-surface/95');
+                header.classList.add('border-b', 'border-outline-variant/50');
             } else {
                 header.classList.remove('shadow-md');
-                header.classList.replace('bg-surface/90', 'bg-surface/70');
+                header.classList.replace('bg-surface/95', 'bg-surface/80');
+                header.classList.remove('border-b', 'border-outline-variant/50');
             }
         });
 
@@ -635,10 +948,10 @@ function sistemi_hizlandir() {
         });
     });
 
-    // İletişim Modalı Kontrolleri
+    // Ana İletişim Modalı Kontrolleri
     function openModal() {
         const modal = document.getElementById('contact-modal');
-        const content = document.getElementById('contact-modal-content');
+        const content = modal.querySelector('.contact-modal-content');
         modal.classList.remove('opacity-0', 'invisible');
         content.classList.remove('scale-95');
         content.classList.add('scale-100');
@@ -646,16 +959,230 @@ function sistemi_hizlandir() {
 
     function closeModal() {
         const modal = document.getElementById('contact-modal');
-        const content = document.getElementById('contact-modal-content');
+        const content = modal.querySelector('.contact-modal-content');
         modal.classList.add('opacity-0', 'invisible');
         content.classList.remove('scale-100');
         content.classList.add('scale-95');
     }
 
-    // Modal dışına tıklandığında kapatma
+    // Ana Modal dışına tıklandığında kapatma
     document.getElementById('contact-modal').addEventListener('click', function(e) {
         if(e.target === this) closeModal();
     });
+
+    // Hizmet Modalları Kontrolleri
+    function openServiceModal(id) {
+        const modal = document.getElementById(id);
+        const content = modal.querySelector('.service-modal-content');
+        modal.classList.remove('opacity-0', 'invisible', 'hidden');
+        
+        // Küçük bir gecikme ile animasyonu tetikle
+        setTimeout(() => {
+            content.classList.remove('scale-95');
+            content.classList.add('scale-100');
+        }, 10);
+    }
+
+    function closeServiceModal(id) {
+        const modal = document.getElementById(id);
+        const content = modal.querySelector('.service-modal-content');
+        content.classList.remove('scale-100');
+        content.classList.add('scale-95');
+        modal.classList.add('opacity-0', 'invisible');
+        
+        // Animasyon bitiminde hidden class'ını geri ekle
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 300);
+    }
+
+    // Hizmet Modalları dışına tıklandığında kapatma
+    function closeServiceModalOnOutsideClick(e, id) {
+        const modal = document.getElementById(id);
+        if(e.target === modal) {
+            closeServiceModal(id);
+        }
+    }
+
+    // --- YAPAY ZEKA SOHBET ASİSTANI (YEREL AKILLI BOT) ---
+    // Güvenlik ve API sorunlarını aşmak için bot, HKS Digital'e özel kural tabanlı çalışır.
+    
+    let chatHistory = [
+        {
+            role: "model",
+            text: "Merhaba! Ben HKS Digital yapay zeka asistanıyım. Size web tasarımı, mobil uygulama veya otomasyon konularında nasıl yardımcı olabilirim? İşletmeniz için ne gibi bir dijital çözüm arıyorsunuz?"
+        }
+    ];
+
+    function toggleAIChat() {
+        const widget = document.getElementById('ai-chat-widget');
+        const toggleBtn = document.getElementById('ai-chat-toggle');
+        
+        if (widget.classList.contains('opacity-0')) {
+            widget.classList.remove('opacity-0', 'invisible', 'translate-y-10', 'scale-95');
+            toggleBtn.classList.add('translate-y-16'); // Robotu aşağı gizle
+        } else {
+            widget.classList.add('opacity-0', 'invisible', 'translate-y-10', 'scale-95');
+            toggleBtn.classList.remove('translate-y-16');
+        }
+    }
+
+    function addMessageToUI(text, isUser) {
+        const msgArea = document.getElementById('chat-messages');
+        const wrapper = document.createElement('div');
+        wrapper.className = `flex flex-col gap-1 max-w-[85%] animate-fade-in ${isUser ? 'items-end self-end' : 'items-start self-start'}`;
+        
+        const bubble = document.createElement('div');
+        bubble.className = `p-3.5 rounded-2xl text-[15px] leading-relaxed shadow-sm ${
+            isUser 
+            ? 'bg-gradient-to-r from-primary to-primary-fixed-variant text-white rounded-tr-sm' 
+            : 'bg-white/80 backdrop-blur-md border border-white/60 text-slate-800 rounded-tl-sm'
+        }`;
+        bubble.textContent = text;
+        
+        wrapper.appendChild(bubble);
+        msgArea.appendChild(wrapper);
+        
+        msgArea.scrollTop = msgArea.scrollHeight;
+    }
+
+    // Akıllı Yanıt Üretici (Sonsuz Olasılık ve Otomatik Satış Kurgusu)
+    function generateSmartResponse(input) {
+        const text = input.toLowerCase();
+        
+        // --- ÖZEL TETİKLEYİCİ: SATIŞ KAPANIŞI VE WHATSAPP YÖNLENDİRMESİ ---
+        const startProjectKeywords = ['tamam', 'kabul', 'anlaştık', 'başla', 'başlıyoruz', 'işe koyulalım', 'hesap numarası', 'satın', 'projeyi başlat', 'nasıl başlıyoruz', 'çalışalım', 'anlaşma'];
+        if (startProjectKeywords.some(kw => text.includes(kw))) {
+            return {
+                text: "Harika bir karar! Projenizi hayata geçirmek için sabırsızlanıyoruz. 🚀 Sizi hemen detayları konuşmak üzere kurucumuz Kamil Bey'in WhatsApp hattına yönlendiriyorum... (Lütfen bekleyin)",
+                redirect: true
+            };
+        }
+
+        // --- 1. FİRMA VİZYONU, GÜVEN VE REFERANS ---
+        if (text.includes('neden siz') || text.includes('farkınız') || text.includes('vizyon') || text.includes('amacınız')) {
+            return { text: "HKS Digital olarak sıradan, birbirinin kopyası işler yapmayız. Genç, dinamik ve yenilikçi yapımızla; markanızı dijitalde bir adım öne çıkaracak, rakiplerinizi kıskandıracak butik ve şeffaf projeler üretiyoruz." };
+        }
+        else if (text.includes('güven') || text.includes('garanti') || text.includes('referans') || text.includes('sözleşme')) {
+            return { text: "Güven bizim en büyük sermayemizdir. Tüm projelerimizi resmi sözleşmelerle güvence altına alıyor, teslimata kadar kendi test sunucularımızda şeffaf bir şekilde ilerlemeyi size raporluyoruz." };
+        }
+        else if (text.includes('revizyon') || text.includes('değişiklik') || text.includes('beğenmezsem') || text.includes('iptal')) {
+            return { text: "Tasarım aşamasında sizin içiniz tamamen rahat edene kadar fikirlerinizi dinliyor ve esnek revizyon hakları sunuyoruz. Amacımız sadece işi bitirmek değil, sizin 'işte bu!' demenizi sağlamak." };
+        }
+        else if (text.includes('destek') || text.includes('bakım') || text.includes('bozulursa') || text.includes('sonrası')) {
+            return { text: "Projeyi teslim edip ortadan kaybolanlardan değiliz. Teslimat sonrasında da oluşabilecek teknik sorunlara karşı arkanızdayız. Aylık veya yıllık bakım anlaşmalarıyla sisteminizi her an güncel tutuyoruz." };
+        }
+        
+        // --- 2. TEKNİK & SEKTÖREL BİLGİ ---
+        else if (text.includes('seo') || text.includes('google') || text.includes('arama') || text.includes('yükselmek') || text.includes('sıralama')) {
+            return { text: "Google'da üst sıralara çıkmak tesadüf değildir! Sitelerimizin kod mimarisini Google'ın en sevdiği güncel SEO standartlarına uygun (hızlı, anlamsal ve mobil odaklı) inşa ediyoruz." };
+        }
+        else if (text.includes('reklam') || text.includes('pazarlama') || text.includes('ads') || text.includes('instagram reklam') || text.includes('meta')) {
+            return { text: "Harika bir web siteniz olabilir ama onu kimse görmezse bir anlamı kalmaz. İşletmenize özel Google Ads ve Meta (Instagram/Facebook) reklam stratejileri ile satışlarınızı patlatabiliriz." };
+        }
+        else if (text.includes('domain') || text.includes('hosting') || text.includes('alan adı') || text.includes('sunucu') || text.includes('isim alma')) {
+            return { text: "Domain (alan adı) ve hosting (sunucu) gibi karmaşık teknik terimlerle sizi hiç yormuyoruz. İsterseniz markanızın ismini alıyor, en hızlı bulut sunuculara sitenizi biz kuruyoruz." };
+        }
+        else if (text.includes('güvenlik') || text.includes('hack') || text.includes('ssl') || text.includes('kredi kartı')) {
+            return { text: "Sistemlerimizde banka düzeyinde SSL şifreleme ve üst düzey güvenlik duvarları kullanıyoruz. Özellikle e-ticaret sitelerinde müşterilerinizin kredi kartı bilgileri %100 güvence altındadır." };
+        }
+        else if (text.includes('tasarım') || text.includes('ui') || text.includes('ux') || text.includes('logo') || text.includes('görsel')) {
+            return { text: "Modern dünyada tasarım her şeydir! Kullanıcıları (UX) yormayan, premium hissiyatlı ve görsel olarak (UI) markanızın karakterini yansıtan akılda kalıcı arayüzler çiziyoruz." };
+        }
+        else if (text.includes('teknoloji') || text.includes('altyapı') || text.includes('dil') || text.includes('react') || text.includes('yazılım dili')) {
+            return { text: "Dünyanın en büyük teknoloji devlerinin kullandığı güncel altyapıları kullanıyoruz. İhtiyaca göre React, Next.js, TailwindCSS, Node.js veya Python ile hızlı, güvenli ve ölçeklenebilir sistemler kuruyoruz." };
+        }
+
+        // --- 3. TEMEL HİZMETLER ---
+        else if (text.includes('web') || text.includes('site') || text.includes('internet')) {
+            return { text: "Mükemmel! Modern, şimşek hızında ve mobil cihazlara tam uyumlu kurumsal veya kişisel web siteleri tasarlıyoruz. Ne tarz bir site hayal ediyorsunuz?" };
+        } 
+        else if (text.includes('e-ticaret') || text.includes('satış') || text.includes('mağaza') || text.includes('ürün')) {
+            return { text: "E-ticaret bizim oyun alanımız! Müşterilerinizin PayTR, iyzico gibi sistemlerle güvenle ödeme yapabileceği, kargo entegrasyonlu devasa satış mağazaları (SaaS veya Özel) kuruyoruz." };
+        }
+        else if (text.includes('mobil') || text.includes('app') || text.includes('uygulama') || text.includes('android') || text.includes('ios')) {
+            return { text: "Cebimizdeki dünya! Hem iPhone (iOS) hem de Android cihazlar için kusursuz çalışan, çarpıcı mobil uygulamalar geliştiriyoruz. App Store ve Play Store süreci bizde!" };
+        }
+        else if (text.includes('saas') || text.includes('abonelik') || text.includes('yazılım')) {
+            return { text: "SaaS (Aylık Abonelikli Yazılım) işleri bizim tutkumuz. Üye kayıt sisteminden, aylık otomatik kredi kartı çekimine kadar tüm altyapıyı size hazır teslim ediyoruz." };
+        }
+        else if (text.includes('yapay zeka') || text.includes('ai') || text.includes('asistan') || text.includes('chatgpt')) {
+            return { text: "Tıpkı benim gibi! İşletmenize özel veritabanıyla eğitilmiş yapay zeka asistanları (Gemini/OpenAI altyapılı) geliştirerek müşteri destek veya satış süreçlerinizi otopilota bağlıyoruz." };
+        }
+        else if (text.includes('otomasyon') || text.includes('robot') || text.includes('fatura') || text.includes('excel')) {
+            return { text: "İş yükünüzü sıfırlıyoruz! Her gün elle yaptığınız excel girişleri, fatura kesimleri veya e-posta gönderimleri gibi sıkıcı işleri saniyeler içinde yapan yazılım robotları tasarlıyoruz." };
+        }
+
+        // --- 4. KİŞİSEL & LOKASYON ---
+        else if (text.includes('kamil') || text.includes('kimsin') || text.includes('kurucu') || text.includes('kimdir')) {
+            return { text: "Kamil Sağlam, HKS Digital'in kurucusu ve vizyoneridir. Kendisi Necmettin Erbakan Üniversitesi Matematik ve Bilgisayar Bilimleri öğrencisidir. Genç yaşına rağmen derin bir dijital zekayla ekibe liderlik ediyor." };
+        }
+        else if (text.includes('nerede') || text.includes('adres') || text.includes('konum') || text.includes('ofis') || text.includes('şehir')) {
+            return { text: "Bizim ofisimiz tüm dünya! Tamamen dijital ve remote (uzaktan) çalışarak Türkiye'nin ve dünyanın dört bir yanına hizmet veriyoruz. İletişim kopukluğu olmadan projeleri dijitalde mükemmel yönetiyoruz." };
+        }
+        else if (text.includes('iletişim') || text.includes('telefon') || text.includes('numara') || text.includes('ulaş')) {
+            return { text: "Bizimle doğrudan iletişime geçmek için sağ alttaki yeşil WhatsApp butonunu (0543 162 93 79) kullanabilir veya kaamilsaglam@gmail.com adresine mail atabilirsiniz. Hemen yanıt veririz." };
+        }
+
+        // --- 5. FİYAT VE SÜREÇ ---
+        else if (text.includes('fiyat') || text.includes('ücret') || text.includes('ne kadar') || text.includes('maliyet') || text.includes('pahalı') || text.includes('bütçe')) {
+            return { text: "Her proje parmak izi gibi eşsizdir, bu yüzden ezbere fiyat vermek sizi yanıltır. İhtiyaçlarınızı dinleyip size özel ve en verimli bütçeyi sunabilmemiz için sağ alttaki WhatsApp ikonundan Kamil Bey'e ulaşabilirsiniz." };
+        }
+        else if (text.includes('süre') || text.includes('zaman') || text.includes('ne zaman') || text.includes('teslim')) {
+            return { text: "Basit kurumsal siteleri 1-2 haftada teslim ederken, devasa e-ticaret veya SaaS projeleri birkaç ay sürebilir. Sözleşmede belirttiğimiz gün ve saatte, hatasız teslimat en katı kuralımızdır." };
+        }
+
+        // --- 6. GÜNLÜK DİL (NLP) ---
+        else if (text.includes('merhaba') || text.includes('selam') || text.includes('slm') || text.includes('hey')) {
+            return { text: "Merhaba! 🎉 HKS Digital dünyasına hoş geldiniz. Ben markanızı dijitalde zirveye taşımak için buradayım. Bugün size hangi konuda (Web, App, AI vb.) yardımcı olabilirim?" };
+        }
+        else if (text.includes('nasılsın') || text.includes('naber')) {
+            return { text: "Ben harikayım, teşekkürler! Elektronik beynimle sizin işinizi nasıl büyütebileceğimizi hesaplıyorum. Siz nasılsınız, dijitaldeki hedefleriniz neler?" };
+        }
+        else if (text.includes('teşekkür') || text.includes('sağol') || text.includes('tşk')) {
+            return { text: "Rica ederim! HKS Digital olarak sizin yanınızda olmaktan gurur duyuyoruz. Aklınıza takılan en ufak bir şey olursa ben 7/24 buradayım! 🚀" };
+        }
+
+        // --- 7. HATA YAKALAMA (FALLBACK) ---
+        else {
+            return { text: "Söyledikleriniz inanılmaz ilgimi çekti! Fakat bu kadar spesifik ve vizyoner bir projeyi analiz edebilmem için insan zekasına ihtiyacımız var. Sağ alttaki WhatsApp butonuyla kurucumuz Kamil Bey'e ulaşırsanız size kusursuz bir çözüm sunacaktır!" };
+        }
+    }
+
+    async function handleChatSubmit(e) {
+        e.preventDefault();
+        const input = document.getElementById('chat-input');
+        const submitBtn = document.getElementById('chat-submit-btn');
+        const userText = input.value.trim();
+        
+        if (!userText) return;
+
+        // Kullanıcı mesajını ekle
+        addMessageToUI(userText, true);
+        input.value = "";
+        submitBtn.disabled = true;
+        
+        chatHistory.push({ role: "user", text: userText });
+
+        // Botun yazıyor gibi görünmesi için kısa bir gecikme ekle
+        setTimeout(() => {
+            const responseData = generateSmartResponse(userText);
+            addMessageToUI(responseData.text, false);
+            chatHistory.push({ role: "model", text: responseData.text });
+            
+            submitBtn.disabled = false;
+            document.getElementById('chat-input').focus();
+            
+            // Eğer WhatsApp yönlendirme sinyali geldiyse
+            if (responseData.redirect) {
+                setTimeout(() => {
+                    // Sayfayı WhatsApp api'ye yönlendir
+                    window.location.href = "https://wa.me/905431629379?text=Merhaba%2C%20projeyi%20ba%C5%9Flatmak%20istiyorum.";
+                }, 2500); // Kullanıcının mesajı okuması için 2.5 saniye bekle
+            }
+            
+        }, 800); // 0.8 saniye gecikme
+    }
 </script>
 </body>
 </html>
