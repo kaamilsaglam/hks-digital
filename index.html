@@ -75,6 +75,11 @@
     </script>
     <style>
         /* Base styles */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             -webkit-font-smoothing: antialiased;
@@ -260,8 +265,8 @@ arayuz.baslat();</code></pre>
     <!-- Ana Karşılama Bölümü (Hero) -->
     <section id="hero" class="page-section relative min-h-[85vh] flex items-center animate-fade-in">
         <div class="absolute inset-0 bg-pattern -z-10 opacity-30"></div>
-        <div class="absolute top-1/4 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10 floating-element"></div>
-        <div class="absolute bottom-1/4 left-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -z-10 floating-element" style="animation-delay: -3s;"></div>
+        <div class="absolute top-1/4 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10 floating-element hidden md:block"></div>
+        <div class="absolute bottom-1/4 left-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -z-10 floating-element hidden md:block" style="animation-delay: -3s;"></div>
         
         <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-element-gap-md items-center py-20">
             <div class="lg:col-span-7 flex flex-col gap-8 z-10 relative">
@@ -482,8 +487,8 @@ function harika_sistem_kur(fikirleriniz) {
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 bg-inverse-surface p-8 rounded-[2rem] shadow-2xl relative overflow-hidden">
-            <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] pointer-events-none"></div>
-            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-[100px] pointer-events-none"></div>
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] pointer-events-none hidden md:block"></div>
+            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-[100px] pointer-events-none hidden md:block"></div>
             
             <div class="md:col-span-7 bg-inverse-on-surface/5 border border-inverse-on-surface/10 rounded-3xl p-8 backdrop-blur-md hover:bg-inverse-on-surface/10 transition-colors group shadow-xl z-10">
                 <div class="flex justify-between items-center mb-6">
@@ -580,7 +585,7 @@ function sistemi_hizlandir() {
 <!-- Footer -->
 <footer class="w-full py-16 bg-[#020617] relative overflow-hidden mt-auto">
     <div class="absolute inset-0 bg-pattern opacity-10"></div>
-    <div class="absolute top-0 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
+    <div class="absolute top-0 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none hidden md:block"></div>
     
     <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary-fixed to-primary"></div>
     <div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-4 gap-element-gap-md relative z-10">
@@ -946,11 +951,13 @@ function sistemi_hizlandir() {
             }
         });
 
-        // Parallax Efekti - Optimize edilmiş (Akıcılık için requestAnimationFrame)
+        // Parallax Efekti - Sadece masaüstünde çalışsın (Mobil performans için)
         const parallaxElements = document.querySelectorAll('.parallax-element');
         let ticking = false;
 
         window.addEventListener('scroll', () => {
+            if (window.innerWidth <= 768) return; // Mobilde Parallax iptal
+            
             if (!ticking) {
                 window.requestAnimationFrame(() => {
                     const scrolled = window.scrollY;
