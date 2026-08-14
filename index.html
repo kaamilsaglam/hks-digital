@@ -233,7 +233,7 @@
 <div class="w-full max-w-[100vw] overflow-x-hidden relative flex flex-col min-h-[100dvh]">
 
 <!-- Parallax Arkapan Yazıları (Global) -->
-<div class="fixed inset-0 z-0 pointer-events-none overflow-hidden" id="parallax-container">
+<div class="fixed inset-0 z-0 pointer-events-none overflow-hidden hidden md:block" id="parallax-container">
     <div class="parallax-element absolute top-[15%] left-[5%] text-primary/60 font-semibold font-mono-data text-sm" data-speed="-0.15">
 <pre><code>// Tasarım başarıyla oluşturuldu</code></pre>
     </div>
@@ -291,7 +291,7 @@ arayuz.baslat();</code></pre>
     </div>
     
     <!-- Mobil Menü Dropdown -->
-    <div id="mobile-menu" class="fixed top-[72px] left-0 w-full bg-surface/98 dark:bg-slate-900/98 backdrop-blur-xl border-b border-outline-variant/50 shadow-[0_20px_40px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_40px_rgba(0,0,0,0.6)] transform -translate-y-4 scale-95 opacity-0 invisible transition-all duration-500 ease-out origin-top z-40 md:hidden flex flex-col p-6 gap-3 rounded-b-3xl">
+    <div id="mobile-menu" class="fixed top-[72px] left-0 w-full bg-surface dark:bg-slate-900 border-b border-outline-variant/50 shadow-[0_20px_40px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_40px_rgba(0,0,0,0.6)] transform -translate-y-4 scale-95 opacity-0 invisible transition-all duration-500 ease-out origin-top z-40 md:hidden flex flex-col p-6 gap-3 rounded-b-3xl">
         <a class="nav-link-mobile font-body-md text-primary bg-primary/10 px-4 py-3 rounded-xl transition-all font-semibold cursor-pointer dark:bg-primary/20 dark:text-blue-300" onclick="showSection('hero'); toggleMobileMenu()">Ana Sayfa</a>
         <a class="nav-link-mobile font-body-md text-on-surface hover:text-primary hover:bg-surface-container px-4 py-3 rounded-xl transition-all font-medium cursor-pointer dark:text-slate-200 dark:hover:bg-slate-800" onclick="showSection('services'); toggleMobileMenu()">Hizmetler</a>
         <a class="nav-link-mobile font-body-md text-on-surface hover:text-primary hover:bg-surface-container px-4 py-3 rounded-xl transition-all font-medium cursor-pointer dark:text-slate-200 dark:hover:bg-slate-800" onclick="showSection('about'); toggleMobileMenu()">Hakkımda</a>
@@ -1357,7 +1357,7 @@ function harika_sistem_kur(fikirleriniz) {
     // Sayfa yüklendiğinde temayı kontrol et
     document.addEventListener('DOMContentLoaded', () => {
         const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        if (savedTheme === 'dark') {
             applyTheme(true);
         } else {
             applyTheme(false);
