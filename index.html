@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta name="theme-color" content="#f8fafc" id="theme-color-meta"/>
     <title>HKS Digital - Tasarım &amp; Yazılım Ajansı</title>
     <!-- Material Symbols -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -228,7 +229,7 @@
         }
     </style>
 </head>
-<body class="animated-bg text-on-background min-h-[100dvh] flex flex-col pt-20 overflow-x-hidden">
+<body class="animated-bg text-on-background dark:bg-[#020617] dark:text-white min-h-[100dvh] flex flex-col pt-20 overflow-x-hidden">
 <!-- Mobil Taşkın Önleyici Wrapper -->
 <div class="w-full max-w-[100vw] overflow-x-hidden relative flex flex-col min-h-[100dvh]">
 
@@ -285,7 +286,7 @@ arayuz.baslat();</code></pre>
         </div>
         
         <!-- Mobil Menü Butonu -->
-        <button class="md:hidden text-on-surface p-2 rounded-full hover:bg-surface-container transition-colors" id="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <button class="md:hidden text-on-surface dark:text-white p-2 rounded-full hover:bg-surface-container dark:hover:bg-slate-800 transition-colors z-[100] relative" id="mobile-menu-btn" onclick="toggleMobileMenu()">
             <span class="material-symbols-outlined">menu</span>
         </button>
     </div>
@@ -481,7 +482,7 @@ function harika_sistem_kur(fikirleriniz) {
                 <div class="w-full aspect-square relative floating-element">
                     <div class="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full blur-3xl opacity-10"></div>
                     <div class="absolute inset-4 glass-card rounded-3xl border border-outline-variant flex flex-col justify-center p-0 transform rotate-3 hover:rotate-0 transition-transform duration-500 overflow-hidden">
-                        <img src="profil.jpg" alt="Hacı Kamil Sağlam" class="w-full h-full object-cover">
+                        <img src="profil.jpg" alt="Hacı Kamil Sağlam" loading="lazy" class="w-full h-full object-cover">
                     </div>
                     <div class="absolute -bottom-6 -right-6 glass-card px-6 py-4 rounded-xl border border-outline-variant shadow-lg backdrop-blur-xl dark:border-slate-700">
                         <div class="font-label-caps text-primary tracking-widest uppercase mb-1">EĞİTİM</div>
@@ -630,7 +631,7 @@ function harika_sistem_kur(fikirleriniz) {
     <div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-4 gap-element-gap-md relative z-10">
         <div class="md:col-span-1 flex flex-col gap-6">
             <a class="font-display-lg text-headline-md text-white flex items-center gap-2 cursor-pointer" onclick="showSection('hero')">
-                <img alt="HKS Digital Logo" class="h-10 w-auto rounded-md hover:opacity-90 transition-opacity shadow-[0_0_15px_rgba(255,255,255,0.1)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCydOotfXqWJ-CHw8g9q5Q4l7QfFVWC1_c-EpVyWf76CkiR9yeJ9rHCT7eI96ySeQ3WgvXsYGL59PpTZNJZn5OhngbUWXvcIfHAu1hGvZ2LK6sTDwUNbfSCzod8tIrITRALQnMEau2cFeJBCg-vN6_12LdwMt3KZ1lR_ogLhXKLg8Pj8cluC4Rtc6g588esCxGrBr1Y5fuwTbi2mvcPU8KokzF_G6q5H6PAh0E-V6eYru2ePtUvKj3GFQ"/>
+                <img alt="HKS Digital Logo" loading="lazy" class="h-10 w-auto rounded-md hover:opacity-90 transition-opacity shadow-[0_0_15px_rgba(255,255,255,0.1)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCydOotfXqWJ-CHw8g9q5Q4l7QfFVWC1_c-EpVyWf76CkiR9yeJ9rHCT7eI96ySeQ3WgvXsYGL59PpTZNJZn5OhngbUWXvcIfHAu1hGvZ2LK6sTDwUNbfSCzod8tIrITRALQnMEau2cFeJBCg-vN6_12LdwMt3KZ1lR_ogLhXKLg8Pj8cluC4Rtc6g588esCxGrBr1Y5fuwTbi2mvcPU8KokzF_G6q5H6PAh0E-V6eYru2ePtUvKj3GFQ"/>
             </a>
             <p class="font-body-md text-body-md text-slate-400 max-w-xs leading-relaxed">
                 Karmaşıklığı sadeliğe dönüştüren teknoloji partneriniz. Sizin için sadece web sitesi değil, dijital sistemler tasarlıyoruz.
@@ -731,7 +732,7 @@ function harika_sistem_kur(fikirleriniz) {
 <div id="modal-web" class="fixed inset-0 z-[110] flex items-center justify-center bg-black/40 backdrop-blur-md opacity-0 invisible transition-all duration-300 p-4 service-modal" onclick="closeServiceModalOnOutsideClick(event, 'modal-web')">
     <div class="bg-surface dark:bg-slate-900 rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto modal-scroll shadow-2xl border border-outline-variant dark:border-slate-700 transform scale-95 transition-transform duration-300 service-modal-content">
         <div class="relative h-64 w-full">
-            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=1200&q=80" alt="Web Tasarım" class="w-full h-full object-cover">
+            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=1200&q=80" loading="lazy" alt="Web Tasarım" class="w-full h-full object-cover">
             <div class="absolute inset-0 hidden"></div>
             <button onclick="closeServiceModal('modal-web')" class="absolute top-4 right-4 z-10 text-white bg-black/40 hover:bg-black/60 w-10 h-10 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm">
                 <span class="material-symbols-outlined">close</span>
@@ -763,7 +764,7 @@ function harika_sistem_kur(fikirleriniz) {
 <div id="modal-mobile" class="fixed inset-0 z-[110] flex items-center justify-center bg-black/40 backdrop-blur-md opacity-0 invisible transition-all duration-300 p-4 service-modal" onclick="closeServiceModalOnOutsideClick(event, 'modal-mobile')">
     <div class="bg-surface dark:bg-slate-900 rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto modal-scroll shadow-2xl border border-outline-variant dark:border-slate-700 transform scale-95 transition-transform duration-300 service-modal-content">
         <div class="relative h-64 w-full">
-            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80" alt="Mobil Uygulama" class="w-full h-full object-cover">
+            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80" loading="lazy" alt="Mobil Uygulama" class="w-full h-full object-cover">
             <div class="absolute inset-0 hidden"></div>
             <button onclick="closeServiceModal('modal-mobile')" class="absolute top-4 right-4 z-10 text-white bg-black/40 hover:bg-black/60 w-10 h-10 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm">
                 <span class="material-symbols-outlined">close</span>
@@ -795,7 +796,7 @@ function harika_sistem_kur(fikirleriniz) {
 <div id="modal-ai" class="fixed inset-0 z-[110] flex items-center justify-center bg-black/40 backdrop-blur-md opacity-0 invisible transition-all duration-300 p-4 service-modal" onclick="closeServiceModalOnOutsideClick(event, 'modal-ai')">
     <div class="bg-surface dark:bg-slate-900 rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto modal-scroll shadow-2xl border border-outline-variant dark:border-slate-700 transform scale-95 transition-transform duration-300 service-modal-content">
         <div class="relative h-64 w-full">
-            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80" alt="Yapay Zeka" class="w-full h-full object-cover">
+            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80" loading="lazy" alt="Yapay Zeka" class="w-full h-full object-cover">
             <div class="absolute inset-0 hidden"></div>
             <button onclick="closeServiceModal('modal-ai')" class="absolute top-4 right-4 z-10 text-white bg-black/40 hover:bg-black/60 w-10 h-10 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm">
                 <span class="material-symbols-outlined">close</span>
@@ -827,7 +828,7 @@ function harika_sistem_kur(fikirleriniz) {
 <div id="modal-saas" class="fixed inset-0 z-[110] flex items-center justify-center bg-black/40 backdrop-blur-md opacity-0 invisible transition-all duration-300 p-4 service-modal" onclick="closeServiceModalOnOutsideClick(event, 'modal-saas')">
     <div class="bg-surface dark:bg-slate-900 rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto modal-scroll shadow-2xl border border-outline-variant dark:border-slate-700 transform scale-95 transition-transform duration-300 service-modal-content">
         <div class="relative h-64 w-full">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="SaaS Yazılımları" class="w-full h-full object-cover">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" loading="lazy" alt="SaaS Yazılımları" class="w-full h-full object-cover">
             <div class="absolute inset-0 hidden"></div>
             <button onclick="closeServiceModal('modal-saas')" class="absolute top-4 right-4 z-10 text-white bg-black/40 hover:bg-black/60 w-10 h-10 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm">
                 <span class="material-symbols-outlined">close</span>
@@ -859,7 +860,7 @@ function harika_sistem_kur(fikirleriniz) {
 <div id="modal-automation" class="fixed inset-0 z-[110] flex items-center justify-center bg-black/40 backdrop-blur-md opacity-0 invisible transition-all duration-300 p-4 service-modal" onclick="closeServiceModalOnOutsideClick(event, 'modal-automation')">
     <div class="bg-surface dark:bg-slate-900 rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto modal-scroll shadow-2xl border border-outline-variant dark:border-slate-700 transform scale-95 transition-transform duration-300 service-modal-content">
         <div class="relative h-64 w-full">
-            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="İş Otomasyonu" class="w-full h-full object-cover">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" loading="lazy" alt="İş Otomasyonu" class="w-full h-full object-cover">
             <div class="absolute inset-0 hidden"></div>
             <button onclick="closeServiceModal('modal-automation')" class="absolute top-4 right-4 z-10 text-white bg-black/40 hover:bg-black/60 w-10 h-10 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm">
                 <span class="material-symbols-outlined">close</span>
@@ -1338,11 +1339,15 @@ function harika_sistem_kur(fikirleriniz) {
         
         if (isDark) {
             document.documentElement.classList.add('dark');
+            const meta = document.getElementById('theme-color-meta');
+            if (meta) meta.setAttribute('content', '#020617');
             if(themeIcon) themeIcon.textContent = 'light_mode';
             if(mobileThemeIcon) mobileThemeIcon.textContent = 'light_mode';
             localStorage.setItem('theme', 'dark');
         } else {
             document.documentElement.classList.remove('dark');
+            const meta = document.getElementById('theme-color-meta');
+            if (meta) meta.setAttribute('content', '#f8fafc');
             if(themeIcon) themeIcon.textContent = 'dark_mode';
             if(mobileThemeIcon) mobileThemeIcon.textContent = 'dark_mode';
             localStorage.setItem('theme', 'light');
