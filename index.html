@@ -13,6 +13,7 @@
     <!-- Tailwind Config -->
     <script id="tailwind-config">
       tailwind.config = {
+        darkMode: 'class',
         theme: {
           extend: {
             "colors": {
@@ -117,6 +118,11 @@
             background-size: 400% 400%;
             animation: gradient-bg 15s ease infinite;
         }
+        
+        .dark .animated-bg {
+            background: linear-gradient(-45deg, #020617, #0f172a, #1e293b, #0f172a);
+            background-size: 400% 400%;
+        }
 
         /* Glassmorphism utilities - LIGHT THEME */
         .glass-card {
@@ -125,6 +131,11 @@
             -webkit-backdrop-filter: blur(24px);
             border: 1px solid rgba(255, 255, 255, 0.8);
             box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+            -webkit-transform: translate3d(0,0,0);
+        }
+        .dark .glass-card {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .glass-inner-border {
@@ -141,6 +152,9 @@
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             pointer-events: none;
+        }
+        .dark .glass-inner-border::before {
+            background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.02) 100%);
         }
 
         /* Abstract geometric pattern */
@@ -172,12 +186,32 @@
         }
 
         /* SPA Section Transition */
+        .page-section {
+            will-change: opacity, transform;
+            -webkit-transform: translate3d(0,0,0);
+        }
         .animate-fade-in {
-            animation: fadeIn 0.4s ease-out forwards;
+            animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Logo Type Animation */
+        @keyframes type-text {
+            0% { width: 0; opacity: 0; }
+            5% { opacity: 1; }
+            100% { width: 100%; opacity: 1; }
+        }
+        .animate-type-text {
+            animation: type-text 1.2s steps(20, end) 0.3s forwards;
+            overflow: hidden;
+            white-space: nowrap;
+            opacity: 0;
+            width: 0;
+            display: inline-block;
+            vertical-align: bottom;
         }
         
         /* Modals content scrollbar */
@@ -194,52 +228,56 @@
         }
     </style>
 </head>
-<body class="animated-bg text-on-background min-h-screen flex flex-col pt-20 overflow-x-hidden">
+<body class="animated-bg text-on-background min-h-[100dvh] flex flex-col pt-20 overflow-x-hidden">
 <!-- Mobil Taşkın Önleyici Wrapper -->
-<div class="w-full max-w-[100vw] overflow-x-hidden relative flex flex-col min-h-screen">
+<div class="w-full max-w-[100vw] overflow-x-hidden relative flex flex-col min-h-[100dvh]">
 
 <!-- Parallax Arkapan Yazıları (Global) -->
 <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden" id="parallax-container">
-    <div class="parallax-element absolute top-[15%] left-[5%] text-primary/10 font-mono-data text-sm" data-speed="-0.15">
+    <div class="parallax-element absolute top-[15%] left-[5%] text-primary/60 font-semibold font-mono-data text-sm" data-speed="-0.15">
 <pre><code>// Tasarım başarıyla oluşturuldu</code></pre>
     </div>
-    <div class="parallax-element absolute top-[45%] right-[10%] text-on-surface/5 font-mono-data text-lg" data-speed="-0.25">
+    <div class="parallax-element absolute top-[45%] right-[10%] text-on-surface/60 font-semibold font-mono-data text-lg" data-speed="-0.25">
         Hızlı ve Güvenli
     </div>
-    <div class="parallax-element absolute top-[75%] left-[20%] text-primary/5 font-mono-data text-base" data-speed="-0.1">
+    <div class="parallax-element absolute top-[75%] left-[20%] text-primary/60 font-semibold font-mono-data text-base" data-speed="-0.1">
         Modern Çözümler
     </div>
-    <div class="parallax-element absolute top-[25%] right-[25%] text-on-surface/10 font-mono-data text-xs" data-speed="-0.3">
+    <div class="parallax-element absolute top-[25%] right-[25%] text-on-surface/60 font-semibold font-mono-data text-xs" data-speed="-0.3">
 <pre><code>const arayuz = new Tasarim();
 arayuz.baslat();</code></pre>
     </div>
-    <div class="parallax-element absolute top-[60%] left-[60%] text-primary/5 font-mono-data text-xl" data-speed="-0.2">
+    <div class="parallax-element absolute top-[60%] left-[60%] text-primary/60 font-semibold font-mono-data text-xl" data-speed="-0.2">
         Kullanıcı Dostu
     </div>
-    <div class="parallax-element absolute top-[85%] right-[30%] text-on-surface/5 font-mono-data text-sm" data-speed="-0.12">
+    <div class="parallax-element absolute top-[85%] right-[30%] text-on-surface/60 font-semibold font-mono-data text-sm" data-speed="-0.12">
 <pre><code>Sistem Hazır</code></pre>
     </div>
 </div>
 
 <!-- Üst Menü (Header) -->
-<header class="fixed top-0 w-full z-40 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm transition-all duration-300" id="main-header">
+<header class="fixed top-0 w-full z-40 bg-surface/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-outline-variant/30 dark:border-slate-800/50 shadow-sm transition-all duration-300" id="main-header">
     <div class="max-w-container-max mx-auto px-gutter flex justify-between items-center h-20">
         <!-- Logo -->
-        <a class="font-display-lg text-headline-md tracking-tighter text-on-surface flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer" onclick="showSection('hero')">
-            <img alt="HKS Digital Logo" class="h-10 w-auto rounded-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCydOotfXqWJ-CHw8g9q5Q4l7QfFVWC1_c-EpVyWf76CkiR9yeJ9rHCT7eI96ySeQ3WgvXsYGL59PpTZNJZn5OhngbUWXvcIfHAu1hGvZ2LK6sTDwUNbfSCzod8tIrITRALQnMEau2cFeJBCg-vN6_12LdwMt3KZ1lR_ogLhXKLg8Pj8cluC4Rtc6g588esCxGrBr1Y5fuwTbi2mvcPU8KokzF_G6q5H6PAh0E-V6eYru2ePtUvKj3GFQ"/>
+        <a class="font-display-lg text-headline-md tracking-tighter text-on-surface dark:text-white flex items-center gap-3 hover:opacity-80 transition-opacity cursor-pointer" onclick="showSection('hero')">
+            <img alt="HKS Digital Logo" class="h-14 w-auto rounded-lg shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCydOotfXqWJ-CHw8g9q5Q4l7QfFVWC1_c-EpVyWf76CkiR9yeJ9rHCT7eI96ySeQ3WgvXsYGL59PpTZNJZn5OhngbUWXvcIfHAu1hGvZ2LK6sTDwUNbfSCzod8tIrITRALQnMEau2cFeJBCg-vN6_12LdwMt3KZ1lR_ogLhXKLg8Pj8cluC4Rtc6g588esCxGrBr1Y5fuwTbi2mvcPU8KokzF_G6q5H6PAh0E-V6eYru2ePtUvKj3GFQ"/>
+            <span class="animate-type-text text-xl md:text-2xl font-bold bg-gradient-to-r from-primary to-primary-fixed-variant text-transparent bg-clip-text pb-0.5">HKS Digital</span>
         </a>
         
         <!-- Masaüstü Navigasyon -->
-        <nav class="hidden md:flex items-center gap-8 relative" id="desktop-nav">
-            <a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors font-medium cursor-pointer" onclick="showSection('hero')">Ana Sayfa</a>
-            <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer" onclick="showSection('services')">Hizmetler</a>
-            <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer" onclick="showSection('about')">Hakkımda</a>
-            <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer" onclick="showSection('ai-software')">Çözümler</a>
-            <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer" onclick="showSection('academic')">Altyapımız</a>
+        <nav class="hidden md:flex items-center gap-2 relative" id="desktop-nav">
+            <a class="nav-link font-body-md text-body-md text-primary bg-primary/10 px-4 py-2 rounded-full transition-all font-semibold cursor-pointer dark:bg-primary/20 dark:text-blue-300" onclick="showSection('hero')">Ana Sayfa</a>
+            <a class="nav-link font-body-md text-body-md text-on-surface-variant hover:text-primary hover:bg-surface-container px-4 py-2 rounded-full transition-all font-medium cursor-pointer dark:text-slate-300 dark:hover:bg-slate-800" onclick="showSection('services')">Hizmetler</a>
+            <a class="nav-link font-body-md text-body-md text-on-surface-variant hover:text-primary hover:bg-surface-container px-4 py-2 rounded-full transition-all font-medium cursor-pointer dark:text-slate-300 dark:hover:bg-slate-800" onclick="showSection('about')">Hakkımda</a>
+            <a class="nav-link font-body-md text-body-md text-on-surface-variant hover:text-primary hover:bg-surface-container px-4 py-2 rounded-full transition-all font-medium cursor-pointer dark:text-slate-300 dark:hover:bg-slate-800" onclick="showSection('faq')">S.S.S.</a>
+            <a class="nav-link font-body-md text-body-md text-on-surface-variant hover:text-primary hover:bg-surface-container px-4 py-2 rounded-full transition-all font-medium cursor-pointer dark:text-slate-300 dark:hover:bg-slate-800" onclick="showSection('academic')">Altyapımız</a>
         </nav>
         
         <!-- Sağ Üst Butonlar -->
         <div class="hidden md:flex items-center gap-4">
+            <button id="theme-toggle" class="flex items-center justify-center w-11 h-11 rounded-full border-2 transition-all duration-300 text-primary border-primary/30 bg-primary/10 hover:bg-primary/20 shadow-md dark:bg-yellow-400/10 dark:border-yellow-400/40 dark:text-yellow-400 dark:hover:bg-yellow-400/20 hover:scale-110 active:scale-95 ring-2 ring-transparent hover:ring-primary/20 dark:hover:ring-yellow-400/30" onclick="toggleTheme()">
+                <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;" id="theme-icon">dark_mode</span>
+            </button>
             <button onclick="openModal()" class="bg-primary text-on-primary px-6 py-2 rounded-full font-body-md text-body-md hover:bg-primary-fixed-variant transition-all duration-300 hover:shadow-[0_8px_16px_rgba(59,130,246,0.3)] hover:-translate-y-0.5 active:scale-95 flex items-center gap-2">
                 Projeyi Başlat
                 <span class="material-symbols-outlined text-sm">rocket_launch</span>
@@ -253,12 +291,16 @@ arayuz.baslat();</code></pre>
     </div>
     
     <!-- Mobil Menü Dropdown -->
-    <div id="mobile-menu" class="fixed top-[72px] left-0 w-full bg-surface/95 backdrop-blur-md border-b border-outline-variant/50 shadow-lg transform -translate-y-full opacity-0 invisible transition-all duration-300 z-40 md:hidden flex flex-col p-4 gap-4">
-        <a class="font-body-md text-on-surface hover:text-primary py-2 px-4 rounded-lg hover:bg-surface-container cursor-pointer" onclick="showSection('hero'); toggleMobileMenu()">Ana Sayfa</a>
-        <a class="font-body-md text-on-surface hover:text-primary py-2 px-4 rounded-lg hover:bg-surface-container cursor-pointer" onclick="showSection('services'); toggleMobileMenu()">Hizmetler</a>
-        <a class="font-body-md text-on-surface hover:text-primary py-2 px-4 rounded-lg hover:bg-surface-container cursor-pointer" onclick="showSection('about'); toggleMobileMenu()">Hakkımda</a>
-        <a class="font-body-md text-on-surface hover:text-primary py-2 px-4 rounded-lg hover:bg-surface-container cursor-pointer" onclick="showSection('ai-software'); toggleMobileMenu()">Çözümler</a>
-        <a class="font-body-md text-on-surface hover:text-primary py-2 px-4 rounded-lg hover:bg-surface-container cursor-pointer" onclick="showSection('academic'); toggleMobileMenu()">Altyapımız</a>
+    <div id="mobile-menu" class="fixed top-[72px] left-0 w-full bg-surface/98 dark:bg-slate-900/98 backdrop-blur-xl border-b border-outline-variant/50 shadow-[0_20px_40px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_40px_rgba(0,0,0,0.6)] transform -translate-y-4 scale-95 opacity-0 invisible transition-all duration-500 ease-out origin-top z-40 md:hidden flex flex-col p-6 gap-3 rounded-b-3xl">
+        <a class="nav-link-mobile font-body-md text-primary bg-primary/10 px-4 py-3 rounded-xl transition-all font-semibold cursor-pointer dark:bg-primary/20 dark:text-blue-300" onclick="showSection('hero'); toggleMobileMenu()">Ana Sayfa</a>
+        <a class="nav-link-mobile font-body-md text-on-surface hover:text-primary hover:bg-surface-container px-4 py-3 rounded-xl transition-all font-medium cursor-pointer dark:text-slate-200 dark:hover:bg-slate-800" onclick="showSection('services'); toggleMobileMenu()">Hizmetler</a>
+        <a class="nav-link-mobile font-body-md text-on-surface hover:text-primary hover:bg-surface-container px-4 py-3 rounded-xl transition-all font-medium cursor-pointer dark:text-slate-200 dark:hover:bg-slate-800" onclick="showSection('about'); toggleMobileMenu()">Hakkımda</a>
+        <a class="nav-link-mobile font-body-md text-on-surface hover:text-primary hover:bg-surface-container px-4 py-3 rounded-xl transition-all font-medium cursor-pointer dark:text-slate-200 dark:hover:bg-slate-800" onclick="showSection('faq'); toggleMobileMenu()">S.S.S.</a>
+        <a class="nav-link-mobile font-body-md text-on-surface hover:text-primary hover:bg-surface-container px-4 py-3 rounded-xl transition-all font-medium cursor-pointer dark:text-slate-200 dark:hover:bg-slate-800" onclick="showSection('academic'); toggleMobileMenu()">Altyapımız</a>
+        <button id="mobile-theme-toggle" class="nav-link-mobile font-body-md text-on-surface hover:text-primary hover:bg-surface-container px-4 py-3 rounded-xl transition-all font-medium flex items-center justify-between dark:text-slate-200 dark:hover:bg-slate-800" onclick="toggleTheme(); toggleMobileMenu()">
+            Tema Değiştir
+            <span class="material-symbols-outlined text-sm" id="mobile-theme-icon">dark_mode</span>
+        </button>
         <button onclick="openModal(); toggleMobileMenu()" class="mt-2 bg-primary text-on-primary px-6 py-3 rounded-full font-body-md font-medium w-full shadow-md">Projeyi Başlat</button>
     </div>
 </header>
@@ -266,28 +308,27 @@ arayuz.baslat();</code></pre>
 <main class="flex-grow relative z-10 w-full max-w-container-max mx-auto px-gutter mb-20">
     
     <!-- Ana Karşılama Bölümü (Hero) -->
-    <section id="hero" class="page-section relative min-h-[85vh] flex items-center animate-fade-in">
+    <section id="hero" class="page-section relative min-h-[85dvh] flex items-center animate-fade-in">
         <div class="absolute inset-0 bg-pattern -z-10 opacity-30"></div>
         <div class="absolute top-1/4 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10 floating-element hidden md:block"></div>
         <div class="absolute bottom-1/4 left-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -z-10 floating-element hidden md:block" style="animation-delay: -3s;"></div>
         
         <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-element-gap-md items-center py-10 md:py-20">
             <div class="lg:col-span-7 flex flex-col gap-6 md:gap-8 z-10 relative">
-                <div class="absolute -left-10 -top-10 w-32 h-32 border border-primary/20 rounded-full -z-10"></div>
                 <!-- Vurgulu Rozet -->
-                <div class="inline-flex items-center gap-2 bg-surface px-4 py-2 rounded-full w-fit border border-outline-variant transform -rotate-2 hover:rotate-0 transition-transform shadow-sm">
+                <div class="inline-flex items-center gap-2 bg-surface px-4 py-2 rounded-full w-fit border border-outline-variant transform -rotate-2 hover:rotate-0 transition-transform shadow-sm dark:bg-slate-800 dark:border-slate-700">
                     <span class="material-symbols-outlined text-secondary-fixed text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
-                    <span class="font-label-caps text-label-caps text-on-surface tracking-widest uppercase">Akıllı ve Modern Tasarım</span>
+                    <span class="font-label-caps text-label-caps text-on-surface tracking-widest uppercase dark:text-slate-200">Akıllı ve Modern Tasarım</span>
                 </div>
                 
                 <div class="flex flex-col gap-4">
-                    <div class="font-label-caps text-label-caps text-primary tracking-widest uppercase bg-primary/10 w-fit max-w-full px-3 py-2 md:px-4 rounded-3xl md:rounded-full border border-primary/20 text-xs md:text-sm text-center md:text-left break-words">Fikirlerinizi Koda, Kodları Geleceğe Taşıyoruz</div>
-                    <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface tracking-tighter leading-tight relative mt-2 break-words">
+                    <div class="font-label-caps text-label-caps text-primary tracking-widest uppercase bg-primary/10 w-fit max-w-full px-3 py-2 md:px-4 rounded-3xl md:rounded-full border border-primary/20 text-xs md:text-sm text-center md:text-left break-words dark:text-blue-300 dark:border-blue-900/50">Fikirlerinizi Koda, Kodları Geleceğe Taşıyoruz</div>
+                    <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface tracking-tighter leading-tight relative mt-2 break-words dark:text-white">
                         Hayalinizdeki Proje <br/>
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary-fixed">Gerçeğe Dönüşüyor.</span>
                         <div class="absolute right-0 bottom-4 w-12 h-12 bg-secondary-fixed rounded-full mix-blend-screen opacity-20 blur-md hidden md:block"></div>
                     </h1>
-                    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl dark:text-slate-400">
                         HKS Digital - Karmaşık fikirlerinizi, herkesin rahatça kullanabileceği, şık ve hızlı sistemlere dönüştürüyoruz. İşinizi dijitalde büyütmeniz için en uygun çözümleri üretiyoruz.
                     </p>
                 </div>
@@ -297,7 +338,7 @@ arayuz.baslat();</code></pre>
                         Projeyi Başlat
                         <span class="material-symbols-outlined">rocket_launch</span>
                     </button>
-                    <button onclick="showSection('services')" class="w-full sm:w-auto justify-center px-6 py-3 md:px-8 md:py-4 rounded-full font-body-md text-body-md text-on-surface bg-surface hover:bg-surface-container transition-colors flex items-center gap-2 border border-outline-variant shadow-sm">
+                    <button onclick="showSection('services')" class="w-full sm:w-auto justify-center px-6 py-3 md:px-8 md:py-4 rounded-full font-body-md text-body-md text-on-surface bg-surface hover:bg-surface-container transition-colors flex items-center gap-2 border border-outline-variant shadow-sm dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-700">
                         Hizmetleri İncele
                     </button>
                 </div>
@@ -307,15 +348,15 @@ arayuz.baslat();</code></pre>
             <div class="lg:col-span-5 relative hidden lg:block z-10 perspective-1000">
                 <div class="absolute -right-4 -bottom-4 w-full h-full bg-surface-variant rounded-2xl -z-10 transform rotate-3"></div>
                 <div class="glass-card rounded-2xl p-6 glass-inner-border transform -rotate-y-6 rotate-x-6 hover:rotate-y-0 hover:rotate-x-0 transition-transform duration-700 ease-out floating-element">
-                    <div class="flex items-center justify-between mb-4 border-b border-outline-variant/50 pb-2">
+                    <div class="flex items-center justify-between mb-4 border-b border-outline-variant/50 pb-2 dark:border-slate-700">
                         <div class="flex gap-2">
                             <div class="w-3 h-3 rounded-full bg-error/80"></div>
                             <div class="w-3 h-3 rounded-full bg-secondary/80"></div>
                             <div class="w-3 h-3 rounded-full bg-primary/80"></div>
                         </div>
-                        <span class="font-mono-data text-mono-data text-on-surface-variant">sizin_icin_calisiyoruz.js</span>
+                        <span class="font-mono-data text-mono-data text-on-surface-variant dark:text-slate-400">sizin_icin_calisiyoruz.js</span>
                     </div>
-                    <pre class="font-mono-data text-mono-data text-on-surface overflow-x-auto whitespace-pre-wrap"><code>
+                    <pre class="font-mono-data text-mono-data text-on-surface overflow-x-auto whitespace-pre-wrap dark:text-slate-300"><code>
 function harika_sistem_kur(fikirleriniz) {
     /* 
      İsteklerinizi dinliyor,
@@ -336,8 +377,8 @@ function harika_sistem_kur(fikirleriniz) {
     <!-- Hizmetler (Services) Bölümü -->
     <section id="services" class="page-section hidden py-10 relative">
         <div class="flex flex-col gap-4 mb-12 max-w-3xl">
-            <h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Hizmetlerimiz</h2>
-            <p class="font-body-lg text-body-lg text-on-surface-variant">İşinizi dijital dünyada en iyi şekilde temsil edecek ve büyütecek çözümler sunuyoruz.</p>
+            <h2 class="font-headline-md text-headline-md text-on-surface tracking-tight dark:text-white">Hizmetlerimiz</h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant dark:text-slate-400">İşinizi dijital dünyada en iyi şekilde temsil edecek ve büyütecek çözümler sunuyoruz.</p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -347,13 +388,13 @@ function harika_sistem_kur(fikirleriniz) {
                     <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">desktop_windows</span>
                 </div>
                 <div>
-                    <h3 class="font-body-lg font-bold text-on-surface mb-3">Web Tasarım &amp; Geliştirme</h3>
-                    <p class="font-body-md text-on-surface-variant leading-relaxed mb-6">
+                    <h3 class="font-body-lg font-bold text-on-surface mb-3 dark:text-white">Web Tasarım &amp; Geliştirme</h3>
+                    <p class="font-body-md text-on-surface-variant leading-relaxed mb-6 dark:text-slate-400">
                         Firmanızı yansıtan, hızlı açılan ve şık web siteleri tasarlıyoruz. Ziyaretçilerin aradığını anında bulabileceği profesyonel platformlar.
                     </p>
                 </div>
                 <div class="mt-auto">
-                    <button onclick="openServiceModal('modal-web')" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-surface border border-outline-variant text-on-surface font-body-md font-medium hover:border-primary hover:text-primary transition-all shadow-sm w-full justify-center">
+                    <button onclick="openServiceModal('modal-web')" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-surface border border-outline-variant text-on-surface font-body-md font-medium hover:border-primary hover:text-primary transition-all shadow-sm w-full justify-center dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 dark:hover:border-primary dark:hover:text-primary">
                         Detayları İncele <span class="material-symbols-outlined text-sm">arrow_forward</span>
                     </button>
                 </div>
@@ -365,13 +406,13 @@ function harika_sistem_kur(fikirleriniz) {
                     <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">phone_iphone</span>
                 </div>
                 <div>
-                    <h3 class="font-body-lg font-bold text-on-surface mb-3">Mobil Uygulama</h3>
-                    <p class="font-body-md text-on-surface-variant leading-relaxed mb-6">
+                    <h3 class="font-body-lg font-bold text-on-surface mb-3 dark:text-white">Mobil Uygulama</h3>
+                    <p class="font-body-md text-on-surface-variant leading-relaxed mb-6 dark:text-slate-400">
                         Müşterilerinizin cebine giren, kullanımı çok kolay, Android ve iOS için modern mobil uygulamalar geliştiriyoruz.
                     </p>
                 </div>
                 <div class="mt-auto">
-                    <button onclick="openServiceModal('modal-mobile')" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-surface border border-outline-variant text-on-surface font-body-md font-medium hover:border-primary hover:text-primary transition-all shadow-sm w-full justify-center">
+                    <button onclick="openServiceModal('modal-mobile')" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-surface border border-outline-variant text-on-surface font-body-md font-medium hover:border-primary hover:text-primary transition-all shadow-sm w-full justify-center dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 dark:hover:border-primary dark:hover:text-primary">
                         Detayları İncele <span class="material-symbols-outlined text-sm">arrow_forward</span>
                     </button>
                 </div>
@@ -383,13 +424,13 @@ function harika_sistem_kur(fikirleriniz) {
                     <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">psychology</span>
                 </div>
                 <div>
-                    <h3 class="font-body-lg font-bold text-on-surface mb-3">Yapay Zeka Çözümleri</h3>
-                    <p class="font-body-md text-on-surface-variant leading-relaxed mb-6">
+                    <h3 class="font-body-lg font-bold text-on-surface mb-3 dark:text-white">Yapay Zeka Çözümleri</h3>
+                    <p class="font-body-md text-on-surface-variant leading-relaxed mb-6 dark:text-slate-400">
                         7/24 müşteri destek botları veya akıllı asistanlarla rakiplerinizin bir adım önüne geçmenizi sağlayan yapay zeka sistemleri kuruyoruz.
                     </p>
                 </div>
                 <div class="mt-auto">
-                    <button onclick="openServiceModal('modal-ai')" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-surface border border-outline-variant text-on-surface font-body-md font-medium hover:border-primary hover:text-primary transition-all shadow-sm w-full justify-center">
+                    <button onclick="openServiceModal('modal-ai')" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-surface border border-outline-variant text-on-surface font-body-md font-medium hover:border-primary hover:text-primary transition-all shadow-sm w-full justify-center dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 dark:hover:border-primary dark:hover:text-primary">
                         Detayları İncele <span class="material-symbols-outlined text-sm">arrow_forward</span>
                     </button>
                 </div>
@@ -401,13 +442,13 @@ function harika_sistem_kur(fikirleriniz) {
                     <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">cloud_done</span>
                 </div>
                 <div>
-                    <h3 class="font-body-lg font-bold text-on-surface mb-3">SaaS (Yazılım Hizmetleri)</h3>
-                    <p class="font-body-md text-on-surface-variant leading-relaxed mb-6">
+                    <h3 class="font-body-lg font-bold text-on-surface mb-3 dark:text-white">SaaS (Yazılım Hizmetleri)</h3>
+                    <p class="font-body-md text-on-surface-variant leading-relaxed mb-6 dark:text-slate-400">
                         Kendi iş fikrinizi abonelik tabanlı satabileceğiniz, kullanıcı ve ödeme sistemi hazır profesyonel SaaS (Hizmet olarak yazılım) altyapıları.
                     </p>
                 </div>
                 <div class="mt-auto">
-                    <button onclick="openServiceModal('modal-saas')" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-surface border border-outline-variant text-on-surface font-body-md font-medium hover:border-primary hover:text-primary transition-all shadow-sm w-full justify-center">
+                    <button onclick="openServiceModal('modal-saas')" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-surface border border-outline-variant text-on-surface font-body-md font-medium hover:border-primary hover:text-primary transition-all shadow-sm w-full justify-center dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 dark:hover:border-primary dark:hover:text-primary">
                         Detayları İncele <span class="material-symbols-outlined text-sm">arrow_forward</span>
                     </button>
                 </div>
@@ -419,13 +460,13 @@ function harika_sistem_kur(fikirleriniz) {
                     <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">precision_manufacturing</span>
                 </div>
                 <div>
-                    <h3 class="font-body-lg font-bold text-on-surface mb-3">İş Süreçleri Otomasyonu</h3>
-                    <p class="font-body-md text-on-surface-variant leading-relaxed mb-6">
+                    <h3 class="font-body-lg font-bold text-on-surface mb-3 dark:text-white">İş Süreçleri Otomasyonu</h3>
+                    <p class="font-body-md text-on-surface-variant leading-relaxed mb-6 dark:text-slate-400">
                         Size saatler kaybettiren günlük tekrarlayan işleri otomatik yapan arka plan robot yazılımları geliştiriyoruz. Siz keyfinize bakın, sistem çalışsın.
                     </p>
                 </div>
                 <div class="mt-auto">
-                    <button onclick="openServiceModal('modal-automation')" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-surface border border-outline-variant text-on-surface font-body-md font-medium hover:border-primary hover:text-primary transition-all shadow-sm w-full justify-center">
+                    <button onclick="openServiceModal('modal-automation')" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-surface border border-outline-variant text-on-surface font-body-md font-medium hover:border-primary hover:text-primary transition-all shadow-sm w-full justify-center dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 dark:hover:border-primary dark:hover:text-primary">
                         Detayları İncele <span class="material-symbols-outlined text-sm">arrow_forward</span>
                     </button>
                 </div>
@@ -442,27 +483,27 @@ function harika_sistem_kur(fikirleriniz) {
                     <div class="absolute inset-4 glass-card rounded-3xl border border-outline-variant flex flex-col justify-center p-0 transform rotate-3 hover:rotate-0 transition-transform duration-500 overflow-hidden">
                         <img src="profil.jpg" alt="Hacı Kamil Sağlam" class="w-full h-full object-cover">
                     </div>
-                    <div class="absolute -bottom-6 -right-6 glass-card px-6 py-4 rounded-xl border border-outline-variant shadow-lg backdrop-blur-xl">
+                    <div class="absolute -bottom-6 -right-6 glass-card px-6 py-4 rounded-xl border border-outline-variant shadow-lg backdrop-blur-xl dark:border-slate-700">
                         <div class="font-label-caps text-primary tracking-widest uppercase mb-1">EĞİTİM</div>
-                        <div class="font-mono-data text-on-surface text-sm font-bold">Necmettin Erbakan Üniversitesi</div>
-                        <div class="font-mono-data text-on-surface-variant text-xs mt-1">Matematik ve Bilgisayar Bilimleri</div>
+                        <div class="font-mono-data text-on-surface text-sm font-bold dark:text-white">Necmettin Erbakan Üniversitesi</div>
+                        <div class="font-mono-data text-on-surface-variant text-xs mt-1 dark:text-slate-400">Matematik ve Bilgisayar Bilimleri</div>
                     </div>
                 </div>
             </div>
             
             <div class="lg:col-span-6 lg:col-start-7 flex flex-col gap-6 z-10">
-                <div class="inline-flex items-center gap-2 bg-surface px-4 py-2 rounded-full w-fit border border-outline-variant shadow-sm">
+                <div class="inline-flex items-center gap-2 bg-surface px-4 py-2 rounded-full w-fit border border-outline-variant shadow-sm dark:bg-slate-800 dark:border-slate-700">
                     <span class="material-symbols-outlined text-primary text-sm">person</span>
-                    <span class="font-label-caps text-label-caps text-on-surface tracking-widest uppercase">Hakkımda</span>
+                    <span class="font-label-caps text-label-caps text-on-surface tracking-widest uppercase dark:text-slate-200">Hakkımda</span>
                 </div>
-                <h2 class="font-headline-md text-display-lg-mobile text-on-surface tracking-tight leading-tight">
+                <h2 class="font-headline-md text-display-lg-mobile text-on-surface tracking-tight leading-tight dark:text-white">
                     Merhaba, Ben Hacı Kamil Sağlam
                 </h2>
                 <div class="h-1 w-16 bg-secondary-fixed rounded-full"></div>
-                <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed dark:text-slate-400">
                     Necmettin Erbakan Üniversitesi'nde Matematik ve Bilgisayar Bilimleri öğrencisiyim. Dijital dünyada sadece güzel görünen değil, arka planda kusursuz işleyen sistemler tasarlıyorum.
                 </p>
-                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed dark:text-slate-400">
                     Tasarım benim için sadece renklerin bir araya gelmesi demek değil. Bir web sitesi veya uygulamanın, kullanıcıları yormadan, en kolay ve anlaşılır şekilde çalışması gerekir. Eğitimimden aldığım analitik düşünce yapısıyla, işinizi kolaylaştıran, hızlı ve modern dijital çözümler üretiyorum.
                 </p>
                 <div class="pt-4">
@@ -474,72 +515,67 @@ function harika_sistem_kur(fikirleriniz) {
         </div>
     </section>
 
-    <!-- Yazılım & Çözümler Bölümü -->
-    <section id="ai-software" class="page-section hidden py-10 px-4 md:px-0 relative">
-        <div class="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
-            <div class="max-w-2xl flex flex-col gap-4">
-                <div class="inline-flex items-center gap-2 bg-surface px-4 py-2 rounded-full w-fit border border-outline-variant shadow-sm">
-                    <span class="material-symbols-outlined text-primary text-sm">memory</span>
-                    <span class="font-label-caps text-label-caps text-on-surface tracking-widest uppercase">İşinizi Kolaylaştıran Çözümler</span>
-                </div>
-                <h2 class="font-headline-md text-display-lg-mobile text-on-surface tracking-tight">Yeni Nesil Akıllı Sistemler</h2>
-                <p class="font-body-lg text-body-lg text-on-surface-variant">
-                    İşinizi hızlandıracak yeni teknolojileri projelerinize entegre ediyoruz. Ziyaretçilerinizle daha hızlı iletişim kuran sistemler veya iş yükünüzü hafifleten akıllı yazılımlarla dijital dünyada bir adım önde olmanızı sağlıyoruz.
-                </p>
+    <!-- Sıkça Sorulan Sorular (SSS) Bölümü -->
+    <section id="faq" class="page-section hidden py-10 relative">
+        <div class="flex flex-col gap-4 mb-12 max-w-3xl">
+            <div class="inline-flex items-center gap-2 bg-surface px-4 py-2 rounded-full w-fit border border-outline-variant shadow-sm dark:bg-slate-800 dark:border-slate-700">
+                <span class="material-symbols-outlined text-primary text-sm">help</span>
+                <span class="font-label-caps text-label-caps text-on-surface tracking-widest uppercase dark:text-slate-200">Merak Edilenler</span>
             </div>
+            <h2 class="font-headline-md text-headline-md text-on-surface tracking-tight dark:text-white">Sıkça Sorulan Sorular</h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant dark:text-slate-400">Aklınızdaki soru işaretlerini gidermek için buradayız. Daha fazla detay için her zaman iletişime geçebilirsiniz.</p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 bg-inverse-surface p-8 rounded-[2rem] shadow-2xl relative overflow-hidden">
-            <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] pointer-events-none hidden md:block"></div>
-            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-[100px] pointer-events-none hidden md:block"></div>
-            
-            <div class="md:col-span-7 bg-inverse-on-surface/5 border border-inverse-on-surface/10 rounded-3xl p-8 backdrop-blur-md hover:bg-inverse-on-surface/10 transition-colors group shadow-xl z-10">
-                <div class="flex justify-between items-center mb-6">
-                    <h3 class="font-body-lg text-inverse-on-surface font-semibold flex items-center gap-2">
-                        <span class="material-symbols-outlined text-primary">speed</span>
-                        Hızlı ve Güvenilir Altyapı
-                    </h3>
-                    <div class="px-3 py-1 rounded-full bg-primary/20 text-primary-fixed text-xs font-mono-data border border-primary/30">Aktif</div>
+        <div class="flex flex-col gap-4 max-w-4xl">
+            <!-- Soru 1 -->
+            <div class="glass-card glass-inner-border rounded-2xl overflow-hidden transition-all duration-300">
+                <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left hover:bg-surface-container/50 dark:hover:bg-slate-800/50 transition-colors">
+                    <span class="font-body-lg font-bold text-on-surface dark:text-slate-200">Bir web sitesi veya uygulama projesi ne kadar sürüyor?</span>
+                    <span class="material-symbols-outlined text-primary transform transition-transform duration-300 faq-icon">expand_more</span>
+                </button>
+                <div class="faq-content hidden px-6 pb-6 pt-2">
+                    <p class="font-body-md text-on-surface-variant dark:text-slate-400 leading-relaxed">
+                        Her proje kendi içinde benzersiz bir tasarıma ve özelliklere sahiptir. Projenizin kapsamına ve ihtiyaç duyduğunuz özelliklere göre teslimat süreleri esneklik gösterir. Standart projeler genellikle haftalar içinde yayına alınırken, kapsamlı sistemlerde süreci birlikte planlıyoruz.
+                    </p>
                 </div>
-                <pre class="font-mono-data text-sm text-inverse-on-surface/80 bg-inverse-on-surface/5 p-4 rounded-xl overflow-x-auto border border-inverse-on-surface/10"><code>// Ziyaretçileriniz için en iyi deneyim
-function sistemi_hizlandir() {
-  const altyapi = yeniNesilSunucuKur();
-  
-  // Güvenlik ve hız kontrolleri yapılıyor
-  altyapi.guvenlikDuvariniAc();
-  altyapi.resimleriKucult();
-  
-  return "Siteniz yayına hazır ve artık çok hızlı!";
-}</code></pre>
             </div>
             
-            <div class="md:col-span-5 bg-gradient-to-br from-inverse-on-surface/5 to-transparent border border-inverse-on-surface/10 rounded-3xl p-8 backdrop-blur-md flex flex-col relative overflow-hidden group shadow-xl z-10">
-                <div class="absolute inset-0 bg-pattern opacity-10"></div>
-                <h3 class="font-body-lg text-inverse-on-surface font-semibold mb-6 relative z-10 flex items-center gap-2">
-                    <span class="material-symbols-outlined text-secondary-fixed">account_tree</span>
-                    Çalışma Adımlarımız
-                </h3>
-                <div class="flex-grow flex flex-col justify-center gap-4 relative z-10">
-                    <div class="flex items-center gap-4 bg-inverse-on-surface/5 p-3 rounded-xl border border-inverse-on-surface/10 transform group-hover:translate-x-2 transition-transform">
-                        <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-sm">forum</span></div>
-                        <div class="flex-grow">
-                            <div class="font-mono-data text-xs text-inverse-on-surface">İhtiyaçlarınızı Dinliyoruz</div>
-                        </div>
-                    </div>
-                    <div class="w-0.5 h-6 bg-inverse-on-surface/10 ml-7"></div>
-                    <div class="flex items-center gap-4 bg-inverse-on-surface/5 p-3 rounded-xl border border-secondary/30 shadow-[0_0_15px_rgba(16,185,129,0.2)] transform group-hover:translate-x-4 transition-transform delay-75">
-                        <div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary flex items-center justify-center"><span class="material-symbols-outlined text-sm">design_services</span></div>
-                        <div class="flex-grow">
-                            <div class="font-mono-data text-xs text-inverse-on-surface">Tasarım ve Kodlama</div>
-                        </div>
-                    </div>
-                    <div class="w-0.5 h-6 bg-inverse-on-surface/10 ml-7"></div>
-                    <div class="flex items-center gap-4 bg-primary/10 p-3 rounded-xl border border-primary/20 transform group-hover:translate-x-6 transition-transform delay-150">
-                        <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-sm">rocket_launch</span></div>
-                        <div class="flex-grow">
-                            <div class="font-mono-data text-xs text-inverse-on-surface">Teslimat ve Destek</div>
-                        </div>
-                    </div>
+            <!-- Soru 2 -->
+            <div class="glass-card glass-inner-border rounded-2xl overflow-hidden transition-all duration-300">
+                <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left hover:bg-surface-container/50 dark:hover:bg-slate-800/50 transition-colors">
+                    <span class="font-body-lg font-bold text-on-surface dark:text-slate-200">Fiyatlandırmalarınız nasıl belirleniyor?</span>
+                    <span class="material-symbols-outlined text-primary transform transition-transform duration-300 faq-icon">expand_more</span>
+                </button>
+                <div class="faq-content hidden px-6 pb-6 pt-2">
+                    <p class="font-body-md text-on-surface-variant dark:text-slate-400 leading-relaxed">
+                        Sabit ve kısıtlayıcı paketlerden ziyade, tamamen işletmenizin vizyonuna ve bütçesine özel bir fiyatlandırma stratejisi izliyoruz. Hangi özelliklerin sizin için gerçekten gerekli olduğunu analiz ediyor ve size en optimum yatırım planını sunuyoruz.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Soru 3 -->
+            <div class="glass-card glass-inner-border rounded-2xl overflow-hidden transition-all duration-300">
+                <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left hover:bg-surface-container/50 dark:hover:bg-slate-800/50 transition-colors">
+                    <span class="font-body-lg font-bold text-on-surface dark:text-slate-200">Projeyi teslim aldıktan sonra teknik destek veriyor musunuz?</span>
+                    <span class="material-symbols-outlined text-primary transform transition-transform duration-300 faq-icon">expand_more</span>
+                </button>
+                <div class="faq-content hidden px-6 pb-6 pt-2">
+                    <p class="font-body-md text-on-surface-variant dark:text-slate-400 leading-relaxed">
+                        Kesinlikle! Projenizi teslim edip ortadan kaybolan bir ajans değiliz. Sistemlerinizin her zaman güncel, hızlı ve güvenli kalması için teslimat sonrasında da sizinle iletişimde kalarak destek sağlamaya devam ediyoruz.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Soru 4 -->
+            <div class="glass-card glass-inner-border rounded-2xl overflow-hidden transition-all duration-300">
+                <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left hover:bg-surface-container/50 dark:hover:bg-slate-800/50 transition-colors">
+                    <span class="font-body-lg font-bold text-on-surface dark:text-slate-200">Hazır şablonlar (tema) mı kullanıyorsunuz, yoksa özel kodlama mı?</span>
+                    <span class="material-symbols-outlined text-primary transform transition-transform duration-300 faq-icon">expand_more</span>
+                </button>
+                <div class="faq-content hidden px-6 pb-6 pt-2">
+                    <p class="font-body-md text-on-surface-variant dark:text-slate-400 leading-relaxed">
+                        Modern dünyada birbirinin kopyası siteler yerine, markanızı yansıtacak yenilikçi teknolojiler (React, Tailwind, Node.js vb.) kullanarak işinize özel altyapılar geliştiriyoruz. Ancak ihtiyaçlarınıza göre en hızlı ve maliyet-etkin çözümü seçmekte de esnek davranıyoruz.
+                    </p>
                 </div>
             </div>
         </div>
@@ -549,24 +585,24 @@ function sistemi_hizlandir() {
     <section id="academic" class="page-section hidden py-10 px-4 md:px-0 relative">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div class="lg:col-span-5 flex flex-col gap-6">
-                <div class="inline-flex items-center gap-2 bg-surface px-4 py-2 rounded-full w-fit border border-outline-variant shadow-sm">
+                <div class="inline-flex items-center gap-2 bg-surface px-4 py-2 rounded-full w-fit border border-outline-variant shadow-sm dark:bg-slate-800 dark:border-slate-700">
                     <span class="material-symbols-outlined text-secondary-fixed text-sm">verified_user</span>
-                    <span class="font-label-caps text-label-caps text-on-surface tracking-widest uppercase">Sağlam Altyapı</span>
+                    <span class="font-label-caps text-label-caps text-on-surface tracking-widest uppercase dark:text-slate-200">Sağlam Altyapı</span>
                 </div>
-                <h2 class="font-headline-md text-headline-md text-on-surface tracking-tight leading-tight">
+                <h2 class="font-headline-md text-headline-md text-on-surface tracking-tight leading-tight dark:text-white">
                     Güvenilir ve Hata Yapmayan Sistemler
                 </h2>
                 <div class="h-1 w-12 bg-primary rounded-full"></div>
-                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed dark:text-slate-400">
                     Projelerimizde hiçbir şeyi şansa bırakmıyoruz. Sitenizin veya uygulamanızın her detayı, siz ve müşterilerinizin en rahat edeceği şekilde planlanıyor. Güçlü ve güncel yazılım teknolojileri kullanarak, sitenizin kilitlenmesi veya yavaşlaması gibi sorunların önüne geçiyoruz.
                 </p>
-                <button onclick="openModal()" class="mt-4 bg-surface border border-outline-variant text-on-surface px-8 py-3 rounded-full font-body-md hover:bg-surface-container transition-all flex items-center gap-2 w-fit shadow-sm">
+                <button onclick="openModal()" class="mt-4 bg-surface border border-outline-variant text-on-surface px-8 py-3 rounded-full font-body-md hover:bg-surface-container transition-all flex items-center gap-2 w-fit shadow-sm dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-700">
                     Güvenli Bir Proje Başlatın
                 </button>
             </div>
             
             <div class="lg:col-span-7 relative h-[400px] md:h-[500px] w-full rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-outline-variant transform md:rotate-2 hover:rotate-0 transition-all duration-700 mt-8 lg:mt-0 cursor-default bg-slate-900">
-                <div class="absolute inset-0 bg-cover bg-center w-full h-full opacity-90" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80')"></div>
+                <div class="absolute inset-0 bg-cover bg-center w-full h-full opacity-90" style="background-image: url('siber_altyapi.jpg')"></div>
                 <div class="absolute inset-0 hidden"></div>
                 
                 <div class="absolute bottom-6 left-6 right-6 flex flex-col md:flex-row gap-4">
@@ -609,16 +645,12 @@ function sistemi_hizlandir() {
                 <span class="font-label-caps text-label-caps text-slate-500 uppercase tracking-wider mb-2">Menü</span>
                 <a class="font-body-md text-body-md text-white font-semibold hover:text-primary transition-colors cursor-pointer" onclick="showSection('services')">Hizmetler</a>
                 <a class="font-body-md text-body-md text-slate-300 hover:text-white transition-colors cursor-pointer" onclick="showSection('about')">Hakkımda</a>
-                <a class="font-body-md text-body-md text-slate-300 hover:text-white transition-colors cursor-pointer" onclick="showSection('ai-software')">Çözümler</a>
                 <a class="font-body-md text-body-md text-slate-300 hover:text-white transition-colors cursor-pointer" onclick="showSection('academic')">Altyapımız</a>
             </div>
             
             <div class="flex flex-col gap-4">
                 <span class="font-label-caps text-label-caps text-slate-500 uppercase tracking-wider mb-2">Sosyal Medya</span>
-                <a class="font-body-md text-body-md text-slate-300 hover:text-white transition-colors flex items-center gap-2" href="https://github.com/kaamilsaglam" target="_blank">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
-                    GitHub
-                </a>
+
                 <a class="font-body-md text-body-md text-slate-300 hover:text-[#E1306C] transition-colors flex items-center gap-2" href="https://instagram.com/kaamilsaglam" target="_blank">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069ZM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0Zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881Z"/></svg>
                     Instagram
@@ -642,24 +674,54 @@ function sistemi_hizlandir() {
 
 <!-- İletişim Modalı -->
 <div id="contact-modal" class="fixed inset-0 z-[120] flex items-center justify-center bg-black/40 backdrop-blur-md opacity-0 invisible transition-all duration-300">
-    <div class="bg-surface rounded-3xl p-8 max-w-sm w-full mx-4 shadow-2xl border border-outline-variant transform scale-95 transition-transform duration-300 contact-modal-content">
-        <div class="flex justify-between items-center mb-6">
-            <h3 class="font-headline-md text-2xl font-bold text-on-surface">İletişime Geçin</h3>
-            <button onclick="closeModal()" class="text-on-surface-variant hover:text-on-surface bg-surface-container w-8 h-8 rounded-full flex items-center justify-center transition-colors">
+    <div class="bg-surface dark:bg-slate-900 rounded-3xl p-6 md:p-8 max-w-md w-full mx-4 shadow-2xl border border-outline-variant dark:border-slate-700 transform scale-95 transition-transform duration-300 contact-modal-content max-h-[90vh] overflow-y-auto">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="font-headline-md text-2xl font-bold text-on-surface dark:text-white">Projeyi Başlatın</h3>
+            <button onclick="closeModal()" class="text-on-surface-variant hover:text-on-surface dark:text-slate-400 dark:hover:text-white bg-surface-container dark:bg-slate-800 w-8 h-8 rounded-full flex items-center justify-center transition-colors">
                 <span class="material-symbols-outlined text-sm">close</span>
             </button>
         </div>
-        <p class="text-on-surface-variant mb-6 font-body-md">Projenizi hayata geçirmek için aşağıdaki kanallardan hemen bize ulaşabilirsiniz.</p>
-        <div class="flex flex-col gap-4">
-            <a href="https://wa.me/905431629379" target="_blank" class="flex items-center justify-center gap-3 w-full bg-[#25D366] text-white px-6 py-4 rounded-xl font-medium hover:bg-[#20b958] hover:shadow-[0_8px_16px_rgba(37,211,102,0.3)] hover:-translate-y-0.5 transition-all">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 21.054c-1.639 0-3.238-.432-4.662-1.246l-5.17 1.35 1.373-5.025a9.771 9.771 0 0 1-1.341-4.99C2.231 5.253 7.027.457 12.031.457c4.896 0 9.799 4.8 9.799 10.686 0 5.887-4.903 9.911-9.799 9.911Zm-4.88-3.088c1.376.814 3.012 1.258 4.795 1.258 4.811 0 7.971-3.486 7.971-8.083 0-4.6-3.16-8.086-7.971-8.086-4.814 0-7.975 3.486-7.975 8.086 0 1.57.404 3.109 1.164 4.457l-.92 3.375 3.456-.902l-.52-.105Zm7.982-5.467c-.201-.102-1.189-.588-1.373-.655-.185-.067-.32-.102-.454.102-.134.204-.52.655-.637.791-.117.135-.235.153-.436.05-1.109-.567-1.99-1.284-2.735-2.613-.117-.204.054-.187.25-.386.1-.102.217-.253.318-.386.101-.135.134-.236.201-.386.067-.152.034-.287-.017-.389-.05-.102-.454-1.096-.622-1.503-.168-.407-.338-.352-.454-.358-.116-.006-.25-.006-.385-.006-.134 0-.352.05-.536.254-.184.204-.704.688-.704 1.678 0 .99.721 1.948.822 2.083.1.135 1.422 2.17 3.444 3.042.482.208.859.332 1.152.425.485.153.927.131 1.275.08.39-.058 1.189-.486 1.356-.955.167-.47.167-.872.117-.955-.05-.083-.184-.135-.385-.237Z"/></svg>
-                WhatsApp ile Yazın
-            </a>
-            <a href="mailto:kaamilsaglam@gmail.com" class="flex items-center justify-center gap-3 w-full bg-surface text-on-surface px-6 py-4 rounded-xl font-medium hover:bg-surface-container hover:shadow-lg hover:-translate-y-0.5 transition-all border border-outline-variant">
-                <span class="material-symbols-outlined">mail</span>
-                E-posta Gönder
-            </a>
-        </div>
+        <p class="text-on-surface-variant dark:text-slate-400 mb-6 font-body-md text-sm md:text-base">Projeniz için bir bütçe ve planlama oluşturmamız adına formu doldurmanız yeterli.</p>
+        
+        <form id="project-form" onsubmit="handleProjectSubmit(event)" class="flex flex-col gap-4">
+            <div>
+                <label class="block text-sm font-medium text-on-surface dark:text-slate-200 mb-1">Ad Soyad</label>
+                <input type="text" id="pf-name" required class="w-full px-4 py-3 rounded-xl border border-outline-variant dark:border-slate-700 bg-surface dark:bg-slate-800 text-on-surface dark:text-white focus:ring-2 focus:ring-primary focus:outline-none transition-all">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-on-surface dark:text-slate-200 mb-1">İlgilendiğiniz Hizmet</label>
+                <select id="pf-service" required class="w-full px-4 py-3 rounded-xl border border-outline-variant dark:border-slate-700 bg-surface dark:bg-slate-800 text-on-surface dark:text-white focus:ring-2 focus:ring-primary focus:outline-none transition-all cursor-pointer">
+                    <option value="" disabled selected>Lütfen seçin...</option>
+                    <option value="Web Tasarım & Yazılım">Web Tasarım & Yazılım</option>
+                    <option value="E-Ticaret & SaaS">E-Ticaret & SaaS</option>
+                    <option value="Mobil Uygulama">Mobil Uygulama</option>
+                    <option value="Yapay Zeka & Otomasyon">Yapay Zeka & Otomasyon</option>
+                    <option value="Diğer">Diğer</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-on-surface dark:text-slate-200 mb-1">Tahmini Bütçe Aralığı</label>
+                <select id="pf-budget" class="w-full px-4 py-3 rounded-xl border border-outline-variant dark:border-slate-700 bg-surface dark:bg-slate-800 text-on-surface dark:text-white focus:ring-2 focus:ring-primary focus:outline-none transition-all cursor-pointer">
+                    <option value="Belirtilmedi" selected>Belirtmek İstemiyorum</option>
+                    <option value="10.000₺ - 25.000₺">10.000₺ - 25.000₺</option>
+                    <option value="25.000₺ - 50.000₺">25.000₺ - 50.000₺</option>
+                    <option value="50.000₺ - 100.000₺">50.000₺ - 100.000₺</option>
+                    <option value="100.000₺+">100.000₺+</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-on-surface dark:text-slate-200 mb-1">Proje Özeti</label>
+                <textarea id="pf-details" required rows="3" class="w-full px-4 py-3 rounded-xl border border-outline-variant dark:border-slate-700 bg-surface dark:bg-slate-800 text-on-surface dark:text-white focus:ring-2 focus:ring-primary focus:outline-none transition-all" placeholder="Projenizden kısaca bahsedin..."></textarea>
+            </div>
+            
+            <button type="submit" class="mt-2 flex items-center justify-center gap-2 w-full bg-[#25D366] text-white px-6 py-4 rounded-xl font-medium hover:bg-[#20b958] hover:shadow-[0_8px_16px_rgba(37,211,102,0.3)] hover:-translate-y-0.5 transition-all">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 21.054c-1.639 0-3.238-.432-4.662-1.246l-5.17 1.35 1.373-5.025a9.771 9.771 0 0 1-1.341-4.99C2.231 5.253 7.027.457 12.031.457c4.896 0 9.799 4.8 9.799 10.686 0 5.887-4.903 9.911-9.799 9.911Zm-4.88-3.088c1.376.814 3.012 1.258 4.795 1.258 4.811 0 7.971-3.486 7.971-8.083 0-4.6-3.16-8.086-7.971-8.086-4.814 0-7.975 3.486-7.975 8.086 0 1.57.404 3.109 1.164 4.457l-.92 3.375 3.456-.902l-.52-.105Zm7.982-5.467c-.201-.102-1.189-.588-1.373-.655-.185-.067-.32-.102-.454.102-.134.204-.52.655-.637.791-.117.135-.235.153-.436.05-1.109-.567-1.99-1.284-2.735-2.613-.117-.204.054-.187.25-.386.1-.102.217-.253.318-.386.101-.135.134-.236.201-.386.067-.152.034-.287-.017-.389-.05-.102-.454-1.096-.622-1.503-.168-.407-.338-.352-.454-.358-.116-.006-.25-.006-.385-.006-.134 0-.352.05-.536.254-.184.204-.704.688-.704 1.678 0 .99.721 1.948.822 2.083.1.135 1.422 2.17 3.444 3.042.482.208.859.332 1.152.425.485.153.927.131 1.275.08.39-.058 1.189-.486 1.356-.955.167-.47.167-.872.117-.955-.05-.083-.184-.135-.385-.237Z"/></svg>
+                Devam Et (WhatsApp)
+            </button>
+            <div class="text-center text-[11px] text-on-surface-variant dark:text-slate-500 mt-1">
+                Bilgileriniz WhatsApp üzerinden hazır mesaj olarak Kamil Bey'e iletilecektir.
+            </div>
+        </form>
     </div>
 </div>
 
@@ -667,11 +729,11 @@ function sistemi_hizlandir() {
 
 <!-- Web Tasarım Modalı -->
 <div id="modal-web" class="fixed inset-0 z-[110] flex items-center justify-center bg-black/40 backdrop-blur-md opacity-0 invisible transition-all duration-300 p-4 service-modal" onclick="closeServiceModalOnOutsideClick(event, 'modal-web')">
-    <div class="bg-surface rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto modal-scroll shadow-2xl border border-outline-variant transform scale-95 transition-transform duration-300 service-modal-content">
+    <div class="bg-surface dark:bg-slate-900 rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto modal-scroll shadow-2xl border border-outline-variant dark:border-slate-700 transform scale-95 transition-transform duration-300 service-modal-content">
         <div class="relative h-64 w-full">
             <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=1200&q=80" alt="Web Tasarım" class="w-full h-full object-cover">
             <div class="absolute inset-0 hidden"></div>
-            <button onclick="closeServiceModal('modal-web')" class="absolute top-4 right-4 text-white bg-black/40 hover:bg-black/60 w-10 h-10 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm">
+            <button onclick="closeServiceModal('modal-web')" class="absolute top-4 right-4 z-10 text-white bg-black/40 hover:bg-black/60 w-10 h-10 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm">
                 <span class="material-symbols-outlined">close</span>
             </button>
         </div>
@@ -679,19 +741,19 @@ function sistemi_hizlandir() {
             <div class="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center text-on-primary mb-6 shadow-lg">
                 <span class="material-symbols-outlined text-3xl">desktop_windows</span>
             </div>
-            <h3 class="font-headline-md text-3xl font-bold text-on-surface mb-4">Web Tasarım &amp; Geliştirme</h3>
+            <h3 class="font-headline-md text-3xl font-bold text-on-surface dark:text-white mb-4">Web Tasarım &amp; Geliştirme</h3>
             <div class="prose max-w-none">
-                <p class="font-body-lg text-on-surface-variant leading-relaxed mb-6">
+                <p class="font-body-lg text-on-surface-variant dark:text-slate-400 leading-relaxed mb-6">
                     Sizin için sadece internette var olan değil, gerçekten müşterilerinizin ilgisini çeken ve size yeni işler getiren web siteleri kuruyoruz. Ziyaretçileriniz sitenize girdiğinde aradığı bilgiye anında ulaşır, sayfalar arasında kaybolmaz. 
                 </p>
-                <p class="font-body-md text-on-surface-variant leading-relaxed mb-8">
+                <p class="font-body-md text-on-surface-variant dark:text-slate-400 leading-relaxed mb-8">
                     Modern ve şık tasarımımız sayesinde firmanız dijital dünyada çok daha profesyonel ve güvenilir görünür. Üstelik, sitenizi sadece güzel görünmesi için değil, aynı zamanda Google gibi arama motorlarında kolayca bulunmanızı sağlayacak çok sağlam ve hızlı bir altyapıyla teslim ediyoruz.
                 </p>
             </div>
-            <div class="flex pt-6 border-t border-outline-variant/50">
-                <button onclick="closeServiceModal('modal-web'); openModal()" class="bg-primary text-on-primary px-8 py-4 rounded-full font-body-md hover:bg-primary-fixed-variant transition-all flex items-center gap-2 shadow-lg w-full md:w-auto justify-center">
+            <div class="flex pt-6 border-t border-outline-variant/50 dark:border-slate-700">
+                <a href="https://wa.me/905431629379?text=Merhaba%2C%20Web%20Tasar%C4%B1m%20ve%20Geli%C5%9Ftirme%20hizmetiniz%20ile%20ilgileniyorum.%20Projemi%20ba%C5%9Flatmak%20istiyorum." target="_blank" class="bg-primary text-on-primary px-8 py-4 rounded-full font-body-md hover:bg-primary-fixed-variant transition-all flex items-center gap-2 shadow-lg w-full md:w-auto justify-center">
                     Bu Projeyi Başlat <span class="material-symbols-outlined">rocket_launch</span>
-                </button>
+                </a>
             </div>
         </div>
     </div>
@@ -699,11 +761,11 @@ function sistemi_hizlandir() {
 
 <!-- Mobil Uygulama Modalı -->
 <div id="modal-mobile" class="fixed inset-0 z-[110] flex items-center justify-center bg-black/40 backdrop-blur-md opacity-0 invisible transition-all duration-300 p-4 service-modal" onclick="closeServiceModalOnOutsideClick(event, 'modal-mobile')">
-    <div class="bg-surface rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto modal-scroll shadow-2xl border border-outline-variant transform scale-95 transition-transform duration-300 service-modal-content">
+    <div class="bg-surface dark:bg-slate-900 rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto modal-scroll shadow-2xl border border-outline-variant dark:border-slate-700 transform scale-95 transition-transform duration-300 service-modal-content">
         <div class="relative h-64 w-full">
             <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80" alt="Mobil Uygulama" class="w-full h-full object-cover">
             <div class="absolute inset-0 hidden"></div>
-            <button onclick="closeServiceModal('modal-mobile')" class="absolute top-4 right-4 text-white bg-black/40 hover:bg-black/60 w-10 h-10 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm">
+            <button onclick="closeServiceModal('modal-mobile')" class="absolute top-4 right-4 z-10 text-white bg-black/40 hover:bg-black/60 w-10 h-10 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm">
                 <span class="material-symbols-outlined">close</span>
             </button>
         </div>
@@ -711,19 +773,19 @@ function sistemi_hizlandir() {
             <div class="w-16 h-16 rounded-2xl bg-surface-variant flex items-center justify-center text-primary mb-6 shadow-lg border border-outline-variant/50">
                 <span class="material-symbols-outlined text-3xl">phone_iphone</span>
             </div>
-            <h3 class="font-headline-md text-3xl font-bold text-on-surface mb-4">Mobil Uygulama Tasarımı</h3>
+            <h3 class="font-headline-md text-3xl font-bold text-on-surface dark:text-white mb-4">Mobil Uygulama Tasarımı</h3>
             <div class="prose max-w-none">
-                <p class="font-body-lg text-on-surface-variant leading-relaxed mb-6">
+                <p class="font-body-lg text-on-surface-variant dark:text-slate-400 leading-relaxed mb-6">
                     Müşterilerinizin hemen hemen hepsi gününü cep telefonuyla geçiriyor. Neden sizin işletmeniz de onların cebinde olmasın?
                 </p>
-                <p class="font-body-md text-on-surface-variant leading-relaxed mb-8">
+                <p class="font-body-md text-on-surface-variant dark:text-slate-400 leading-relaxed mb-8">
                     Her yaş grubunun zorlanmadan, keyifle kullanabileceği modern Android ve iOS uygulamaları geliştiriyoruz. Kendi online mağazanızı açabilir, hizmetlerinize kolay randevu sistemleri ekleyebilir ya da müşterilerinize tek bir tuşla anlık bildirimler gönderebilirsiniz. Sadece bir uygulama değil, müşterilerinizle aranızda kesintisiz bir iletişim köprüsü kuruyoruz.
                 </p>
             </div>
-            <div class="flex pt-6 border-t border-outline-variant/50">
-                <button onclick="closeServiceModal('modal-mobile'); openModal()" class="bg-primary text-on-primary px-8 py-4 rounded-full font-body-md hover:bg-primary-fixed-variant transition-all flex items-center gap-2 shadow-lg w-full md:w-auto justify-center">
+            <div class="flex pt-6 border-t border-outline-variant/50 dark:border-slate-700">
+                <a href="https://wa.me/905431629379?text=Merhaba%2C%20Mobil%20Uygulama%20Tasar%C4%B1m%C4%B1%20hizmetiniz%20ile%20ilgileniyorum.%20Projemi%20ba%C5%9Flatmak%20istiyorum." target="_blank" class="bg-primary text-on-primary px-8 py-4 rounded-full font-body-md hover:bg-primary-fixed-variant transition-all flex items-center gap-2 shadow-lg w-full md:w-auto justify-center">
                     Bu Projeyi Başlat <span class="material-symbols-outlined">rocket_launch</span>
-                </button>
+                </a>
             </div>
         </div>
     </div>
@@ -731,11 +793,11 @@ function sistemi_hizlandir() {
 
 <!-- Yapay Zeka Modalı -->
 <div id="modal-ai" class="fixed inset-0 z-[110] flex items-center justify-center bg-black/40 backdrop-blur-md opacity-0 invisible transition-all duration-300 p-4 service-modal" onclick="closeServiceModalOnOutsideClick(event, 'modal-ai')">
-    <div class="bg-surface rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto modal-scroll shadow-2xl border border-outline-variant transform scale-95 transition-transform duration-300 service-modal-content">
+    <div class="bg-surface dark:bg-slate-900 rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto modal-scroll shadow-2xl border border-outline-variant dark:border-slate-700 transform scale-95 transition-transform duration-300 service-modal-content">
         <div class="relative h-64 w-full">
             <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80" alt="Yapay Zeka" class="w-full h-full object-cover">
             <div class="absolute inset-0 hidden"></div>
-            <button onclick="closeServiceModal('modal-ai')" class="absolute top-4 right-4 text-white bg-black/40 hover:bg-black/60 w-10 h-10 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm">
+            <button onclick="closeServiceModal('modal-ai')" class="absolute top-4 right-4 z-10 text-white bg-black/40 hover:bg-black/60 w-10 h-10 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm">
                 <span class="material-symbols-outlined">close</span>
             </button>
         </div>
@@ -743,19 +805,19 @@ function sistemi_hizlandir() {
             <div class="w-16 h-16 rounded-2xl bg-secondary-fixed flex items-center justify-center text-on-secondary mb-6 shadow-lg">
                 <span class="material-symbols-outlined text-3xl">psychology</span>
             </div>
-            <h3 class="font-headline-md text-3xl font-bold text-on-surface mb-4">Yapay Zeka Çözümleri</h3>
+            <h3 class="font-headline-md text-3xl font-bold text-on-surface dark:text-white mb-4">Yapay Zeka Çözümleri</h3>
             <div class="prose max-w-none">
-                <p class="font-body-lg text-on-surface-variant leading-relaxed mb-6">
+                <p class="font-body-lg text-on-surface-variant dark:text-slate-400 leading-relaxed mb-6">
                     Teknolojinin ulaştığı son nokta olan yapay zekayı, sizin işletmenizi büyütmek için kullanıyoruz. 
                 </p>
-                <p class="font-body-md text-on-surface-variant leading-relaxed mb-8">
+                <p class="font-body-md text-on-surface-variant dark:text-slate-400 leading-relaxed mb-8">
                     Örneğin; web sitenize veya WhatsApp hattınıza gece gündüz yorulmadan müşterilere mantıklı cevaplar veren, sipariş alan akıllı asistanlar (botlar) kurabiliriz. Ya da müşteri kayıtlarınızı saniyeler içinde inceleyip "hangi ürünü kime ne zaman satmalıyız" gibi tavsiyelerde bulunan sistemlerle, rakipleriniz henüz düşünürken siz uygulamaya geçmiş olursunuz.
                 </p>
             </div>
-            <div class="flex pt-6 border-t border-outline-variant/50">
-                <button onclick="closeServiceModal('modal-ai'); openModal()" class="bg-primary text-on-primary px-8 py-4 rounded-full font-body-md hover:bg-primary-fixed-variant transition-all flex items-center gap-2 shadow-lg w-full md:w-auto justify-center">
+            <div class="flex pt-6 border-t border-outline-variant/50 dark:border-slate-700">
+                <a href="https://wa.me/905431629379?text=Merhaba%2C%20Yapay%20Zeka%20%C3%87%C3%B6z%C3%BCmleri%20hizmetiniz%20ile%20ilgileniyorum.%20Projemi%20ba%C5%9Flatmak%20istiyorum." target="_blank" class="bg-primary text-on-primary px-8 py-4 rounded-full font-body-md hover:bg-primary-fixed-variant transition-all flex items-center gap-2 shadow-lg w-full md:w-auto justify-center">
                     Bu Projeyi Başlat <span class="material-symbols-outlined">rocket_launch</span>
-                </button>
+                </a>
             </div>
         </div>
     </div>
@@ -763,11 +825,11 @@ function sistemi_hizlandir() {
 
 <!-- SaaS Modalı -->
 <div id="modal-saas" class="fixed inset-0 z-[110] flex items-center justify-center bg-black/40 backdrop-blur-md opacity-0 invisible transition-all duration-300 p-4 service-modal" onclick="closeServiceModalOnOutsideClick(event, 'modal-saas')">
-    <div class="bg-surface rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto modal-scroll shadow-2xl border border-outline-variant transform scale-95 transition-transform duration-300 service-modal-content">
+    <div class="bg-surface dark:bg-slate-900 rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto modal-scroll shadow-2xl border border-outline-variant dark:border-slate-700 transform scale-95 transition-transform duration-300 service-modal-content">
         <div class="relative h-64 w-full">
             <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="SaaS Yazılımları" class="w-full h-full object-cover">
             <div class="absolute inset-0 hidden"></div>
-            <button onclick="closeServiceModal('modal-saas')" class="absolute top-4 right-4 text-white bg-black/40 hover:bg-black/60 w-10 h-10 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm">
+            <button onclick="closeServiceModal('modal-saas')" class="absolute top-4 right-4 z-10 text-white bg-black/40 hover:bg-black/60 w-10 h-10 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm">
                 <span class="material-symbols-outlined">close</span>
             </button>
         </div>
@@ -775,19 +837,19 @@ function sistemi_hizlandir() {
             <div class="w-16 h-16 rounded-2xl bg-surface-tint flex items-center justify-center text-on-primary mb-6 shadow-lg">
                 <span class="material-symbols-outlined text-3xl">cloud_done</span>
             </div>
-            <h3 class="font-headline-md text-3xl font-bold text-on-surface mb-4">SaaS (Yazılım Hizmetleri)</h3>
+            <h3 class="font-headline-md text-3xl font-bold text-on-surface dark:text-white mb-4">SaaS (Yazılım Hizmetleri)</h3>
             <div class="prose max-w-none">
-                <p class="font-body-lg text-on-surface-variant leading-relaxed mb-6">
+                <p class="font-body-lg text-on-surface-variant dark:text-slate-400 leading-relaxed mb-6">
                     Aklınızda harika bir iş fikri var ve bunu insanlara "aylık abonelik" sistemiyle satmak mı istiyorsunuz? Netflix veya Spotify gibi, kullanıcıların aylık para ödeyerek kullandığı bir sistem hayal edin.
                 </p>
-                <p class="font-body-md text-on-surface-variant leading-relaxed mb-8">
+                <p class="font-body-md text-on-surface-variant dark:text-slate-400 leading-relaxed mb-8">
                     İşte biz, sizin için baştan sona kusursuz çalışan bir yazılım platformu kuruyoruz. Yeni kullanıcıların kayıt olması, kredi kartıyla otomatik aylık ödeme yapmaları, şifre sıfırlama veya iptal işlemleri gibi tüm yorucu kısımlar tamamen hazır ve otomatik olarak size teslim edilir. Siz sadece fikrinizi insanlara ulaştırmaya odaklanırsınız.
                 </p>
             </div>
-            <div class="flex pt-6 border-t border-outline-variant/50">
-                <button onclick="closeServiceModal('modal-saas'); openModal()" class="bg-primary text-on-primary px-8 py-4 rounded-full font-body-md hover:bg-primary-fixed-variant transition-all flex items-center gap-2 shadow-lg w-full md:w-auto justify-center">
+            <div class="flex pt-6 border-t border-outline-variant/50 dark:border-slate-700">
+                <a href="https://wa.me/905431629379?text=Merhaba%2C%20SaaS%20%28Yaz%C4%B1l%C4%B1m%20Hizmetleri%29%20ile%20ilgileniyorum.%20Projemi%20ba%C5%9Flatmak%20istiyorum." target="_blank" class="bg-primary text-on-primary px-8 py-4 rounded-full font-body-md hover:bg-primary-fixed-variant transition-all flex items-center gap-2 shadow-lg w-full md:w-auto justify-center">
                     Bu Projeyi Başlat <span class="material-symbols-outlined">rocket_launch</span>
-                </button>
+                </a>
             </div>
         </div>
     </div>
@@ -795,11 +857,11 @@ function sistemi_hizlandir() {
 
 <!-- Otomasyon Modalı -->
 <div id="modal-automation" class="fixed inset-0 z-[110] flex items-center justify-center bg-black/40 backdrop-blur-md opacity-0 invisible transition-all duration-300 p-4 service-modal" onclick="closeServiceModalOnOutsideClick(event, 'modal-automation')">
-    <div class="bg-surface rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto modal-scroll shadow-2xl border border-outline-variant transform scale-95 transition-transform duration-300 service-modal-content">
+    <div class="bg-surface dark:bg-slate-900 rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto modal-scroll shadow-2xl border border-outline-variant dark:border-slate-700 transform scale-95 transition-transform duration-300 service-modal-content">
         <div class="relative h-64 w-full">
             <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="İş Otomasyonu" class="w-full h-full object-cover">
             <div class="absolute inset-0 hidden"></div>
-            <button onclick="closeServiceModal('modal-automation')" class="absolute top-4 right-4 text-white bg-black/40 hover:bg-black/60 w-10 h-10 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm">
+            <button onclick="closeServiceModal('modal-automation')" class="absolute top-4 right-4 z-10 text-white bg-black/40 hover:bg-black/60 w-10 h-10 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm">
                 <span class="material-symbols-outlined">close</span>
             </button>
         </div>
@@ -807,28 +869,28 @@ function sistemi_hizlandir() {
             <div class="w-16 h-16 rounded-2xl bg-error flex items-center justify-center text-on-error mb-6 shadow-lg">
                 <span class="material-symbols-outlined text-3xl">precision_manufacturing</span>
             </div>
-            <h3 class="font-headline-md text-3xl font-bold text-on-surface mb-4">İş Süreçleri Otomasyonu</h3>
+            <h3 class="font-headline-md text-3xl font-bold text-on-surface dark:text-white mb-4">İş Süreçleri Otomasyonu</h3>
             <div class="prose max-w-none">
-                <p class="font-body-lg text-on-surface-variant leading-relaxed mb-6">
+                <p class="font-body-lg text-on-surface-variant dark:text-slate-400 leading-relaxed mb-6">
                     Her gün aynı bilgileri excele girmekten, faturaları elle yazmaktan veya müşterilere tek tek randevu mesajı atmaktan yorulmadınız mı?
                 </p>
-                <p class="font-body-md text-on-surface-variant leading-relaxed mb-8">
+                <p class="font-body-md text-on-surface-variant dark:text-slate-400 leading-relaxed mb-8">
                     Tüm bu tekrarlayan, can sıkıcı işleri sizin yerinize saniyeler içinde yapacak arka plan yazılımları (robotlar) kuruyoruz. Sistem gelen e-postaları okur, verileri ilgili yere kaydeder, faturaları otomatik keser ve müşterilere hatırlatma mesajlarını kendi gönderir. Kısacası siz çayınızı yudumlarken, bilgisayarınız sizin yerinize çalışır ve ekibinize asıl önemli işler için çok büyük bir zaman kazandırır.
                 </p>
             </div>
-            <div class="flex pt-6 border-t border-outline-variant/50">
-                <button onclick="closeServiceModal('modal-automation'); openModal()" class="bg-primary text-on-primary px-8 py-4 rounded-full font-body-md hover:bg-primary-fixed-variant transition-all flex items-center gap-2 shadow-lg w-full md:w-auto justify-center">
+            <div class="flex pt-6 border-t border-outline-variant/50 dark:border-slate-700">
+                <a href="https://wa.me/905431629379?text=Merhaba%2C%20%C4%B0%C5%9F%20S%C3%BCre%C3%A7leri%20Otomasyonu%20hizmetiniz%20ile%20ilgileniyorum.%20Projemi%20ba%C5%9Flatmak%20istiyorum." target="_blank" class="bg-primary text-on-primary px-8 py-4 rounded-full font-body-md hover:bg-primary-fixed-variant transition-all flex items-center gap-2 shadow-lg w-full md:w-auto justify-center">
                     Bu Projeyi Başlat <span class="material-symbols-outlined">rocket_launch</span>
-                </button>
+                </a>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Yapay Zeka Sohbet Asistanı (AI Chat Widget) -->
-<div id="ai-chat-widget" class="fixed bottom-24 left-4 md:left-6 z-50 flex flex-col items-start opacity-0 invisible transition-all duration-500 translate-y-10 scale-95 transform origin-bottom-left w-[calc(100%-2rem)] sm:w-auto">
+<div id="ai-chat-widget" class="fixed bottom-24 left-4 md:left-6 z-[110] flex flex-col items-start opacity-0 invisible transition-all duration-500 translate-y-10 scale-95 transform origin-bottom-left w-[calc(100%-2rem)] sm:w-auto">
     <!-- Chat Window -->
-    <div class="glass-card rounded-2xl w-full sm:w-[400px] border border-white/40 overflow-hidden flex flex-col h-[550px] max-h-[75vh] mb-4 relative before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/60 before:to-white/20 before:-z-10 shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
+    <div class="glass-card rounded-2xl w-full sm:w-[400px] border border-white/40 dark:border-slate-700 overflow-hidden flex flex-col h-[550px] max-h-[75vh] mb-4 relative before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/60 before:to-white/20 dark:before:from-slate-800/80 dark:before:to-slate-900/80 before:-z-10 shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
         <!-- Header -->
         <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white p-4 flex justify-between items-center shadow-md relative overflow-hidden">
             <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] opacity-30"></div>
@@ -853,16 +915,16 @@ function sistemi_hizlandir() {
         <div id="chat-messages" class="flex-grow p-5 overflow-y-auto flex flex-col gap-4 scroll-smooth">
             <!-- Initial Message -->
             <div class="flex flex-col gap-1 items-start max-w-[85%] animate-fade-in">
-                <div class="bg-white/80 backdrop-blur-md border border-white/60 text-slate-800 p-3.5 rounded-2xl rounded-tl-sm text-[15px] leading-relaxed shadow-sm">
+                <div class="bg-white/80 dark:bg-slate-800/90 backdrop-blur-md border border-white/60 dark:border-slate-700 text-slate-800 dark:text-slate-200 p-3.5 rounded-2xl rounded-tl-sm text-[15px] leading-relaxed shadow-sm">
                     Merhaba! 👋 Ben HKS Digital'in yapay zeka asistanıyım. Web tasarımı, uygulamalar, otomasyon veya fiyatlarımız hakkında merak ettiğiniz her şeyi bana sorabilirsiniz. Size nasıl yardımcı olabilirim?
                 </div>
             </div>
         </div>
 
         <!-- Input Area -->
-        <div class="p-4 bg-white/40 backdrop-blur-md border-t border-white/50">
+        <div class="p-4 bg-white/40 dark:bg-slate-900/60 backdrop-blur-md border-t border-white/50 dark:border-slate-700">
             <form id="chat-form" class="flex items-center gap-2 relative" onsubmit="handleChatSubmit(event)">
-                <input type="text" id="chat-input" placeholder="Bana bir şey sorun..." class="flex-grow bg-white/70 border border-slate-200 rounded-full pl-5 pr-12 py-3 text-[15px] focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-slate-800 shadow-inner transition-all placeholder:text-slate-400" autocomplete="off">
+                <input type="text" id="chat-input" placeholder="Bana bir şey sorun..." class="flex-grow bg-white/70 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full pl-5 pr-12 py-3 text-[15px] focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-slate-800 dark:text-slate-200 shadow-inner transition-all placeholder:text-slate-400" autocomplete="off">
                 <button type="submit" id="chat-submit-btn" class="absolute right-1.5 top-1/2 -translate-y-1/2 bg-primary text-white w-9 h-9 rounded-full flex items-center justify-center hover:bg-primary-fixed-variant transition-transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:scale-100 shadow-md">
                     <span class="material-symbols-outlined text-sm" style="margin-left: 2px;">send</span>
                 </button>
@@ -895,11 +957,7 @@ function sistemi_hizlandir() {
 
 <!-- Sabit İletişim Baloncukları (Sticky Social Widget) -->
 <div class="fixed bottom-6 right-6 flex flex-col gap-3 z-[100]">
-    <!-- GitHub -->
-    <a href="https://github.com/kaamilsaglam" target="_blank" class="w-14 h-14 bg-slate-900 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-slate-800 hover:scale-110 transition-all group relative border border-slate-700">
-        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
-        <span class="absolute right-16 bg-surface-variant text-on-surface text-xs px-3 py-1.5 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap shadow-xl border border-outline-variant">GitHub</span>
-    </a>
+
     <!-- E-Posta -->
     <a href="mailto:kaamilsaglam@gmail.com" class="w-14 h-14 bg-surface text-on-surface rounded-full flex items-center justify-center shadow-lg hover:bg-surface-container hover:scale-110 transition-all group relative border border-outline-variant">
         <span class="material-symbols-outlined text-2xl">mail</span>
@@ -933,9 +991,34 @@ function sistemi_hizlandir() {
         const target = document.getElementById(sectionId);
         if(target) {
             target.classList.remove('hidden');
-            void target.offsetWidth; // Reflow tetikle
-            target.classList.add('animate-fade-in');
+            
+            // Mobil beyaz ekran/gecikme sorununu çözmek için render süresi tanı
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    target.classList.add('animate-fade-in');
+                });
+            });
         }
+        
+        // Menü aktif durumunu güncelle
+        document.querySelectorAll('.nav-link').forEach(link => {
+            if(link.getAttribute('onclick').includes(sectionId)) {
+                link.classList.remove('text-on-surface-variant', 'hover:bg-surface-container', 'font-medium');
+                link.classList.add('text-primary', 'bg-primary/10', 'font-semibold');
+            } else {
+                link.classList.remove('text-primary', 'bg-primary/10', 'font-semibold');
+                link.classList.add('text-on-surface-variant', 'hover:bg-surface-container', 'font-medium');
+            }
+        });
+        document.querySelectorAll('.nav-link-mobile').forEach(link => {
+            if(link.getAttribute('onclick').includes(sectionId)) {
+                link.classList.remove('text-on-surface', 'hover:bg-surface-container', 'font-medium');
+                link.classList.add('text-primary', 'bg-primary/10', 'font-semibold');
+            } else {
+                link.classList.remove('text-primary', 'bg-primary/10', 'font-semibold');
+                link.classList.add('text-on-surface', 'hover:bg-surface-container', 'font-medium');
+            }
+        });
         
         // Yukarı kaydır
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -982,9 +1065,15 @@ function sistemi_hizlandir() {
     function toggleMobileMenu() {
         const menu = document.getElementById('mobile-menu');
         if (menu.classList.contains('opacity-0')) {
-            menu.classList.remove('opacity-0', 'invisible', '-translate-y-full');
+            menu.classList.remove('opacity-0', 'invisible', '-translate-y-4', 'scale-95');
+            menu.classList.add('translate-y-0', 'scale-100');
+            // Menü açıkken arka plan kaymasını engelle
+            document.body.style.overflow = 'hidden';
         } else {
-            menu.classList.add('opacity-0', 'invisible', '-translate-y-full');
+            menu.classList.add('opacity-0', 'invisible', '-translate-y-4', 'scale-95');
+            menu.classList.remove('translate-y-0', 'scale-100');
+            // Menü kapandığında kaymayı geri aç
+            document.body.style.overflow = '';
         }
     }
 
@@ -995,6 +1084,7 @@ function sistemi_hizlandir() {
         modal.classList.remove('opacity-0', 'invisible');
         content.classList.remove('scale-95');
         content.classList.add('scale-100');
+        document.body.style.overflow = 'hidden';
     }
 
     function closeModal() {
@@ -1003,6 +1093,7 @@ function sistemi_hizlandir() {
         modal.classList.add('opacity-0', 'invisible');
         content.classList.remove('scale-100');
         content.classList.add('scale-95');
+        document.body.style.overflow = '';
     }
 
     // Ana Modal dışına tıklandığında kapatma
@@ -1015,6 +1106,7 @@ function sistemi_hizlandir() {
         const modal = document.getElementById(id);
         const content = modal.querySelector('.service-modal-content');
         modal.classList.remove('opacity-0', 'invisible', 'hidden');
+        document.body.style.overflow = 'hidden';
         
         // Küçük bir gecikme ile animasyonu tetikle
         setTimeout(() => {
@@ -1029,6 +1121,7 @@ function sistemi_hizlandir() {
         content.classList.remove('scale-100');
         content.classList.add('scale-95');
         modal.classList.add('opacity-0', 'invisible');
+        document.body.style.overflow = '';
         
         // Animasyon bitiminde hidden class'ını geri ekle
         setTimeout(() => {
@@ -1076,7 +1169,7 @@ function sistemi_hizlandir() {
         bubble.className = `p-3.5 rounded-2xl text-[15px] leading-relaxed shadow-sm ${
             isUser 
             ? 'bg-gradient-to-r from-primary to-primary-fixed-variant text-white rounded-tr-sm' 
-            : 'bg-white/80 backdrop-blur-md border border-white/60 text-slate-800 rounded-tl-sm'
+            : 'bg-white/80 dark:bg-slate-800/90 backdrop-blur-md border border-white/60 dark:border-slate-700 text-slate-800 dark:text-slate-200 rounded-tl-sm'
         }`;
         bubble.textContent = text;
         
@@ -1222,6 +1315,76 @@ function sistemi_hizlandir() {
             }
             
         }, 800); // 0.8 saniye gecikme
+    }
+
+    // SSS (FAQ) Aç/Kapat
+    function toggleFaq(button) {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('.faq-icon');
+        
+        if (content.classList.contains('hidden')) {
+            content.classList.remove('hidden');
+            icon.classList.add('rotate-180');
+        } else {
+            content.classList.add('hidden');
+            icon.classList.remove('rotate-180');
+        }
+    }
+
+    // Karanlık Tema (Dark Mode) Mantığı
+    function applyTheme(isDark) {
+        const themeIcon = document.getElementById('theme-icon');
+        const mobileThemeIcon = document.getElementById('mobile-theme-icon');
+        
+        if (isDark) {
+            document.documentElement.classList.add('dark');
+            if(themeIcon) themeIcon.textContent = 'light_mode';
+            if(mobileThemeIcon) mobileThemeIcon.textContent = 'light_mode';
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+            if(themeIcon) themeIcon.textContent = 'dark_mode';
+            if(mobileThemeIcon) mobileThemeIcon.textContent = 'dark_mode';
+            localStorage.setItem('theme', 'light');
+        }
+    }
+
+    function toggleTheme() {
+        const isDark = document.documentElement.classList.contains('dark');
+        applyTheme(!isDark);
+    }
+
+    // Sayfa yüklendiğinde temayı kontrol et
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            applyTheme(true);
+        } else {
+            applyTheme(false);
+        }
+    });
+
+    // Form Submit (WhatsApp'a Yönlendirme) Mantığı
+    function handleProjectSubmit(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('pf-name').value;
+        const service = document.getElementById('pf-service').value;
+        const budget = document.getElementById('pf-budget').value;
+        const details = document.getElementById('pf-details').value;
+        
+        // WhatsApp Mesaj Şablonu
+        const text = `Merhaba Kamil Bey,\nSiteniz üzerinden size ulaşıyorum. Bir projem var:\n\n👤 *Ad Soyad:* ${name}\n🚀 *İlgilendiğim Hizmet:* ${service}\n💰 *Bütçe:* ${budget}\n📝 *Proje Özeti:* ${details}`;
+        
+        // URL formatına çevir
+        const encodedText = encodeURIComponent(text);
+        
+        // WhatsApp API'ye yönlendir
+        window.open(`https://wa.me/905431629379?text=${encodedText}`, '_blank');
+        
+        // Modalı Kapat ve formu temizle
+        closeModal();
+        e.target.reset();
     }
 </script>
 </body>
